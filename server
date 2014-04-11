@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+
+import argparse, cgi, logging, os, SimpleHTTPServer, SocketServer, sys
+
+def main():
+    parser = argparse.ArgumentParser(description='Simple HTTP server in Python')
+    parser.add_argument('-f', '--folder', help='The folder from which to run the server', type=str)
+    parser.add_argument('-i', '--interface', help='The interface (ip) on which to run')
+    parser.add_argument('-p', '--port', help='The port on which the server should listen')
+    parser.add_argument('argv', nargs='*')
+    arguments = parser.parse_args();
+    
+    if not arguments.interface: 
+        if arguments.argv: arguments.interface = arguments.argv.pop(0)
+        else: arguments.interface = ""
+    
+    if not arguments.port: 
+        if arguments.argv: arguments.port = arguments.argv.pop(0) 
+        else: arguments.port = 8000
+    
+    if arguments.folder: os.chdir(arguments.folder)
+
+    httpd = SocketServer.TCPServer(("", arguments.port), ServerHandler)
+
+    print "Serving at: http://%(interface)s:%(port)s" % {
+        "interface" : arguments.interface or "localhost",
+        "port"      : arguments.port,
+        }
+    httpd.serve_forever()
+
+class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
+    def do_POST(self):
+        form = cgi.FieldStorage(
+            fp=self.rfile,
+            headers=self.headers,
+            environ={'REQUEST_METHOD':'POST',
+                     'CONTENT_TYPE':self.headers['Content-Type'],
+                     })
+        SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
+
+main()
