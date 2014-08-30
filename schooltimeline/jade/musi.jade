@@ -1,0 +1,30 @@
+doctype xml
+extends data.jade
+
+mixin MUSI(text, start, end)
+	+entry(text, start, end, "#884")
+
+block events
+	//- History
+	+MUSI("Music", "23 Aug")
+	+MUSI("Part 1: Musical Elements"     , "25 Aug" , "1 Sep")
+	+MUSI("Part 2: The Middle Ages"      , "8 Sep"  , "15 Sep")
+	+MUSI("Part 3: The Renaissance"      , "15 Sep" , "22 Sep")
+	+MUSI("Part 4: The Baroque Period"   , "22 Sep" , "6 Oct")
+	+MUSI("Part 5: The Classical Period" , "6 Oct"  , "27 Oct")
+	+MUSI("Part 6: The Romantic Period"  , "27 Oct" , "17 Nov")
+	+MUSI("Part 7: The Twentieth Century", "17 Nov" , "3 Dec")
+	+MUSI("Participation Essay 1" , "8 Sep" ) Medival Music
+	+MUSI("Participation Essay 2" , "15 Sep") Renaissance Sacred Music
+	+MUSI("Participation Essay 3" , "29 Sep") Baroque Instrumental Music
+	+MUSI("Participation Essay 4" , "6 Oct" ) Classical Chamber Music
+	+MUSI("Participation Essay 5" , "13 Oct") Classical Forms
+	+MUSI("Participation Essay 6" , "3 Nov" ) Romantic Programmatic Music
+	+MUSI("Participation Essay 7" , "10 Nov") Music for the Stage
+	+MUSI("Participation Essay 8" , "17 Nov") Early 20th Century-isms
+	+MUSI("Participation Essay 9" , "24 Nov") Early 20th Century American Nationalists
+	+MUSI("Participation Essay 10", "1 Dec" ) What is Music?
+	+MUSI("CONCERT CRITIQUE DUE", "17 Nov")
+	+MUSI("Exam 1", "22 Sep")
+	+MUSI("Exam 2", "27 Oct")
+	+MUSI("Final", "8 Dec")

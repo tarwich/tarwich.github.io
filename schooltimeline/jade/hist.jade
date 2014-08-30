@@ -1,0 +1,37 @@
+doctype xml
+extends data.jade
+
+mixin HIST(text, start, end, done)
+	+entry(text, start, end, done ? "#888" : "#484")
+
+block events
+	+HIST("History", "23 Aug")
+	//- History
+	+HIST("Chapter 1"      , "27 Aug", "3 Sep" , "done")
+	+HIST("Chapter 2"      , "27 Aug", "3 Sep" )
+	+HIST("Chapter 3"      , "3 Sep" , "8 Sep" )
+	+HIST("Chapter 4"      , "8 Sep" , "10 Sep" )
+	+HIST("Chapter 5"      , "10 Sep", "15 Sep")
+	+HIST("Chapter 6"      , "15 Sep", "17 Sep")
+	+HIST("Chapter 7"      , "17 Sep", "29 Sep")
+	+HIST("Chapter 8"      , "29 Sep", "1 Oct")
+	+HIST("Chapter 9"      , "1 Oct" , "8 Oct" )
+	+HIST("Jeffersonianism", "8 Oct" , "15 Oct")
+	+HIST("Looking West"   , "15 Oct", "20 Oct")
+	+HIST("Chapter 10"     , "20 Oct", "27 Oct")
+	+HIST("Chapter 11"     , "27 Oct", "29 Oct")
+	+HIST("Chapter 12"     , "29 Oct", "10 Nov" )
+	+HIST("Chapter 13"     , "10 Nov", "12 Nov")
+	+HIST("Chapter 14"     , "12 Nov", "17 Nov")
+	+HIST("Chapter 15"     , "17 Nov", "24 Nov")
+	+HIST("Chapter 16"     , "24 Nov", "3 Dec" )
+	+HIST("Chapter 17"     , "3 Dec" , "4 Dec" )
+	+HIST("Exam 1", "24 Sep")
+	+HIST("Exam 2", "5 Nov")
+	+HIST("Final" , "10 Dec")
+	+HIST("Revolution/Constitution Assignment", "1 Oct")
+	+HIST("Bibliography", "13 Oct")
+	+HIST("Kingdom of Matthias", "3 Nov")
+	+HIST("Celia, a Slave", "10 Nov")
+	+HIST("Research Paper", "24 Nov")
+	+HIST("Peer Review", "3 Dec")
