@@ -26,9 +26,13 @@ html(lang=en)
 			}
 			
 			.tape-special_event, .small-special_event { background-color: orange; }		
+			
+			.timeline-copyright { display: none; }
+			
 		script(src=timeline_js type="text/javascript")
 	body
-		div#my-timeline.timeline-default
+		main
+			div#my-timeline.timeline-default
 		// At end for loading speed
 		script(src=jquery_js type="text/javascript")
 		script(type="text/javascript").
@@ -43,7 +47,9 @@ html(lang=en)
 						{date:date, color:"#DED", span:1000*60*60*24},
 						{date:new Date(date.getTime() + 1000*60*60*24*2), color:"#DDE", span:1000*60*60*24}
 					);
-				decorators.push({date:new Date(), color:"#F88", span:1000*60*60});
+				// Highlight the current time
+				decorators.push({date: new Date(new Date().toString().replace(/ GMT.*/, " GMT")),
+					color:"#F88", span:1000*60*60});
 				var makeDecorator = function(entry) {
 					return new Timeline.SpanHighlightDecorator({
 						startDate: entry.date,
