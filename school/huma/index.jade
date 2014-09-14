@@ -1,0 +1,132 @@
+- var cdn       = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0"
+- var jquery_js = "https://code.jquery.com/jquery-1.11.1.min.js"
+- var term      = "Aug 2014"
+
+mixin section(title,page,year)
+	div
+		h4.text-capitalize #{title} 
+			if page
+				span.badge #{page}
+			if year
+				span.label.label-primary #{year}
+		block
+
+doctype html
+html(lang=en)
+	head
+		title History Chapter 3
+		meta(charset="UTF-8")
+		link(rel="stylesheet" href="#{cdn}/css/bootstrap.min.css")
+		link(rel="stylesheet" href="#{cdn}/css/bootstrap-theme.min.css")
+	body
+		main.container
+			h1 History
+				small Chapter 3
+					.badge 81
+			+section("Rome", 81)
+				dl.dl-horizontal
+					dt Thamugadi 
+					dd Military retirement town, "Romanize" the world
+			+section("Roman Art", 82)
+				ul
+					li Current events rather than myth
+			+section("Christian", 82)
+				ul
+					li Christianized&nbsp;
+						span.label.label-primary 313 CE
+			+section("Culture Separation", 82)
+				ul
+					li Trade influenced culture blending
+			+section("Rome", 83)
+				ul
+					li <span class="badge">?</span> Sculpters used bronze, what were weapons
+				dl.dl-horizontal
+					dt bucchero <dd> black ceramic
+					dt Etruria 
+						dd Tuscany, Italy
+					dt Tiber river
+						dd 
+							li trade route
+							li access to sea
+					dt foundation
+						dd
+							li Aeneas after Trojan War
+							li Romulus and Remus
+			+section("Roman Rule", 84)
+				dl.dl-horizontal
+					dt patrician <dd> land owner
+					dt plebian <dd> poor (craftsmen, merchant, laborer)
+					dt equites <dd> wealthy
+					dt Consolium Plebis <dd> plebian legislative assembly
+					dt plebiscites <dd> plebian laws
+					dt Temple of Jupiter 
+						dd Capitol Hill
+							.label.label-primary 509 BCE
+					dt patronage 
+						dd pater <u>pietas</u> patriae
+					dt First Triumvirate
+						dd Pompey, ?? (Spartacus), Julius Caesar
+					dt Julius Caesar
+						dd France (Gaul)
+							.label.label-primary 49 BCE
+					dt rhetorician <dd> writer, public speaker
+					dt Marcus Tullius Cicero
+						dd Latin (Plato, Aristotle)
+					dt verism
+						dd super-realism
+					dt imagines
+						dd wax mold
+			+section("Imperial Rome", 86, "27 BCE")
+				dl.dl-horizontal
+					dt Octavian (Agustus) 
+						dd "The Revered One"
+						dd Gaul, Iberian Penn., Roman legions, Italy, drawn young
+					dt ad locutio
+						dd military address
+					dt Ara Pacis Augustae
+						dd Altar of Agustan Peace
+			+section("Virgil", 88)
+				dl.dl-horizontal
+					dt Georgics
+						dd dactylic hexameter
+						dd one line a day
+					dt Aeneid
+						dd Epic founding of Rome
+			+section("Horatius", 89)
+				ul
+					li Quintus Horatius Flaccus "Horace"
+					li Odes
+			+section("Pubilus Ovidius Naso \"Ovid\"", 89)
+				dl.dl-horizontal
+					dt exiled
+					dd to Tomis for indiscretion
+					
+					dt: i Amores
+					dd self-deprecating poem
+					
+					dt: i Ars Amatoria
+					dd how to have affairs
+					
+					dt: i The Metamorphosis
+					dd collection, human change
+			+section("Legacies", 90) 
+				dl.dl-horizontal
+					dt Senaca
+						dd Stoicism
+					dt Agustus
+						dd city of marble
+						dd aqueducts
+						dd public spaces
+			+section("On Architecture - Vitruvius", 91)
+				dl.dl-horizontal
+					dt round arch <dd> pos-and-lintel curved for more weight
+					dt jambs <dd> piers or posts
+					dt voussoirs <dd> wedges
+					dt bay <dd> space inside vault
+					dt buttress <dd> wall to brace pier
+					dt barrel vault <dd> deep arch
+					dt groin vault <dd> right angle barrel vault
+					
+		// At end to increase loading speed
+		script(type="text/javascript" src=jquery_js)
+		script(src="#{cdn}/js/bootstrap.min.js")
