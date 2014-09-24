@@ -1,132 +1,113 @@
 - var cdn       = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0"
 - var jquery_js = "https://code.jquery.com/jquery-1.11.1.min.js"
-- var term      = "Aug 2014"
+- var topic     = "Humanities"
+- var section   = "Chapter 3 . India"
 
 mixin section(title,page,year)
 	div
-		h4.text-capitalize #{title} 
+		h4.text-capitalize!=title 
 			if page
-				span.badge #{page}
+				.badge #{page}
 			if year
+				span &nbsp;
 				span.label.label-primary #{year}
 		block
 
 doctype html
 html(lang=en)
 	head
-		title History Chapter 3
+		title #{topic} - #{section}
 		meta(charset="UTF-8")
 		link(rel="stylesheet" href="#{cdn}/css/bootstrap.min.css")
 		link(rel="stylesheet" href="#{cdn}/css/bootstrap-theme.min.css")
 	body
 		main.container
-			h1 History
-				small Chapter 3
-					.badge 81
-			+section("Rome", 81)
+			h1 #{topic}
+				span &nbsp;
+				small #{section}
+					.badge 108
+			+section("India", 108, -2700)
 				dl.dl-horizontal
-					dt Thamugadi 
-					dd Military retirement town, "Romanize" the world
-			+section("Roman Art", 82)
-				ul
-					li Current events rather than myth
-			+section("Christian", 82)
-				ul
-					li Christianized&nbsp;
-						span.label.label-primary 313 CE
-			+section("Culture Separation", 82)
-				ul
-					li Trade influenced culture blending
-			+section("Rome", 83)
-				ul
-					li <span class="badge">?</span> Sculpters used bronze, what were weapons
+					dt Indus River <dd> Sind
+					dt Harappa <dd> river Ravi
+					dt Mohenjo-Daro <dd> Indus valley
+			+section("Mohenjo-Daro", 109, -1900)
 				dl.dl-horizontal
-					dt bucchero <dd> black ceramic
-					dt Etruria 
-						dd Tuscany, Italy
-					dt Tiber river
-						dd 
-							li trade route
-							li access to sea
-					dt foundation
-						dd
-							li Aeneas after Trojan War
-							li Romulus and Remus
-			+section("Roman Rule", 84)
+					dt grid civilization <dd> est. pop. 20,000 - 50,000
+					dt bricks <dd> 1:2:4 ratio
+					dt 2,000 seals <dd> stetatite. language. no war
+					dt Aryans <dd> invaded from North. enslaved locals
+						.label.label-primary -1500
+			+section("caste system", 109)
 				dl.dl-horizontal
-					dt patrician <dd> land owner
-					dt plebian <dd> poor (craftsmen, merchant, laborer)
-					dt equites <dd> wealthy
-					dt Consolium Plebis <dd> plebian legislative assembly
-					dt plebiscites <dd> plebian laws
-					dt Temple of Jupiter 
-						dd Capitol Hill
-							.label.label-primary 509 BCE
-					dt patronage 
-						dd pater <u>pietas</u> patriae
-					dt First Triumvirate
-						dd Pompey, ?? (Spartacus), Julius Caesar
-					dt Julius Caesar
-						dd France (Gaul)
-							.label.label-primary 49 BCE
-					dt rhetorician <dd> writer, public speaker
-					dt Marcus Tullius Cicero
-						dd Latin (Plato, Aristotle)
-					dt verism
-						dd super-realism
-					dt imagines
-						dd wax mold
-			+section("Imperial Rome", 86, "27 BCE")
+					dt 
+						u Brahmins 
+						dd priests, scholars
+					dt Kshatriyas <dd> rulers
+					dt Vaishyas <dd> artisans, merchants
+					dt Shudras <dd> laborers
+					dt 
+						u "untouchable" 
+						dd as specified
+			+section("Hinduism", 109)
 				dl.dl-horizontal
-					dt Octavian (Agustus) 
-						dd "The Revered One"
-						dd Gaul, Iberian Penn., Roman legions, Italy, drawn young
-					dt ad locutio
-						dd military address
-					dt Ara Pacis Augustae
-						dd Altar of Agustan Peace
-			+section("Virgil", 88)
+					dt Vedas <dd> hymns to Aryan gods
+					dt Vedic period <dd> ca. 
+						.label.label-primary -1500
+						span &nbsp;-
+						.label.label-primary -322
+					dt Upanishads <dd> book of mystical and philosophical texts -800
+					dt Brahman <dd> the only reality. nirvana
+					dt 1. Brahma god <dd> creator
+					dt 2. Vishnu god <dd> preserver
+					dt 3. Shiva god <dd> destroyer, linga (phallus), reproductive
+					dt Ramayana 
+						dd Way of Rama -
+							i Valmiki
+					dt Rama & Sita <dd> models of Hindu life
+					dt dharma <dd> good and righteous conduct 
+					dt Mahahbarata <dd> Indian epic
+						.label.label-primary -400
+						span - 
+						.label.label-primary 400
+					dt Vishnu Puranas <dd> Old Stories of Vishnu
+					dt Krishna 
+						dd incarnation of Vishnu
+						dd aids Arjuna in Bhagavad Gita of <i>Mahahbarata</i>
+						dd seduces milk maids in Vishnu Puranas
+					dt Devi (Shakti) goddess <dd> female aspect, necessary for male
+					dt Shakti <dd> primordial cosmic energy
+			+section("Buddhism : The Path of Truth", 111)
 				dl.dl-horizontal
-					dt Georgics
-						dd dactylic hexameter
-						dd one line a day
-					dt Aeneid
-						dd Epic founding of Rome
-			+section("Horatius", 89)
-				ul
-					li Quintus Horatius Flaccus "Horace"
-					li Odes
-			+section("Pubilus Ovidius Naso \"Ovid\"", 89)
+					dt Shakyammuni Buddha <dd> founder (Prince Siddhartha Gautama)
+						.label.label-primary -563
+						span &nbsp;- 
+						.label.label-primary -483
+					dt Shakyamuni <dd> "sage of the Shakyas"
+					dt Buddha enlightenment <dd> tree at Bodh Gaya
+					dt four truths
+						dd 1. life is suffering
+						dd 2. this suffering has a cause: ignorance (desire for material things)
+						dd 3. ignorance can be overcome
+						dd 4. overcome through right*(resolve, speech, action, livelihood, effort, mindfulness, concentration)
+					dt Dhammapada <dd> canonical text of Buddhism
+					dt dhamma <dd> truth
+					dt pada <dd> step / way
+					dt bodhisattvas <dd> enlightened, but stayed to teach "those whose essence is wisdom"
+			+section("Maurya Empire", 111, "-321 - -297")
 				dl.dl-horizontal
-					dt exiled
-					dd to Tomis for indiscretion
+					dt Chandragupta Maurya <dd> founder 
+					dt Pataliputra <dd> capital (Ganges River)
+					dt Seleucus I <dd> greek treaty
+					dt Bindusara <dd> succeeded Chandragupta
+					dt Ashoka <dd> succeeded Bindusara, Buddhism
+					dt architecture <dd> 8,400 Buddhist shrines
+					dt Great Stupa @ Stanchi <dd> burial mound. 
+					dt chatras <dd> desire, form, formlessness
+					dt mandala <dd> "circle", diagram of cosmos
+					dd pillars <dd> rules of dharma
 					
-					dt: i Amores
-					dd self-deprecating poem
-					
-					dt: i Ars Amatoria
-					dd how to have affairs
-					
-					dt: i The Metamorphosis
-					dd collection, human change
-			+section("Legacies", 90) 
-				dl.dl-horizontal
-					dt Senaca
-						dd Stoicism
-					dt Agustus
-						dd city of marble
-						dd aqueducts
-						dd public spaces
-			+section("On Architecture - Vitruvius", 91)
-				dl.dl-horizontal
-					dt round arch <dd> pos-and-lintel curved for more weight
-					dt jambs <dd> piers or posts
-					dt voussoirs <dd> wedges
-					dt bay <dd> space inside vault
-					dt buttress <dd> wall to brace pier
-					dt barrel vault <dd> deep arch
-					dt groin vault <dd> right angle barrel vault
-					
+
 		// At end to increase loading speed
 		script(type="text/javascript" src=jquery_js)
 		script(src="#{cdn}/js/bootstrap.min.js")

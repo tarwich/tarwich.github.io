@@ -1,0 +1,159 @@
+- var cdn       = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0"
+- var jquery_js = "https://code.jquery.com/jquery-1.11.1.min.js"
+- var topic     = "History"
+- var section   = "Chapter 7"
+
+mixin section(title,page,year)
+	div
+		h4.text-capitalize!=title 
+			if page
+				.badge #{page}
+			if year
+				span &nbsp;
+				span.label.label-primary #{year}
+		block
+
+doctype html
+html(lang=en)
+	head
+		title #{topic} - #{section}
+		meta(charset="UTF-8")
+		link(rel="stylesheet" href="#{cdn}/css/bootstrap.min.css")
+		link(rel="stylesheet" href="#{cdn}/css/bootstrap-theme.min.css")
+	body
+		main.container
+			h1 #{topic}
+				small #{section}
+					.badge 159
+			+section("Second Continental Congress", 159, "10 May 1775")
+				dl.dl-horizontal
+					dt John Adams <dd> president of congress
+					dt members <dd> John Adams, Benjamin Franklin, Roger Sherman, 
+						| Robert Livingston, Thomas Jefferson
+					dt Olive Branch Petition <dd> John Dickinson
+						.label.label-primary 1775
+					dt independence <dd> divided / wanted reconciliation
+						.badge 159f
+					dt army <dd> Congress authorized and paid for Continental Army
+						.badge 159c
+			+section("King George III")
+				dl.dl-horizontal
+					dt Parliment <dd> efficient way to manage colonies
+						.badge 160
+					dt denied <dd> Olive Branch Petition 
+			+section("Declaration of Independence", null, "4 July 1776")
+				dl.dl-horizontal
+					dt author <dd> Thomas Jefferson
+						.badge 159g
+					dt blamed <dd> King George III (not monarchy)
+					dt government <dd> by consent of people
+					dt overthrow <dd> unjust rulers
+			+section("American Army")
+				dl.dl-horizontal
+					dt training <dd> undisciplined
+						.badge 162
+					dt numbers <dd> 16,000 "regulars"
+					dt Women of the army <dd> nursed, cooked, buried, scavenged
+					dt strategy <dd> training, defensive, cover
+			+section("British Army")
+				dl.dl-horizontal
+					dt training <dd> disciplined
+						.badge 162
+					dt British <dd> 50,000 
+					dt Hessian (German) <dd> 30,000
+			+section("Howe Brothers")
+				dl.dl-horizontal
+					dt weakness <dd> defensive, minimize losses, reconsiliation
+						.badge 165
+					dt lost Loyalists <dd> British ate, Hessians raped & looted
+			+section("Lord Dunmore")
+				dl.dl-horizontal
+					dt slaves <dd> military service = freedom
+					dt shelled <dd> Norfolk, VA
+			+section("Americans", null, "4 July 1776")
+				dl.dl-horizontal
+					dt homespun <dd> coarse cloth
+						.badge 164
+						.badge 167
+					dt Loyalists <dd> 1/5 american's "tories"
+						.badge 160
+					dt Benjamin Franklin <dd> goes to France to get help
+					dt France campaign <dd> alliance & aid, but Catholic -v- Protestant
+			+section("New York")
+				dl.dl-horizontal
+					dt Kips Bay <dd> rebels fled & Washington wrath
+					dt Washington escaped <dd> to Westchester County
+					dt British held New York <dd> embittered locals
+			+section("New Jersey")
+				dl.dl-horizontal
+					dt Washington escaped <dd> to Pennsylvania
+					dt Hessians wintered <dd> in New Jersey
+					dt Trenton surrendered <dd> 1,000 Hessians
+					dt Princeton defeated
+					dd by Washington
+						.label.label-primary 3 Jan 1777
+			+section("Philadelphia")
+				dl.dl-horizontal
+					dt <u>Howe</u> -v- Washington <dd> Brandywine & Germantown
+						.badge 166
+					dt occupied <dd> British 
+						.label.label-primary 1777
+					dt unrest <dd> British ruined economy
+					dt food <dd> PA fed paying Brits, not Americans
+						.badge 168
+					dt Baron von Steuben <dd> organizaed & trained Washington's army
+						.badge 169
+					dt Sir Henry Clinton <dd> replaced Howe, withdrew
+					dt occupied <dd> by Washington
+					dt mutiny <dd> no food, 2 winters
+						.label.label-primary 1781
+			+section("Saratoga Campaign")
+				dl.dl-horizontal
+					dt commander <dd> Gen Sir Guy Carleton
+					dt strategy <dd> Canada, south
+					dt commander <dd>  John Burgoyne "Gentleman Johnny"
+					dt force <dd> 9,500 
+					dt surrendered <dd> to Washington
+						.label.label-primary 17 Oct 1776
+						.badge 167
+			+section("Carolinas")
+				dl.dl-horizontal 
+					dt Sir Henry Clinton <dd> backcountry Loyalists. push up
+						.label.label-primary 1778
+						.badge 171
+					dt Savannah, GA <dd> conquered w\3,500 troops
+					dt Chareston, NC <dd> conquered
+						.label.label-primary 12 May 1780
+					dt Lord Charles Cornwalis <dd> campaign from SC to Virginia
+					dt backcountry <dd> civil war. chaos
+					dt Francis Marion <dd> "Swamp Fox"
+					dt Thomas Sumter <dd> "the Gamecock". mountain men
+					dt Horatio Gates <dd> lost Camden, SC
+						.label.label-primary 1780
+					dt Nathaniel Greene <dd> replaced Gates
+					dt 600 men goose chase <dd> B. General Daniel Morgan
+					dt Cornwalis
+			+section("Sideshow")
+				dl.dl-horizontal
+					dt George Rogers Clark <dd> Kaskaskia & Virennes
+						.badge 169
+					dt Joseph Brant <dd> bilingual. Mohawks for British
+					dt smallpox <dd> from Quebec. innoculations weakened soldiers
+						.label.label-primary 1779
+						.badge 170
+					dt Daughters of Liberty <dd> supported war
+						.badge 171a
+					dt black Thomas Jeremiah <dd> hanged & burned to preemt issues
+						.badge 173
+			ul
+				li Treaty of Paris
+					.badge 175
+				li Surrender @ Yorktown
+					.badge 175g
+				li Benedict Arnold
+					.badge 175
+				li Guilford Courthouse
+					.badge 173
+				li Abigail Adams
+					.badge 161
+				

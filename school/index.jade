@@ -1,0 +1,29 @@
+- var cdn       = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0"
+- var jquery_js = "https://code.jquery.com/jquery-1.11.1.min.js"
+- var topic     = "School"
+- var section   = "Fall 2014"
+
+mixin section(title,page,year)
+	div
+		h4.text-capitalize!=title 
+			if page
+				.badge #{page}
+			if year
+				span.label.label-primary #{year}
+		block
+
+doctype html
+html(lang=en)
+	head
+		title #{topic} - #{section}
+		meta(charset="UTF-8")
+		link(rel="stylesheet" href="#{cdn}/css/bootstrap.min.css")
+		link(rel="stylesheet" href="#{cdn}/css/bootstrap-theme.min.css")
+	body
+		main.container
+			h1 #{topic}
+				small #{section}
+			ul.nav.nav-pills.nav-stacked
+				li: a(href="./hist") HIST 1301-S17
+				li: a(href="./huma") HUMA 1301
+				li: a(href="./musi") MUSI 1306
