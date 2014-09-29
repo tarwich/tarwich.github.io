@@ -1,7 +1,7 @@
 - var cdn       = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0"
 - var jquery_js = "https://code.jquery.com/jquery-1.11.1.min.js"
 - var topic     = "Humanities"
-- var section   = "Chapter 3 . India"
+- var section   = "Chapter 4"
 
 mixin section(title,page,year)
 	div
@@ -11,6 +11,29 @@ mixin section(title,page,year)
 			if year
 				span &nbsp;
 				span.label.label-primary #{year}
+		block
+
+mixin person(name)
+	.label.label-default
+		.glyphicon.glyphicon-user
+		|  #{name}
+	if block
+		span &nbsp;
+		block
+
+mixin time(date)
+	- var ce = date >= 0 ? "" : "BCE"; 
+	.label.label-primary
+		.glyphicon.glyphicon-time
+		|  #{Math.abs(date)} #{ce}
+	if block
+		block
+
+mixin place(text)
+	.label.label-success
+		.glyphicon.glyphicon-map-marker
+		|  #{text}
+	if block
 		block
 
 doctype html
@@ -25,89 +48,108 @@ html(lang=en)
 			h1 #{topic}
 				span &nbsp;
 				small #{section}
-					.badge 108
-			+section("India", 108, -2700)
-				dl.dl-horizontal
-					dt Indus River <dd> Sind
-					dt Harappa <dd> river Ravi
-					dt Mohenjo-Daro <dd> Indus valley
-			+section("Mohenjo-Daro", 109, -1900)
-				dl.dl-horizontal
-					dt grid civilization <dd> est. pop. 20,000 - 50,000
-					dt bricks <dd> 1:2:4 ratio
-					dt 2,000 seals <dd> stetatite. language. no war
-					dt Aryans <dd> invaded from North. enslaved locals
-						.label.label-primary -1500
-			+section("caste system", 109)
-				dl.dl-horizontal
-					dt 
-						u Brahmins 
-						dd priests, scholars
-					dt Kshatriyas <dd> rulers
-					dt Vaishyas <dd> artisans, merchants
-					dt Shudras <dd> laborers
-					dt 
-						u "untouchable" 
-						dd as specified
-			+section("Hinduism", 109)
-				dl.dl-horizontal
-					dt Vedas <dd> hymns to Aryan gods
-					dt Vedic period <dd> ca. 
-						.label.label-primary -1500
-						span &nbsp;-
-						.label.label-primary -322
-					dt Upanishads <dd> book of mystical and philosophical texts -800
-					dt Brahman <dd> the only reality. nirvana
-					dt 1. Brahma god <dd> creator
-					dt 2. Vishnu god <dd> preserver
-					dt 3. Shiva god <dd> destroyer, linga (phallus), reproductive
-					dt Ramayana 
-						dd Way of Rama -
-							i Valmiki
-					dt Rama & Sita <dd> models of Hindu life
-					dt dharma <dd> good and righteous conduct 
-					dt Mahahbarata <dd> Indian epic
-						.label.label-primary -400
-						span - 
-						.label.label-primary 400
-					dt Vishnu Puranas <dd> Old Stories of Vishnu
-					dt Krishna 
-						dd incarnation of Vishnu
-						dd aids Arjuna in Bhagavad Gita of <i>Mahahbarata</i>
-						dd seduces milk maids in Vishnu Puranas
-					dt Devi (Shakti) goddess <dd> female aspect, necessary for male
-					dt Shakti <dd> primordial cosmic energy
-			+section("Buddhism : The Path of Truth", 111)
-				dl.dl-horizontal
-					dt Shakyammuni Buddha <dd> founder (Prince Siddhartha Gautama)
-						.label.label-primary -563
-						span &nbsp;- 
-						.label.label-primary -483
-					dt Shakyamuni <dd> "sage of the Shakyas"
-					dt Buddha enlightenment <dd> tree at Bodh Gaya
-					dt four truths
-						dd 1. life is suffering
-						dd 2. this suffering has a cause: ignorance (desire for material things)
-						dd 3. ignorance can be overcome
-						dd 4. overcome through right*(resolve, speech, action, livelihood, effort, mindfulness, concentration)
-					dt Dhammapada <dd> canonical text of Buddhism
-					dt dhamma <dd> truth
-					dt pada <dd> step / way
-					dt bodhisattvas <dd> enlightened, but stayed to teach "those whose essence is wisdom"
-			+section("Maurya Empire", 111, "-321 - -297")
-				dl.dl-horizontal
-					dt Chandragupta Maurya <dd> founder 
-					dt Pataliputra <dd> capital (Ganges River)
-					dt Seleucus I <dd> greek treaty
-					dt Bindusara <dd> succeeded Chandragupta
-					dt Ashoka <dd> succeeded Bindusara, Buddhism
-					dt architecture <dd> 8,400 Buddhist shrines
-					dt Great Stupa @ Stanchi <dd> burial mound. 
-					dt chatras <dd> desire, form, formlessness
-					dt mandala <dd> "circle", diagram of cosmos
-					dd pillars <dd> rules of dharma
-					
+					.badge 117
+			.newsletter
+				+section("Dome of the Rock", 117): :markdown
+					* Temple of Solomon
+					* Second Temple of Jerusalem
+					* Wailing Wall
+					* Tisha B'Av : 9'th of Av. fast. lamentations
+					* ambulatory
+				
+				+section("Jews")
+					dl.dl-horizontal
+						dt messianic <dd> believed in a Messiah
+						dt Messiah <dd> Annointed One. rescue Jewish
+						dt apocalypse <dd> coming of God. judgement
+						dt: +person("Josephus") <dd> Jewish historian. <i>Jewish War</i>
+						dt: +person("Herod") <dd> Roman king. rebuilt Jerusalem
+						dt sectarianism <dd> small organized group. it alone understands God's will
+						dt sects
+							dd
+								ol
+									li Pharisees: scribal group. masses
+									li Sadducees: priests. aristocracy
+									li Essenes: severe discipline. Qumran
+						dt: +person("Herod") <dd> Roman king. rebuilt Jerusalem
+						dt: +person("Flavius Silva") <dd> Roman general. sacked Jerusalem
+						dt: +person("Hadrian") <dd> Roman Emperor. rebuild Jerusalem. banned Jews
+							+time(135)
+						dt: +person("Jesus") <dd> Nazareth. apocalypse. Shepherd & sheep
+							+time(-4)
+						dt: +person("Judas") <dd> betrayed Jesus
+						dt: +person("Diocletian") <dd> Roman emperor. tetrarchy. deified
+							.badge 123
+						dt tetrarchy <dd> four part monarchy
 
+				+section("Jewish evangelists")
+					dl.dl-horizontal
+						dt evangelist <dd> bearer of good
+						dt: +person("Paul") <dd> persecuted Jews. reformed in Damascus. "Christ"
+						dt: +person("Mat, Mar, Luk") <dd> 
+							+time(70)
+						dt typology <dd> tupos. prefiguring
+				
+				+section("Constantine")
+					dl.dl-horizontal
+						dt: +person("Constantine") <dd> freedom of religion. Constantinople
+							.badge 117
+						dt: +place("Constantinople") <dd> on Byzantium. modern Istanbul
+							+time(324)
+						dt Nicene Creed <dd> ecumenical council. dogma
+							+time(325)
+						dt Roman Catholic Church <dd> modeled after empire
+						dt litergy <dd> rites perscribed for public worship
+						dt: +person("St. Jerome") <dd> translated Bible into Latin
+						dt overrun 
+							+time(1453)
+							dd by Ottoman Turks
+						dt Basil the Great <dd> pagan art = art
+				
+				+section("Justinian Empire")
+					dl.dl-horizontal
+						dt: +person("Justinian") <dd>
+							+time(527)
+						dt Hagia Sophia <dd> Christian basilica
+						dt pendentive <dd> trangle to hold dome weight 
+						
+				+section("Muhammed")
+					dl.dl-horizontal
+						dt renamed <dd> Seal of the Prophets
+						dt: +person("Muhammed") <dd> Ishmael. orphan
+							+time(570)
+						dt Qur'an <dd> recitations. 114 Surrahs from 
+							+person("Gabriel")
+						dt surrah <dd> chapter
+						dt Islam <dd> means submission
+						dt mosque at
+							+place("Medina")
+							dd first Muslim mosque. masjid. by Muhammed
+				+section("Islam")
+					dl.dl-horizontal
+						dt: +place("Mecca") <dd> holiest city. Red Sea
+						dt five pillars 
+							dd: ol
+								li 
+									span Shahadah: 
+									span repitition of creed
+								li 
+									span Prayer: 
+									span face Mecca. 5 times daily
+								li 
+									span Alms: 
+									span charity
+								li 
+									span Fasting: 
+									span Ramadan
+								li 
+									span Hajj: 
+									span pilgrimmage (hijra) to Mecca
+						dt hadith <dd> narrative. sayings of Muhammad
+						dt hijra <dd> pilgrimmage to Mecca
+						dt Kaaba <dd> cube
+						dt madrasa <dd> teaching center attached to mosque
+						
 		// At end to increase loading speed
 		script(type="text/javascript" src=jquery_js)
 		script(src="#{cdn}/js/bootstrap.min.js")

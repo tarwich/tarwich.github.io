@@ -1,11 +1,16 @@
 - var cdn       = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0"
 - var jquery_js = "https://code.jquery.com/jquery-1.11.1.min.js"
 - var topic     = "History"
-- var section   = "Chapter 7"
+- var section   = "Test 1"
 
 mixin section(title,page,year)
-	div
-		h4.text-capitalize!=title 
+	- var star = false;
+	- if(title[0] == "!") { title = title.substr(1); star = true; }
+	div.section
+		h4.text-capitalize
+			if star
+				.glyphicon.glyphicon-star
+			span!=title
 			if page
 				.badge #{page}
 			if year
@@ -20,140 +25,212 @@ html(lang=en)
 		meta(charset="UTF-8")
 		link(rel="stylesheet" href="#{cdn}/css/bootstrap.min.css")
 		link(rel="stylesheet" href="#{cdn}/css/bootstrap-theme.min.css")
+		style(type="text/css").
+			.newsletter {
+				-moz-column-count: 1;
+				-webkit-column-count: 1;
+			}
+			
+			div.section {
+				page-break-inside: avoid;
+			}
 	body
 		main.container
 			h1 #{topic}
+				span  
 				small #{section}
-					.badge 159
-			+section("Second Continental Congress", 159, "10 May 1775")
-				dl.dl-horizontal
-					dt John Adams <dd> president of congress
-					dt members <dd> John Adams, Benjamin Franklin, Roger Sherman, 
-						| Robert Livingston, Thomas Jefferson
-					dt Olive Branch Petition <dd> John Dickinson
-						.label.label-primary 1775
-					dt independence <dd> divided / wanted reconciliation
-						.badge 159f
-					dt army <dd> Congress authorized and paid for Continental Army
-						.badge 159c
-			+section("King George III")
-				dl.dl-horizontal
-					dt Parliment <dd> efficient way to manage colonies
-						.badge 160
-					dt denied <dd> Olive Branch Petition 
-			+section("Declaration of Independence", null, "4 July 1776")
-				dl.dl-horizontal
-					dt author <dd> Thomas Jefferson
-						.badge 159g
-					dt blamed <dd> King George III (not monarchy)
-					dt government <dd> by consent of people
-					dt overthrow <dd> unjust rulers
-			+section("American Army")
-				dl.dl-horizontal
-					dt training <dd> undisciplined
-						.badge 162
-					dt numbers <dd> 16,000 "regulars"
-					dt Women of the army <dd> nursed, cooked, buried, scavenged
-					dt strategy <dd> training, defensive, cover
-			+section("British Army")
-				dl.dl-horizontal
-					dt training <dd> disciplined
-						.badge 162
-					dt British <dd> 50,000 
-					dt Hessian (German) <dd> 30,000
-			+section("Howe Brothers")
-				dl.dl-horizontal
-					dt weakness <dd> defensive, minimize losses, reconsiliation
-						.badge 165
-					dt lost Loyalists <dd> British ate, Hessians raped & looted
-			+section("Lord Dunmore")
-				dl.dl-horizontal
-					dt slaves <dd> military service = freedom
-					dt shelled <dd> Norfolk, VA
-			+section("Americans", null, "4 July 1776")
-				dl.dl-horizontal
-					dt homespun <dd> coarse cloth
-						.badge 164
-						.badge 167
-					dt Loyalists <dd> 1/5 american's "tories"
-						.badge 160
-					dt Benjamin Franklin <dd> goes to France to get help
-					dt France campaign <dd> alliance & aid, but Catholic -v- Protestant
-			+section("New York")
-				dl.dl-horizontal
-					dt Kips Bay <dd> rebels fled & Washington wrath
-					dt Washington escaped <dd> to Westchester County
-					dt British held New York <dd> embittered locals
-			+section("New Jersey")
-				dl.dl-horizontal
-					dt Washington escaped <dd> to Pennsylvania
-					dt Hessians wintered <dd> in New Jersey
-					dt Trenton surrendered <dd> 1,000 Hessians
-					dt Princeton defeated
-					dd by Washington
-						.label.label-primary 3 Jan 1777
-			+section("Philadelphia")
-				dl.dl-horizontal
-					dt <u>Howe</u> -v- Washington <dd> Brandywine & Germantown
-						.badge 166
-					dt occupied <dd> British 
-						.label.label-primary 1777
-					dt unrest <dd> British ruined economy
-					dt food <dd> PA fed paying Brits, not Americans
-						.badge 168
-					dt Baron von Steuben <dd> organizaed & trained Washington's army
-						.badge 169
-					dt Sir Henry Clinton <dd> replaced Howe, withdrew
-					dt occupied <dd> by Washington
-					dt mutiny <dd> no food, 2 winters
-						.label.label-primary 1781
-			+section("Saratoga Campaign")
-				dl.dl-horizontal
-					dt commander <dd> Gen Sir Guy Carleton
-					dt strategy <dd> Canada, south
-					dt commander <dd>  John Burgoyne "Gentleman Johnny"
-					dt force <dd> 9,500 
-					dt surrendered <dd> to Washington
-						.label.label-primary 17 Oct 1776
-						.badge 167
-			+section("Carolinas")
-				dl.dl-horizontal 
-					dt Sir Henry Clinton <dd> backcountry Loyalists. push up
-						.label.label-primary 1778
-						.badge 171
-					dt Savannah, GA <dd> conquered w\3,500 troops
-					dt Chareston, NC <dd> conquered
-						.label.label-primary 12 May 1780
-					dt Lord Charles Cornwalis <dd> campaign from SC to Virginia
-					dt backcountry <dd> civil war. chaos
-					dt Francis Marion <dd> "Swamp Fox"
-					dt Thomas Sumter <dd> "the Gamecock". mountain men
-					dt Horatio Gates <dd> lost Camden, SC
-						.label.label-primary 1780
-					dt Nathaniel Greene <dd> replaced Gates
-					dt 600 men goose chase <dd> B. General Daniel Morgan
-					dt Cornwalis
-			+section("Sideshow")
-				dl.dl-horizontal
-					dt George Rogers Clark <dd> Kaskaskia & Virennes
-						.badge 169
-					dt Joseph Brant <dd> bilingual. Mohawks for British
-					dt smallpox <dd> from Quebec. innoculations weakened soldiers
-						.label.label-primary 1779
-						.badge 170
-					dt Daughters of Liberty <dd> supported war
-						.badge 171a
-					dt black Thomas Jeremiah <dd> hanged & burned to preemt issues
-						.badge 173
-			ul
-				li Treaty of Paris
-					.badge 175
-				li Surrender @ Yorktown
-					.badge 175g
-				li Benedict Arnold
-					.badge 175
-				li Guilford Courthouse
+			.newsletter
+				+section("!Prince Henry Navigator", 31, 1455) caravel. lateen. sugar. West Africa. Portuguese
+				+section("Columbus", 33, 1492) earth 28000 miles
+				+section("Puritans", 43)
+					dl.dl-horizontal
+						dt Queen Elizabeth I 
+						dd defender of Protestantism
+							.label.label-primary 1553
+						dt Puritans <dd> label from opponents
+						dt predestination <dd> core belief 
+						dt Gilbert, Raleigh <dd> notable
+							.badge 44
+							.label.label-primary 1578
+						dt Roanoke <dd> first settlement. failed
+							.label.label-primary 1584
+						dt denominations <dd> Presbyterians. Congregationalists
+						dt Massachusetts Bay <dd> Salem. John Winthrop
+							.label.label-primary 1629
+						dt John Winthrop <dd> city on hill. wilderness errand
+							.badge 87
+							.label.label-primary 1630
+						dt healthy <dd> food. natural increase
+						dt slave state <dd> no
+						dt Roger Williams <dd> church and state. fled. Rhode Island
+							.badge 91
+							.label.label-primary 1631
+				+section("Sir Walter Raleigh", 44, 1584)
+					dl.dl-horizontal
+						dt Gilbert <dd> stepbrother. ship sunk
+						dt colony <dd> Virginia. destroyed by Wingina
+						dt rescued <dd> Sir Francis Drake
+						dt second Roanoke <dd> "CROATOAN". lost colony
+				+section("mercantilism", 57)
+					ul
+						li trade only with England
+						li trade on English ships (captain + 3/4 crew)
+						li income must exceed expense
+				+section("Virginia Company", 59, 1606)
+					dl.dl-horizontal
+						dt founded Jamestown <dd> private company
+						dt later dissolved <dd> by King. royal colony
+						dt indentured servants <dd> 4-7 years. 40% fatality rate 
+				+section("Declaratory Act", "143, 155", 1766)
+					dl.dl-horizontal
+						dt Stamp Act <dd> repealed
+						dt Parliment <dd> power to make law in all cases 
+				+section("Jamestown", 59, 1607)
+					dl.dl-horizontal
+						dt agriculture <dd> cash crops (tobacco)
+						dt government <dd> martial law
+						dt slave state <dd> originally indentured, later slave
+						dt loss <dd> 90%. only sustained through ingress
+						dt 
+							u John Smith 
+							dd work not, eat not
+						dt Powhatan <dd> 
+							| Pocahontas. 
+							u John Rolfe
+							.badge 52
+							.label.label-primary 1614
+				+section("Anne Hutchinson", 91, 1634)
+					dl.dl-horizontal
+						dt problem <dd> expanded on John Cotton's sermons 
+						dt expelled
+							dd to Rhode Island
+								span  
+								span.label.label-primary 1638
+						dt killed <dd> by Indians in Long Island
+				+section("!John Elliot", 94, 1640)
+					dl.dl-horizontal
+						dt translated bible <dd> Algonquian (Massachusetts)
+						dt Harvard College <dd> for educating English & Indian youth
+				+section("Quakers", 96, 1670)
+					dl.dl-horizontal
+						dt aka <dd> Society of Friends
+						dt 
+							u John Woolman 
+							dd Quaker. New Jersey. New England
+								.label.label-primary 1720
+						dt 
+							u Inner Light
+							dd 100% equality. no harm
+				+section("Bacon Rebellion", 62, 1676)
+					dl.dl-horizontal
+						dt Indians <dd> no protection
+						dt trade <dd> Berkeley monopoly 
+						dt died <dd> of dissentary
+				+section("!Benjamin Lay", "N/A", 1682)
+					dl.dl-horizontal <dt> anti-slavery <dd> Quaker. winter protest
+				+section("Lord Cornbury", "N/A", 1696)
+					dl.dl-horizontal
+						dt parliment <dd> Queene Mary (& William)
+						dt sent to colonies <dd> cross-dresser
+				+section("!House of Burgesses", 141, 1765)
+					dl.dl-horizontal
+						dt Patrick Henry <dd> uneducated, demagogue
+						dt right to tax <dd> held by representatives  
+				+section("Townshend Acts", 143, 1767)
+					dl.dl-horizontal
+						dt tax      <dd> lead, paint, paper, glass, tea
+						dt troops   <dd> seaports. quartering
+						dt salaries <dd> for officials
+				+section("Great Awakening", 123, 1730)
+					dl.dl-horizontal
+						dt George Whitfield <dd> pew rent
+						dt New Lights <dd> Old Lights
+				+section("!John Peter Zenger", "N/A", 1733)
+					dl.dl-horizontal
+						dt printer <dd> New York Weekly Journal. libel
+				+section("!Albany Congress", "133,150", 1755) 7 years war. Benjamin Franklin. weak noodles.
+				+section("Boston Massacre", 145, 1770)
+					dl.dl-horizontal
+						dt organizer    <dd> Samuel Adams
+						dt actions      <dd> taunted, snowballs
+						dt Samuel Adams <dd> possibly yelled "Fire!"
+						dt loss         <dd> 5 killed, 11 injured
+						dt John Adams   <dd> defended Cap. of Guard
+				+section("Committees of Correspondence", 147, 1773) communication between colonies
+				+section("Boston Tea Party", 145, 1773)
+					dl.dl-horizontal
+						dt disguised as <dd> Indians (showed "Americanism")
+						dt organizer    <dd> Samuel Adams
+						dt loss         <dd> 90,000 LBS tea &#8776; 10,000 sterling
+				+section("Intolerable Acts", 149, 1774)
+					dl.dl-horizontal
+						dt aka <dd> Coercive Acts
+						dt close Bostom Harbor <dd> until King ok. tea repaid
+						dt later rules
+							dd: ul
+								li Massachusetts govt. = w\royal
+								li Impartial Administration of Justice Act = trials in England or other colonies
+								li Quartering Act 
+						dt response <dd> feeling of spying. conspiracy
+				+section("!Lexington", 151, 1775) Paul Revere. Concord magazine
+				+section("Lord Dunmore's Proclamation")
 					.badge 173
-				li Abigail Adams
-					.badge 161
+					.label.label-primary 1775
+					dl.dl-horizontal
+						dt freedom for blacks <dd> in military
+				+section("Bunker Hill", 158, 1775)
+					dl.dl-horizontal
+						dt aka            <dd> Breed Hill
+						dt Thomas Gage vs <dd> William Prescott
+						dt strategy       <dd> shelling followed by raid
+						dt conclusion     <dd> inconclusive, Americans will fight
+				+section("Benedict Arnold", "167,175", 1776) Saratoga. later traitor
+				+section("Benjamin Franklin", 167, 1776) France. homespun
+				+section("!Monmouth Courthouse", 169, 1778)
+					dl.dl-horizontal
+						dt Baron von Steuben <dd> Prussian. trained army
+						dt never lost <dd> a battle since 
+						dt Molly Pitcher 
+				+section("!Cowpens", 172, 1781)
+					dl.dl-horizontal
+						dt split <dd> Greene + Morgan
+						dt British <dd> Cornwallis + Tarleton
+				+section("Yorktown", 175, 1781)
+					dl.dl-horizontal
+						dt Treaty of Paris <dd> USA assumes debt
+						dt end of war <dd> for Independence	
+						dt Virginia <dd> home of George Washington
 				
+				+section("George III", "N/A") patriotic. bi-lingual
+				+section("King Phillips War", 93)
+				+section("letters of marque", "n/a")
+				+section("mechanical courage")
+				+section("Navigation Acts", "60,98")
+				+section("New Lights, Old Lights")
+				+section("Pitt", 133)
+				+section("Salutory Neglect", 126)
+				+section("Saratoga", 167)
+				+section("Sons of Liberty", "142,144")
+				+section("Stamp Act", 140)
+				+section("Stono Rebillion", "122,128")
+				+section("terms of indenture", 59)
+				+section("The Middle Passage", 65)
+				+section("Thomas Paine", 152)
+				+section("Virtual Representation", 142
+					
+					)
+				
+				//- --------------------------------------------------
+				hr
+				
+				+section("!deference") submission. passivity
+				+section("!Gullah Speech", "N/A")
+					dl.dl-horizontal
+						dt Gullah <dd> blacks
+						dt region <dd> North Carolina, South Carolina
+				+section("headrights", "n/a")
+					| primogenitor / fiefdom
+				+section("mourning war", "N/A")
+					| Indians. replace population. matrilineal
+				+section("privateers", "n/a")
+				| legal pirates. letters of marque
