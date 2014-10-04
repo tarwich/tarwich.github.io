@@ -1,0 +1,156 @@
+- var cdn       = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0"
+- var jquery_js = "https://code.jquery.com/jquery-1.11.1.min.js"
+- var topic     = "Government 2305"
+- var section   = "Test 1"
+
+mixin clause(clause)
+	.label.label-info
+		.glyphicon.glyphicon-bookmark
+		span   
+		| #{clause}
+		block
+
+mixin page(number)
+	- if(number<0) number = "N/A";
+	.badge #{number}
+		block
+
+mixin person(name)
+	.label.label-default
+		.glyphicon.glyphicon-user
+		|  #{name}
+	if block
+		span &nbsp;
+		block
+
+mixin place(text)
+	.label.label-success
+		.glyphicon.glyphicon-map-marker
+		|  #{text}
+		block
+
+mixin section(title,page,year)
+	div
+		h4.text-capitalize!=title 
+			if page
+				+page(page)
+			if year
+				span &nbsp;
+				span.label.label-primary #{year}
+		block
+
+mixin time(date)
+	- var ce = date >= 0 ? "" : "BCE"; 
+	.label.label-primary
+		.glyphicon.glyphicon-time
+		|  #{date}
+		block
+
+doctype html
+html(lang=en)
+	head
+		title #{topic} - #{section}
+		meta(charset="UTF-8")
+		link(rel="stylesheet" href="#{cdn}/css/bootstrap.min.css")
+		link(rel="stylesheet" href="#{cdn}/css/bootstrap-theme.min.css")
+	body
+		main.container
+			h1 #{topic}
+				span &nbsp;
+				small #{section}
+			.newsletter
+				+section("Declaration of Independence")
+				+section("Articles of Confederation")
+				+section("Constitution")
+				+section("Federalist 10")
+				+section("Federalist 51")
+				
+				hr
+				
+				+section("Social Contract", -1) agreement between the rulled and the ruler(s)
+				+section("British colonial rule") British ruled with a few local leaders. Most remote
+				+section("Political culture") the attitudes and beliefs of individuals toward the government
+				+section("Republic") Government rules at the consent of the governed
+				+section("Equality of opportunity") 
+					dl.dl-horizontal
+						dt equal <dd> opposite of nepotism
+						dt substantive <dd> slight favoritism to underqualified
+						dt fair <dd> strip power from the powerful
+				+section("Alexis de Tocqueville") Democracy in America. political science
+				+section("Capitalism") industry controlled by private sector
+				+section("Political equality") the principle that all citizens are the same in the eyes of the law
+				+section("Elitism") select group of people have greater influence than others. power concentrated in hands of limited 
+				+section("classic liberalism") freedom of people by limiting government
+				+section("Economic stratification") social classes stratified on economic lines
+				+section("Principles of democracy") government operates at concent of people
+				+person("Thomas Hobbes") social contract. Leviathan
+				+section: +person("John Locke") liberalism.
+				+section: +section("Natural Law") life, liberty, persuit of happiness
+				+section("Majority rule") 50% + 1
+				+section("Minority rights") cannot be abridged by majority
+				+section("Political legitimacy") popular acceptance of an authority
+				+section("Constitutional Convention") convention in states for constitutional review
+				+section("Constitution Day") 
+					+time("17 Sep 1787")
+				+section("Direct democracy") people vote for policy initiatives
+				+section("Indirect democracy") people vote for representatives 
+				+section("Checks and balances") government divisions check each other
+				+section("Separation of powers") legislative, judicial, executive
+				+section("Federalism") separation of federal and state
+				+section("Enumerated powers") Constitution A1 S8
+				+section("Implied powers") 
+					+clause("necessary and proper")
+				+section("concurrent powers") shared between federal and state
+				+section("Great compromise") senate 2ea. house proportional
+				+section("3/5 compromise") slave population 3/5 state
+				+section("supremacy clause") A6 C2. supreme law of the land
+				+section("constitutional amendment procedure") proposal 2/3. ratification 3/4
+				+section("federal grant-making power") 
+					dl.dl-horizontal
+						dt categorical <dd> narrow category
+						dt block <dd> general purpose
+						dt earmarks <dd> non-competitive. lobbyists
+				+section("New Federalism and Reagan") Roosevelt power to federal. Reagan power to states w\block grants
+				+section("Gonzales v Raich", "6 - 3 A") home grown pot. medicinal
+					+clause("commerce")
+					+clause("necessary and proper")
+				+section("Marbury v Madison", "4 - 0 B") congress cannot pass laws contrary to contitution. role of judicial interpret what constitution permits
+					+clause("Article 1")
+					+clause("Article 3")
+				+section("Stare decisis") stand by what is decided
+				+section("judicial activism") changing law
+				+section("judicial restraint") going with prior law
+				
+				+section("McCulloch v Maryland", "7 - 0 A") 
+					| Congress bank in Maryland. Can a state tax Congress.
+					+clause("necessary and proper")
+				
+				+section("Dred Scott v Sanford", "7 - 2 B") 
+					| Dred Scott visited a free state. argued he should be free
+					+clause("property")
+					span &nbsp;
+					+clause("due process")
+
+				+section("Plessy v Ferguson", "7 - 1 B") octoroon. separate but equal
+					+clause("Amendment 14") 
+				
+				+section("Brown v Board of Education", "9 - 0 A") segregation. minority 
+					+clause("equal protection")
+					+clause("Amendment 14")
+				
+				+section("Murray v Maryland (Perason)") wanted to go to school. no black schools available
+				+section("Sweatt v Painter", "9 - 0 A") law school. not enough room. not local
+				+section("McClaurin v Oklahoma", "9 - 0 A") allowed by state. federal expanded. end of seperate but equal
+				+section("Bolling v Sharpe", "9 - 0 A") racial segregation. District of Columbia
+					+clause("due process")
+				+section("California v Bakke", "5 - 4 B") slots reserved for minorities
+				+section("Community Schools v Seattle School District")
+					| can't use race as sole factor for balance
+					+clause("equal protection")
+				+section("Nixon v United States", "9 - 0 B")
+					| can Senate impeach Nixon
+					+clause("due process")
+				+section("Bush v Gore", "5-4A")
+					| recounts violate equal protection
+					+clause("equal protection")
+					+clause("later arbitrary and disparate treatment")

@@ -1,0 +1,26 @@
+- var cdn       = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0"
+- var jquery_js = "https://code.jquery.com/jquery-1.11.1.min.js"
+
+doctype html
+html(lang=en)
+	head
+		title
+			block topic
+			| - 
+			block section
+		meta(charset="UTF-8")
+		link(rel="stylesheet" href="#{cdn}/css/bootstrap.min.css")
+		link(rel="stylesheet" href="#{cdn}/css/bootstrap-theme.min.css")
+	body
+		main.container
+			h1 
+				block topic
+				span &nbsp;
+				small 
+					block section
+			.newsletter
+				block body
+		// At end to increase loading speed
+		script(type="text/javascript" src=jquery_js)
+		script(src="#{cdn}/js/bootstrap.min.js")
+		block script

@@ -1,0 +1,49 @@
+mixin clause(clause)
+	.label.label-info
+		.glyphicon.glyphicon-bookmark
+		span   
+		| #{clause}
+		block
+
+mixin page(number)
+	- if(number<0) number = "N/A";
+	.badge #{number}
+		block
+
+mixin person(name)
+	.label.label-default
+		.glyphicon.glyphicon-user
+		|  #{name}
+	if block
+		span &nbsp;
+		block
+
+mixin place(text)
+	.label.label-success
+		.glyphicon.glyphicon-map-marker
+		|  #{text}
+		block
+
+mixin section(title,page,year)
+	div
+		h4.text-capitalize!=title 
+			if page
+				+page(page)
+			if year
+				span &nbsp;
+				span.label.label-primary #{year}
+		block
+
+mixin time(date)
+	- var ce = date >= 0 ? "" : "BCE"; 
+	.label.label-primary
+		.glyphicon.glyphicon-time
+		|  #{date}
+		block
+
+mixin url(address, text)
+	- var blockText = (function() { block(); return buf.pop(); })()
+	- address = address || blockText;
+	- text = text || blockText
+	a(href=address)
+		block
