@@ -1,0 +1,77 @@
+
+include ../mixins.jade
+extends ../template.jade
+
+block topic
+	| College Schedule
+
+block section
+	| Fall 2014
+
+block body
+	style(type="text/css").
+		.nobr {
+			page-break-inside: avoid;
+		}
+		
+		.swatch {
+			text-align: center;
+			font-weight: bold;
+			width: 22px;
+			height: 22px;
+			border: 1px solid black;
+		} 
+		
+		.hist.swatch { background: rgba(255, 0, 0, 0.5) !important; }
+		.huma.swatch { background: rgba(255, 255, 0, 0.5) !important; }
+		.govt.swatch { background: rgba(0, 255, 0, 0.5) !important; }
+		.musi.swatch { background: rgba(0, 128, 255, 0.5) !important; }
+		
+		th { text-align: center; }
+		
+		.ledger-row {
+			height: .24in;
+		}
+		
+		.weekday { display: inline-block; width: 75px; }
+		
+		@media print {
+			h1 { display: none; }
+		}
+		
+	-var week = 1
+	while week <= 16
+		.row.nobr 
+				if week == 0
+					table.table
+						tr.ledger-row
+							td.swatch 00
+							th: span.weekday Mon
+							th: span.weekday Tue
+							th: span.weekday Wed
+							th: span.weekday Thu
+							th: span.weekday Fri
+							th: span.weekday Sat
+							th: span.weekday Sun
+				else
+					table.table
+						tr.ledger-row
+							td.swatch=("0"+week).substr(-2)
+							each i in [1,2,3,4,5,6,7]
+								- var theDate = new Date(); theDate.setTime(new Date("24 Aug 2014 13:00:00").getTime() + (((week-1)*7+i) * 1000*60*60*24))
+								- var prettyDate = theDate.getDate() + " " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][theDate.getMonth()]
+								th: span.weekday=prettyDate
+						tr.ledger-row: td.swatch.hist H
+							each i in [1,2,3,4,5,6,7]
+								td  
+						tr.ledger-row: td.swatch.huma U
+							each i in [1,2,3,4,5,6,7]
+								td  
+						tr.ledger-row: td.swatch.govt G
+							each i in [1,2,3,4,5,6,7]
+								td  
+						tr.ledger-row: td.swatch.musi M
+							each i in [1,2,3,4,5,6,7]
+								td  
+							
+		- ++week
