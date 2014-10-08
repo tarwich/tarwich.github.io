@@ -39,6 +39,7 @@
           .essay .title {
            text-transform: capitalize;
            line-height   : 1in;
+           text-indent   : 0;
           }
           .essay p {
            margin     : 0    ;
@@ -169,23 +170,24 @@
     <!-- At end to increase loading speed-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      jQuery(function($) {
-       var max = $(".essay").height();
-       var height = $(".essay p").toArray().map(function(n) {
-        return $(n).height();
-       }).reduce(function(a,b) {
-        return a+b;
-       });
-       var percent = (height/max);
-       var textPercent = (percent).toString()
-        .replace(/\.(..).*/, "$1")
-        .replace(/^0*/, "");
-       var pages = 10 * percent;
-       var textPages = pages.toString().match(/\d\.\d{1}/);
-       //- $("h1 small").append("<span> [" + textPages + " / 10 pages] (" + textPercent + "% complete)");
+    <!--
+    script(type="text/javascript").
+     jQuery(function($) {
+      var max = $(".essay").height();
+      var height = $(".essay p").toArray().map(function(n) {
+       return $(n).height();
+      }).reduce(function(a,b) {
+       return a+b;
       });
-      
-    </script>
+      var percent = (height/max);
+      var textPercent = (percent).toString()
+       .replace(/\.(..).*/, "$1")
+       .replace(/^0*/, "");
+      var pages = 10 * percent;
+      var textPages = pages.toString().match(/\d\.\d{1}/);
+      $("h1 small").append("<span> [" + textPages + " / 10 pages] (" + textPercent + "% complete)");
+     });
+     
+    -->
   </body>
 </html>
