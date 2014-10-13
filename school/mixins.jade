@@ -5,6 +5,17 @@ mixin clause(clause)
 		| #{clause}
 		block
 
+mixin dirlist(path)
+	- var fs = require("fs")
+	- var list = fs.readdirSync(path)
+	- var shorts = {"govt":"Government", "hist":"History", "huma":"Humanities", "misc":"Other", "musi":"Music Appreciation"}
+	each file1 in list
+		- var p2 = path + "/" + file1
+		if fs.lstatSync(p2).isDirectory()
+			li.active: a(href=file1)= shorts[file1]||file1
+			each file2 in fs.readdirSync(p2).filter(function(p) { return p[0] != "_" && /.*(\.html|\.pptx)$/.test(p) })
+				li.glyphicon: a(href=file1+"/"+file2)= file2.match(/.+(?=\.html|\.pptx)/)
+
 mixin page(number)
 	- if(number<0) number = "N/A";
 	.badge #{number}
@@ -23,6 +34,14 @@ mixin place(text)
 		.glyphicon.glyphicon-map-marker
 		|  #{text}
 		block
+
+mixin print(o)
+	div: b=o
+	- for(k in o)
+		.row
+			span.bg-primary=k
+			span   
+			span.bg-info=o[k]
 
 mixin section(title,page,year)
 	div

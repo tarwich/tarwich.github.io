@@ -1,48 +1,12 @@
-- var cdn       = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0"
-- var jquery_js = "https://code.jquery.com/jquery-1.11.1.min.js"
-- var topic     = "School"
-- var section   = "Fall 2014"
+include mixins.jade
+extends template.jade
 
-mixin section(title,page,year)
-	div
-		h4.text-capitalize!=title 
-			if page
-				.badge #{page}
-			if year
-				span.label.label-primary #{year}
-		block
+block topic
+	| School
 
-mixin print(o)
-	div: b=o
-	- for(k in o)
-		.row
-			span.bg-primary=k
-			span   
-			span.bg-info=o[k]
+block section
+	| Fall 2014
 
-mixin dirlist(path)
-	- var fs = require("fs")
-	- var list = fs.readdirSync(path)
-	each file1 in list
-		- var p2 = path + "/" + file1
-		if fs.lstatSync(p2).isDirectory()
-			li.active: a(href=file1)= file1.toUpperCase()
-			each file2 in fs.readdirSync(p2).filter(function(p) { return p[0] != "_" && /.*\.html$/.test(p) })
-				li.glyphicon: a(href=file1+"/"+file2)= file2.match(/\w+(?=\.html)/)
-
-doctype html
-html(lang=en)
-	head
-		title #{topic} - #{section}
-		meta(charset="UTF-8")
-		link(rel="stylesheet" href="#{cdn}/css/bootstrap.min.css")
-		link(rel="stylesheet" href="#{cdn}/css/bootstrap-theme.min.css")
-	body
-		main.container
-			h1 #{topic}
-				small #{section}
-			ul.nav.nav-pills.nav-stacked
-				//- li: a(href="./hist") HIST 1301-S17
-				//- li: a(href="./huma") HUMA 1301
-				//- li: a(href="./musi") MUSI 1306
-				+dirlist(arguments[0].prepros.project)
+block body
+	ul.nav.nav-pills.nav-stacked
+		+dirlist(arguments[0].prepros.project)
