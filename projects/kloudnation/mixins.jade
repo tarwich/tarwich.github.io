@@ -1,0 +1,11 @@
+
+mixin dirlist(path)
+	- var fs = require("fs")
+	- var list = fs.readdirSync(path)
+	ul.nav.nav-pills.nav-stacked
+		li.active 
+			a Projects
+		each file1 in list.filter(function(f) { return /\.html/.test(f) && !/index.html/.test(f) })
+			li
+				a(href=file1)= file1.match(/.+(?=\.html)/)
+

@@ -1,0 +1,224 @@
+doctype html
+
+include mixins.jade
+extends template.jade
+
+block body
+	//- Variables --------------------------------------
+	- var theCustomer = "KloudNation"
+	- var project     = "Objective-C and JSON"
+	- var version     = "1.0"
+	- var date        = "17 Oct 2014"
+	- var us          = "Samuel Dillow"
+	- var constraints = ["Schedule", "Budget", "Scope"]
+	- var price       = "$100.00"
+	- var hourly      = true
+	- var travel      = false // Long-distance travel such as airlines or > 50 miles of driving
+	
+	//- Styles -----------------------------------------
+	style(type='text/css').
+		.approval-section       { margin: 2in 0 0; }
+		.approval-section table { width: 100%; }
+		.approval-section th    { text-align: center; }
+		.approval-section td {
+			border  : 1px solid black;
+			height  : 0.5in;
+			width   : 2in;
+			padding : 0.125in;
+		}
+		
+		q::before, q::after { content: ""; }
+		q {
+			border           : 1px solid rgba(0,0,0,0.2);
+			background-color : rgba(0,0,0,0.1);
+			border-radius    : 3px;
+			padding          : 0 2px;
+		}
+		
+		hr::before { 
+			content          : "page break";
+			color            : rgba(0,0,0,0.25);
+			background-color : white;
+			padding          : 0 2px;
+			margin-left      : 0.5in;
+			/* Makes this thing overlap parent container */
+			float            : left;
+			margin-top       : -12px;
+		}
+		
+		@media print {
+			hr { 
+				border: 0 none; 
+				page-break-after: always; 
+			}
+			
+			hr::before { display: none; }
+		}
+		
+	//- Mixins -----------------------------------------
+	mixin section(title)
+		h2 #{title}
+		p 
+			block
+	
+	mixin subsection(title)
+		h3 #{title}
+		p
+			block
+	
+	mixin person(name)
+		span.label.label-primary.label-person
+			.glyphicon.glyphicon-user
+			|  #{name}
+			block
+		|   
+	
+	//- Document ---------------------------------------
+	title #{project} - Project Definition
+
+	//- Title
+	section.text-center
+		h1 #{theCustomer}
+			small  
+			small #{project}
+		h1 Project Definition
+		h4 Version #{version}
+		h4: small #{date}
+
+	//- Approval
+	.row.approval-section
+		h2 Approval
+		table
+			tr.header
+				th #{theCustomer}
+				th #{us}
+			tr
+				td Approver:
+				td Approver:
+			tr
+				td Title: 
+				td Title: 
+			tr
+				td Date: 
+				td Date: 
+			tr
+				td Signature: 
+				td Signature: 
+
+	hr
+
+	+section("Background")
+		p
+			| #{theCustomer} is currently developing an iPhone and Android App. Currently the iPhone app is functional 
+			| and has a UI. However, the iPhone app is not converting data to JSON or sending that data to the server.
+	
+	+section("Objectives")
+		+subsection("Project Objectives")
+			ul: li.
+				Analyze the current code to determine the complexity of the situation and propose follow-on project to
+				resolve situation as needed.
+		+subsection("Constraint Prioritization")
+			dl.dl-horizontal
+				//- 
+					This section is generated. It's probably best to edit the order of the constraints in the 
+					variables section at the top
+				dt #{constraints[0]}
+				dd.
+					#{constraints[0]} is of the utmost importance. Project must meet customer expectations in regards 
+					to #{constraints[0].toLowerCase()}.
+				dt #{constraints[1]}
+				dd.
+					#{constraints[1]} is somewhat flexible. #{constraints[1]} may be adjusted if necessary in order to
+					meet the #{constraints[0].toLowerCase()} constraint, but should be as close to the original plan 
+					as possible.
+				dt #{constraints[2]}
+				dd.
+					#{constraints[2]} is the most flexible. Adjusting #{constraints[2].toLowerCase()} will be the 
+					primary method to adapting to project changes in order to meet 
+					#{constraints[0].toLowerCase()} and #{constraints[1].toLowerCase()} constraints
+
+	+section("Scope")
+		+subsection("In Scope")
+			ul
+				li <q>Code Review</q> for general code health and problem-solving
+		+subsection("Out Of Scope")
+			ul
+				li Resolve problems with the UI
+
+	+section("Deliverables")
+		ul
+			li 
+				+person(theCustomer)
+				| All items in <q>Equipment and Facility Needs</q>
+			li 
+				+person(us) 
+				| All items <q>In Scope</q>
+
+	+section("Schedule")
+		p 
+			| The project is expected to take 2 hours after the point at which #{theCustomer} has met all 
+			| prerequisites. #{theCustomer} would like the project to be completed by Monday, 27 Oct 2014.
+		
+	+section("Risks")
+		ul
+			li 
+				| This project has a poorly defined scope. As such, the expectations are subject to change throughout.
+				| The potential impact of this risk is that the project could drastically increase in scope, and, 
+				| therefore, budget.
+				p 
+					b Remediation:
+					i  Establish a tighter scope, or set a budget limit to prevent scope creep.
+				
+	+section("Assumptions")
+		ul
+			li.
+				#{theCustomer} will assume responsibility for the physical presence of 
+				#{us}
+				or contractors in the locations for which access is granted. If necessary, #{theCustomer} will 
+				provide a person to escort 
+				#{us}.
+			li The UI is in a functional state.
+			li #{theCustomer} will complete the Augmented Reality portion of the application.
+
+	+section("Approach")
+		+subsection("Process to Monitor Progress")
+			p
+				| As there is only one significant deliverable, the customer will be notified when all items are complete. 
+				| No further tracking methodology will be employed for this project.
+		+subsection("Change Control Procedure")
+			ul: li
+				| If changes to the project are deemed necessary, #{us} will review them with #{theCustomer} and determine
+				| whether or not the changes may be completed without additional impact to the project constraints. If an 
+				| impact is found, the Project Definition may be updated and re-approved. A written consent of the changes
+				| (email or otherwise) may be accepted in lieu of an updated Project Definition.
+		+subsection("Acceptance of Deliverables")
+			ul: li 
+				| Customer will provide a software developer to review and verify the code or information produced.
+
+	+section("Equipment and Facility Needs")
+		ul
+			li 
+				| #{us} will require access to the customer facility. Access hours may be negotiated either during 
+				| #{theCustomer} work schedule for convenience, or outside #{theCustomer} work schedule to prevent potential
+				| services interruption.
+
+	+section("Project Completion Criteria")
+		p 
+			| The project will be considered complete when project deliverables listed in the <q>Deliverables</q> section have been 
+			| completed.
+
+	+section("Fees and Expenses") 
+		+subsection("Project Fee")
+			if hourly
+				p This project will be billed at a rate of #{price} USD per hour.
+			else
+				p This project will be billed at a flat fee of #{price} USD.
+		+subsection("Payment Schedule")
+			p Payment is due upon completion and acceptance of the project.
+		+subsection("Travel Expenses")
+			if travel
+				p 
+					| #{theCustomer} will pay all travel expenses incurred by #{us} personel. Payment is due upon completion of 
+					| the project. Proof of expendature will be provided by #{us}.
+			else
+				p No travel is expected for this project
