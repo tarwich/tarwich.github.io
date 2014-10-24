@@ -1,0 +1,222 @@
+doctype html
+
+include mixins.jade
+extends template.jade
+
+block body
+	//- Variables --------------------------------------
+	- var theCustomer = "KloudNation"
+	- var project     = "Augmented Reality Integration"
+	- var version     = "1.0"
+	- var date        = "20 Oct 2014"
+	- var us          = "Samuel Dillow"
+	- var constraints = ["Schedule", "Scope", "Budget"]
+	- var price       = "$100.00"
+	- var hourly      = true
+	- var travel      = false // Long-distance travel such as airlines or > 50 miles of driving
+	
+	//- Styles -----------------------------------------
+	style(type='text/css').
+		.approval-section       { margin: 2in 0 0; }
+		.approval-section table { width: 100%; }
+		.approval-section th    { text-align: center; }
+		.approval-section td {
+			border  : 1px solid black;
+			height  : 0.5in;
+			width   : 2in;
+			padding : 0.125in;
+		}
+		
+		q::before, q::after { content: ""; }
+		q {
+			border           : 1px solid rgba(0,0,0,0.2);
+			background-color : rgba(0,0,0,0.1);
+			border-radius    : 3px;
+			padding          : 0 2px;
+		}
+		
+		hr::before { 
+			content          : "page break";
+			color            : rgba(0,0,0,0.25);
+			background-color : white;
+			padding          : 0 2px;
+			margin-left      : 0.5in;
+			/* Makes this thing overlap parent container */
+			float            : left;
+			margin-top       : -12px;
+		}
+		
+		@media print {
+			hr { 
+				border: 0 none; 
+				page-break-after: always; 
+			}
+			
+			hr::before { display: none; }
+		}
+		
+	//- Mixins -----------------------------------------
+	mixin section(title)
+		h2 #{title}
+		p 
+			block
+	
+	mixin subsection(title)
+		h3 #{title}
+		p
+			block
+	
+	mixin person(name)
+		span.label.label-primary.label-person
+			.glyphicon.glyphicon-user
+			|  #{name}
+			block
+		|   
+	
+	//- Document ---------------------------------------
+	title #{project} - Project Definition
+
+	//- Title
+	section.text-center
+		h1 #{theCustomer}
+			small  
+			small #{project}
+		h1 Project Definition
+		h4 Version #{version}
+		h4: small #{date}
+
+	//- Approval
+	.row.approval-section
+		h2 Approval
+		table
+			tr.header
+				th #{theCustomer}
+				th #{us}
+			tr
+				td Approver:
+				td Approver:
+			tr
+				td Title: 
+				td Title: 
+			tr
+				td Date: 
+				td Date: 
+			tr
+				td Signature: 
+				td Signature: 
+
+	hr
+
+	+section("Background")
+		p
+			| #{theCustomer} is currently developing an iPhone and Android App. Currently the iPhone app is functional 
+			| and has a UI. 
+			| The iPhone app needs an Augmented Reality screen added to the already existing code base.
+			| When attempting to add an Augmented Reality screen, the project ceased to compile, and #{theCustomer} 
+			| would like assistance resolving this issue.
+	
+	+section("Objectives")
+		+subsection("Project Objectives")
+			ul
+				li Resolve current compilation issues
+				li Integrate Augmented Reality into the project
+				li Enhance beacon tracking 
+		+subsection("Constraint Prioritization")
+			dl.dl-horizontal
+				//- 
+					This section is generated. It's probably best to edit the order of the constraints in the 
+					variables section at the top
+				dt #{constraints[0]}
+				dd.
+					#{constraints[0]} is of the utmost importance. Project must meet customer expectations in regards 
+					to #{constraints[0].toLowerCase()}.
+				dt #{constraints[1]}
+				dd.
+					#{constraints[1]} is somewhat flexible. #{constraints[1]} may be adjusted if necessary in order to
+					meet the #{constraints[0].toLowerCase()} constraint, but should be as close to the original plan 
+					as possible.
+				dt #{constraints[2]}
+				dd.
+					#{constraints[2]} is the most flexible. Adjusting #{constraints[2].toLowerCase()} will be the 
+					primary method to adapting to project changes in order to meet 
+					#{constraints[0].toLowerCase()} and #{constraints[1].toLowerCase()} constraints
+
+	+section("Scope")
+		+subsection("In Scope")
+			ul
+				li Resolve current compilation issues by adjusting settings or removing componentes that will no compile
+				li Integrate the <q>Vuforia</q> framework into the existing project. If not possible, then substitute an Augmented Reality framework that will compile into the project
+				li Add an Augmented Reality screen to the application
+				li Make the Augmented Reality screen download data from the KloudNation server in order to get Tracking images and movies that will play when those tracking images are "seen" by the phone.
+				li Make the phone auto-play the videos when in view
+				li Change the beacon system to send beacon updates every time anything changes about the top three beacons
+				li Change the beacon system to weed out irregular beacon data
+
+	+section("Deliverables")
+		ul
+			li 
+				+person(theCustomer)
+				| All items in <q>Equipment and Facility Needs</q>
+			li 
+				+person(us) 
+				| All items <q>In Scope</q>
+
+	+section("Schedule")
+		p 
+			| This project should begin on Tuesday at 11:00 am. #{us} can consume as much time as needed in order to complete the items <q>In Scope</q>. The project must be completed NLT
+			+time("Thursday, 23 Oct 2014").
+		
+	+section("Risks")
+		ul
+			li 
+				| This project has a poorly defined scope. As such, the expectations are subject to change throughout. The potential impact of this risk is that the project could drastically increase in scope, and, therefore, schedule.
+				p 
+					b Remediation:
+					i  Establish a tighter scope, or set a budget limit to prevent scope creep.
+				
+	+section("Assumptions")
+		ul
+			li The UI is in a functional state.
+			li The environment in which the Augmented Reality will be utilized has been determined.
+			li The radio beacons have been aquired by #{theCustomer} and will not change at the time of using the application.
+			li There are a finite number of targets, which have been determined by #{theCustomer}.
+			li The web server for delivering the Augmented Reality content is in a stable state.
+
+	+section("Approach")
+		+subsection("Process to Monitor Progress")
+			p
+				| As #{theCustomer} is expecting all work to be delivered within 24 hours of beginning work, there will be no process to monitor progress and #{theCustomer} will review the application after it is considered by #{us} to be completed.
+		+subsection("Change Control Procedure")
+			ul: li
+				| If changes to the project are deemed necessary, #{us} will review them with #{theCustomer} and determine whether or not the changes may be completed without additional impact to the project constraints. If an impact is found, the Project Definition may be updated and re-approved. A written consent of the changes (email or otherwise) may be accepted in lieu of an updated Project Definition.
+		+subsection("Acceptance of Deliverables")
+			ul: li 
+				| #{theCustomer} will provide a software developer to review and verify the code or information produced.
+
+	+section("Equipment and Facility Needs")
+		ul
+			li #{us} will require access to the customer facility. Access hours may be negotiated either during #{theCustomer} work schedule for convenience, or outside #{theCustomer} work schedule to prevent potential services interruption.
+			li #{us} will require a working phone with which to test the software.
+			li #{us} will require access to and control of no less than three of the beacons that will be used during the event.
+			li For th epurposes of testing, #{us} will require the same access to the server that will be granted to the application, and by extension, #{theCustomer} customers during the event.
+
+	+section("Project Completion Criteria")
+		p 
+			| The project will be considered complete when project deliverables listed in the <q>Deliverables</q> section have been 
+			| completed.
+
+	+section("Fees and Expenses") 
+		+subsection("Project Fee")
+			if hourly
+				p This project will be billed at a rate of #{price} USD per hour.
+			else
+				p This project will be billed at a flat fee of #{price} USD.
+		+subsection("Payment Schedule")
+			p Payment is due upon completion and acceptance of the project.
+		+subsection("Travel Expenses")
+			if travel
+				p 
+					| #{theCustomer} will pay all travel expenses incurred by #{us} personel. Payment is due upon completion of 
+					| the project. Proof of expendature will be provided by #{us}.
+			else
+				p No travel is expected for this project

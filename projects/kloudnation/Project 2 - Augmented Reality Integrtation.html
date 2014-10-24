@@ -45,12 +45,12 @@
          hr::before { display: none; }
         }
       </style>
-      <title>Objective-C and JSON - Project Definition</title>
+      <title>Augmented Reality Integration - Project Definition</title>
       <section class="text-center">
-        <h1>KloudNation<small> </small><small>Objective-C and JSON</small></h1>
+        <h1>KloudNation<small> </small><small>Augmented Reality Integration</small></h1>
         <h1>Project Definition</h1>
         <h4>Version 1.0</h4>
-        <h4><small>17 Oct 2014</small></h4>
+        <h4><small>20 Oct 2014</small></h4>
       </section>
       <div class="row approval-section">
         <h2>Approval</h2>
@@ -82,7 +82,10 @@
             <p>
               <p>
                 KloudNation is currently developing an iPhone and Android App. Currently the iPhone app is functional 
-                and has a UI. However, the iPhone app is not converting data to JSON or sending that data to the server.
+                and has a UI. 
+                The iPhone app needs an Augmented Reality screen added to the already existing code base.
+                When attempting to add an Augmented Reality screen, the project ceased to compile, and KloudNation 
+                would like assistance resolving this issue.
               </p>
             </p>
             <h2>Objectives</h2>
@@ -90,10 +93,9 @@
                     <h3>Project Objectives</h3>
                     <p>
                       <ul>
-                        <li>
-                          Analyze the current code to determine the complexity of the situation and propose follow-on project to
-                          resolve situation as needed.
-                        </li>
+                        <li>Resolve current compilation issues</li>
+                        <li>Integrate Augmented Reality into the project</li>
+                        <li>Enhance beacon tracking </li>
                       </ul>
                     </p>
                     <h3>Constraint Prioritization</h3>
@@ -104,17 +106,17 @@
                           Schedule is of the utmost importance. Project must meet customer expectations in regards 
                           to schedule.
                         </dd>
-                        <dt>Budget</dt>
+                        <dt>Scope</dt>
                         <dd>
-                          Budget is somewhat flexible. Budget may be adjusted if necessary in order to
+                          Scope is somewhat flexible. Scope may be adjusted if necessary in order to
                           meet the schedule constraint, but should be as close to the original plan 
                           as possible.
                         </dd>
-                        <dt>Scope</dt>
+                        <dt>Budget</dt>
                         <dd>
-                          Scope is the most flexible. Adjusting scope will be the 
+                          Budget is the most flexible. Adjusting budget will be the 
                           primary method to adapting to project changes in order to meet 
-                          schedule and budget constraints
+                          schedule and scope constraints
                           
                         </dd>
                       </dl>
@@ -125,13 +127,13 @@
                     <h3>In Scope</h3>
                     <p>
                       <ul>
-                        <li><q>Code Review</q> for general code health and problem-solving</li>
-                      </ul>
-                    </p>
-                    <h3>Out Of Scope</h3>
-                    <p>
-                      <ul>
-                        <li>Resolve problems with the UI</li>
+                        <li>Resolve current compilation issues by adjusting settings or removing componentes that will no compile</li>
+                        <li>Integrate the <q>Vuforia</q> framework into the existing project. If not possible, then substitute an Augmented Reality framework that will compile into the project</li>
+                        <li>Add an Augmented Reality screen to the application</li>
+                        <li>Make the Augmented Reality screen download data from the KloudNation server in order to get Tracking images and movies that will play when those tracking images are "seen" by the phone.</li>
+                        <li>Make the phone auto-play the videos when in view</li>
+                        <li>Change the beacon system to send beacon updates every time anything changes about the top three beacons</li>
+                        <li>Change the beacon system to weed out irregular beacon data</li>
                       </ul>
                     </p>
             </p>
@@ -148,18 +150,13 @@
             </p>
             <h2>Schedule</h2>
             <p>
-              <p>
-                The project is expected to take 2 hours after the point at which KloudNation has met all 
-                prerequisites. KloudNation would like the project to be completed by Monday, 27 Oct 2014.
+              <p>This project should begin on Tuesday at 11:00 am. Samuel Dillow can consume as much time as needed in order to complete the items <q>In Scope</q>. The project must be completed NLT&nbsp;<span class="label label-primary time"><span class="glyphicon glyphicon-time"></span> Thursday, 23 Oct 2014</span>
               </p>
             </p>
             <h2>Risks</h2>
             <p>
               <ul>
-                <li>
-                  This project has a poorly defined scope. As such, the expectations are subject to change throughout.
-                  The potential impact of this risk is that the project could drastically increase in scope, and, 
-                  therefore, budget.
+                <li>This project has a poorly defined scope. As such, the expectations are subject to change throughout. The potential impact of this risk is that the project could drastically increase in scope, and, therefore, schedule.
                   <p><b>Remediation:</b><i> Establish a tighter scope, or set a budget limit to prevent scope creep.</i></p>
                 </li>
               </ul>
@@ -167,52 +164,39 @@
             <h2>Assumptions</h2>
             <p>
               <ul>
-                <li>
-                  KloudNation will assume responsibility for the physical presence of 
-                  Samuel Dillow
-                  or contractors in the locations for which access is granted. If necessary, KloudNation will 
-                  provide a person to escort 
-                  Samuel Dillow.
-                </li>
                 <li>The UI is in a functional state.</li>
-                <li>KloudNation will complete the Augmented Reality portion of the application.</li>
+                <li>The environment in which the Augmented Reality will be utilized has been determined.</li>
+                <li>The radio beacons have been aquired by KloudNation and will not change at the time of using the application.</li>
+                <li>There are a finite number of targets, which have been determined by KloudNation.</li>
+                <li>The web server for delivering the Augmented Reality content is in a stable state.</li>
               </ul>
             </p>
             <h2>Approach</h2>
             <p>
                     <h3>Process to Monitor Progress</h3>
                     <p>
-                      <p>
-                        As there is only one significant deliverable, the customer will be notified when all items are complete. 
-                        No further tracking methodology will be employed for this project.
-                      </p>
+                      <p>As KloudNation is expecting all work to be delivered within 24 hours of beginning work, there will be no process to monitor progress and KloudNation will review the application after it is considered by Samuel Dillow to be completed.</p>
                     </p>
                     <h3>Change Control Procedure</h3>
                     <p>
                       <ul>
-                        <li>
-                          If changes to the project are deemed necessary, Samuel Dillow will review them with KloudNation and determine
-                          whether or not the changes may be completed without additional impact to the project constraints. If an 
-                          impact is found, the Project Definition may be updated and re-approved. A written consent of the changes
-                          (email or otherwise) may be accepted in lieu of an updated Project Definition.
-                        </li>
+                        <li>If changes to the project are deemed necessary, Samuel Dillow will review them with KloudNation and determine whether or not the changes may be completed without additional impact to the project constraints. If an impact is found, the Project Definition may be updated and re-approved. A written consent of the changes (email or otherwise) may be accepted in lieu of an updated Project Definition.</li>
                       </ul>
                     </p>
                     <h3>Acceptance of Deliverables</h3>
                     <p>
                       <ul>
-                        <li>Customer will provide a software developer to review and verify the code or information produced.</li>
+                        <li>KloudNation will provide a software developer to review and verify the code or information produced.</li>
                       </ul>
                     </p>
             </p>
             <h2>Equipment and Facility Needs</h2>
             <p>
               <ul>
-                <li>
-                  Samuel Dillow will require access to the customer facility. Access hours may be negotiated either during 
-                  KloudNation work schedule for convenience, or outside KloudNation work schedule to prevent potential
-                  services interruption.
-                </li>
+                <li>Samuel Dillow will require access to the customer facility. Access hours may be negotiated either during KloudNation work schedule for convenience, or outside KloudNation work schedule to prevent potential services interruption.</li>
+                <li>Samuel Dillow will require a working phone with which to test the software.</li>
+                <li>Samuel Dillow will require access to and control of no less than three of the beacons that will be used during the event.</li>
+                <li>For th epurposes of testing, Samuel Dillow will require the same access to the server that will be granted to the application, and by extension, KloudNation customers during the event.</li>
               </ul>
             </p>
             <h2>Project Completion Criteria</h2>

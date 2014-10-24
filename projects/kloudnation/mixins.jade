@@ -9,3 +9,9 @@ mixin dirlist(path)
 			li
 				a(href=file1)= file1.match(/.+(?=\.html)/)
 
+mixin time(date)
+	| &nbsp;
+	span.label.label-primary.time
+		span.glyphicon.glyphicon-time
+		|  #{date}
+		block
