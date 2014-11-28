@@ -1,13 +1,84 @@
-
-include ../mixins
-extends ../template
-
-block topic
-	| Humanities
-
-block section
-	| Index
-
-block body
-	ul.nav.nav-pills.nav-stacked
-		+dirlist(arguments[0].prepros.project)
+html
+	head
+		style(type="text/css").
+			html, body {
+				margin: 0;
+				padding: 0;
+			}
+			div.svg > svg,
+			div.svg img { 
+				width: 100%;
+				height: 100%;
+			}
+			div.foto {
+				position: absolute;
+				transition: left, top, width, height, opacity;
+				transition-duration: 0.25s;
+				opacity: 0;
+				width: 0; height: 0;
+				left: 50%; top: 50%;
+				background-size: cover;
+				background-repeat: no-repeat;
+				border: 1px solid rgba(80, 80, 80, 0.3);
+				border-radius: 25px;
+			}
+			div.fotos.shown .foto {
+				width: 30%; height: 30%;
+				opacity: 1;
+			}
+			
+			div.fotos.shown .foto:nth-child(1) { left: 10%; top: 35%; }
+			div.fotos.shown .foto:nth-child(2) { left: 25%; top: 60%; }
+			div.fotos.shown .foto:nth-child(3) { left: 45%; top: 60%; }
+			div.fotos.shown .foto:nth-child(4) { left: 60%; top: 35%; }
+			div.fotos.shown .foto:nth-child(5) { left: 45%; top: 10%; }
+			div.fotos.shown .foto:nth-child(6) { left: 25%; top: 10%; }
+			
+			div.foto .bg {
+				width: 100%; height: 100%;
+				background-color: rgba(0,0,0,0.3);
+				border-radius: 25px;
+				transition: background-color 0.25s;
+			}
+			div.foto:hover {
+				z-index: 9 !important;
+				border: 1px solid rgba(134, 116, 97, 0.3);
+			}
+			div.foto.full .bg,
+			div.foto:hover .bg { 
+				background-color: rgba(0,0,0,0);
+			}
+			div.foto.full {
+				width: 90% !important; height: 90% !important;
+				left: 5% !important; top: 5% !important;
+				z-index: 9;
+			}
+	body
+		div.svg
+			include ./res/Nahuatl.svg
+		for category in ["piramides", "volcan", "tumba", "itzcuintli", "xochitl"]
+			div.fotos(category=category)
+				for i in [1,2,3,4,5,6]
+					div.foto(style="background-image: url('res/"+category+"-"+i+".jpg');")
+						div.bg
+		div.fotos(category="irigacion")
+			div.foto(style="background-image: url('res/extra-drenaje.jpg')")
+				div.bg
+		script(src="https://code.jquery.com/jquery-1.11.1.min.js")
+		script(type="text/javascript").
+			jQuery(function($) {
+				$("#volcan,#piramides,#tumba,#irigacion,#itzcuintli,#xochitl")
+				.css({cursor: "pointer"}).add("[category=background]").on("click", function(ev) {
+					var $fotos = $(".fotos[category="+$(this).attr("id")+"]");
+					$fotos.toggleClass("shown");
+					$(".fotos").not($fotos).removeClass("shown");
+				});
+				
+				$("#irigacion").on("click", function() {
+					$(".fotos[category=irigacion] .foto").toggleClass("full");
+				});
+				
+				$(".foto").on("click", function() {
+					$(this).toggleClass("full");
+				});
+			});

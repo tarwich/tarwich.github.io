@@ -1,0 +1,13 @@
+
+include ../mixins
+extends ../template
+
+block topic
+	| Humanities
+
+block section
+	| Index
+
+block body
+	ul.nav.nav-pills.nav-stacked
+		+dirlist(arguments[0].prepros.project)
