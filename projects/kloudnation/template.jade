@@ -1,5 +1,12 @@
-- var cdn       = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0"
+- var cdn       = "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0"
 - var jquery_js = "https://code.jquery.com/jquery-1.11.1.min.js"
+
+mixin time(date)
+	| &nbsp;
+	span.label.label-primary.time
+		span.glyphicon.glyphicon-time
+		|  #{date}
+		block
 
 doctype html
 html(lang=en)
@@ -18,4 +25,5 @@ html(lang=en)
 		// At end to increase loading speed
 		script(type="text/javascript" src=jquery_js)
 		script(src="#{cdn}/js/bootstrap.min.js")
+		script(src="http://localhost:35729/livereload.js")
 		block scripts

@@ -9,6 +9,7 @@ module.exports = (grunt) ->
 				tasks: ['jade']
 		jade: compile: files: 
 			'./WebFetch.html': './WebFetch.jade'
+			'./index.html'   : './index.jade'
 	}
 	
 	# -[ Tasks ]----------------------------------------
