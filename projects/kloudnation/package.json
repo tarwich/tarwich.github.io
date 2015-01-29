@@ -1,0 +1,16 @@
+{
+  "name": "kloudnation",
+  "version": "1.0.0",
+  "description": "Planning documents for KloudNation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samuel Dillow",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jade": "^0.14.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

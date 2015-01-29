@@ -1,0 +1,10 @@
+
+# -[ Project Global Settings ]----------------------
+
+# Node modules should be installed with `npm install`
+node_modules
+
+# -[ OS Specific Ignores ]--------------------------
+
+# OSX Metadata
+.DS_Store
