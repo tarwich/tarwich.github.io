@@ -1,0 +1,32 @@
+const angular = require('angular');
+const uiRouter = require('angular-ui-router');
+const HomeController = require('./HomeController');
+
+module.exports = angular.module('sammyd', [
+  uiRouter,
+])
+.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
+  // Allow omitting the # from URL if possible
+  $locationProvider.html5Mode(true);
+
+  // 404
+  $urlRouterProvider.otherwise(($injector, $location) => {
+    let state = $injector.get('$state');
+    state.go('home');
+    return $location.path();
+  });
+
+  $stateProvider
+  .state('home', {
+    url:          '',
+    template:     require('./home.html'),
+    controllerAs: 'home',
+    controller:   HomeController,
+  })
+  ;
+})
+;
+
+require('./home.scss');
+require('ui/box');
+require('resume/skill');

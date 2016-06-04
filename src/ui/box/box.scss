@@ -1,0 +1,32 @@
+@import 'bourbon';
+
+.box.section {
+  margin:        15px 40px;
+  border-radius: 5px;
+  box-shadow:    1px 1px 2px 0px rgba(black, 0.5);
+
+  .header {
+    background:    #4671D5;
+    color:         #E6E6E6;
+    display:       block;
+    line-height:   15px;
+    padding:       10px;
+    border-bottom: 1px solid #3F3F86;
+    @include border-top-radius(5px);
+  }
+
+  .content {
+    background: #C4D1FC;
+    display:    block;
+    padding:    20px;
+    @include border-bottom-radius(5px);
+
+    p {
+      margin: 20px 0px;
+
+      &:first-of-type {
+        margin-top: 0px;
+      }
+    }
+  }
+}
