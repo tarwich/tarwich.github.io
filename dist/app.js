@@ -35202,7 +35202,7 @@ module.exports = angular.module('sammyd', [
   $stateProvider
   .state('home', {
     url:          '',
-    templateUrl:  'app/home.html',
+    templateUrl:  'dist/app/home.html',
     controllerAs: 'home',
     controller:   HomeController,
   })
@@ -35226,7 +35226,7 @@ const app = require('sam-resume/app');
 app.directive('resumeSkill', () => ({
   restrict:    'E',
   replace:     true,
-  templateUrl: 'resume/skill/skill.html',
+  templateUrl: 'dist/resume/skill/skill.html',
   scope:       {
     model: '=ngModel',
     name:  '@',
@@ -35244,7 +35244,7 @@ app.directive('uiBox', () => ({
   restrict:    'E',
   replace:     true,
   transclude:  true,
-  templateUrl: 'ui/box/box.html',
+  templateUrl: 'dist/ui/box/box.html',
   scope:       {
     header: '@',
     title:  '@',

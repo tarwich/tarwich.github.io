@@ -72,7 +72,7 @@ gulp.task('js:app', () =>
 );
 
 gulp.task('server', () => {
-  server = gls.static(['.', 'dist']);
+  server = gls.static(['.']);
   server.start();
 });
 
