@@ -101,6 +101,8 @@ dl dd {
       background-image: url("app/images/logos/java.png"); }
     .skills.box.section .content .skill.jscript .img, .skills.box.section .content > ng-transclude .skill.jscript .img, .languages.box.section .content .skill.jscript .img, .languages.box.section .content > ng-transclude .skill.jscript .img {
       background-image: url("app/images/logos/jscript.png"); }
+    .skills.box.section .content .skill.less .img, .skills.box.section .content > ng-transclude .skill.less .img, .languages.box.section .content .skill.less .img, .languages.box.section .content > ng-transclude .skill.less .img {
+      background-image: url("app/images/logos/less.png"); }
     .skills.box.section .content .skill.lisp .img, .skills.box.section .content > ng-transclude .skill.lisp .img, .languages.box.section .content .skill.lisp .img, .languages.box.section .content > ng-transclude .skill.lisp .img {
       background-image: url("app/images/logos/lisp.png"); }
     .skills.box.section .content .skill.nodejs .img, .skills.box.section .content > ng-transclude .skill.nodejs .img, .languages.box.section .content .skill.nodejs .img, .languages.box.section .content > ng-transclude .skill.nodejs .img {
@@ -115,6 +117,8 @@ dl dd {
       background-image: url("app/images/logos/php.png"); }
     .skills.box.section .content .skill.qbasic .img, .skills.box.section .content > ng-transclude .skill.qbasic .img, .languages.box.section .content .skill.qbasic .img, .languages.box.section .content > ng-transclude .skill.qbasic .img {
       background-image: url("app/images/logos/qbasic.png"); }
+    .skills.box.section .content .skill.sass .img, .skills.box.section .content > ng-transclude .skill.sass .img, .languages.box.section .content .skill.sass .img, .languages.box.section .content > ng-transclude .skill.sass .img {
+      background-image: url("app/images/logos/sass.png"); }
     .skills.box.section .content .skill.sgml .img, .skills.box.section .content > ng-transclude .skill.sgml .img, .languages.box.section .content .skill.sgml .img, .languages.box.section .content > ng-transclude .skill.sgml .img {
       background-image: url("app/images/logos/sgml.png"); }
     .skills.box.section .content .skill.tcl .img, .skills.box.section .content > ng-transclude .skill.tcl .img, .languages.box.section .content .skill.tcl .img, .languages.box.section .content > ng-transclude .skill.tcl .img {
