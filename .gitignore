@@ -1,8 +1,9 @@
 # ----------[ Application ]----------------------------------------
-node_modules
+node_modules/*
 dist
 *.log
 !node_modules/sam-resume
+/sam-resume
 
 # ----------[ OS Stuff ]----------------------------------------
 # OSX Metadata

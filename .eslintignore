@@ -1,2 +1,3 @@
 build
 !.eslintrc.js
+!node_modules/sam-resume
