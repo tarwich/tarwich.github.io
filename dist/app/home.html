@@ -1,6 +1,6 @@
 <div>
   <div class='top bar'>
-    <span>Samuel Dillow</span>
+    <span>{{ home.name }}</span>
   </div>
   <div class='box section'>
     <div class='header'>Profile</div>
@@ -12,12 +12,12 @@
       </dl>
     </div>
   </div>
-  <ui-box header="Skills" class="skills">
+  <ui-box header="Skills" class="skills" ng-if="home.skills.length">
     <resume-skill ng-repeat="skill in home.skills" ng-model="skill" class="{{ skill.class }}">
       {{ skill.name }}
     </resume-skill>
   </ui-box>
-  <ui-box header="Languages" class="languages">
+  <ui-box header="Languages" class="languages" ng-if="home.languages.length">
     <resume-skill ng-repeat="language in home.languages" ng-model="language" class="{{ language.class }}">
       {{ language.name }}
     </resume-skill>
@@ -34,6 +34,14 @@
       </div>
       <div class="skills">
         <span class="skill" ng-repeat="skill in job.skills | unique">{{ skill }}</span>
+      </div>
+    </div>
+  </ui-box>
+  <ui-box header="Education" class="jobs" ng-if="home.education">
+    <div ng-repeat="school in home.education" class="job">
+      <div class="company">{{ school.name }}</div>
+      <div class="title" ng-repeat="degree in school.degrees">
+        {{ degree.name }} ({{ degree.year }})
       </div>
     </div>
   </ui-box>

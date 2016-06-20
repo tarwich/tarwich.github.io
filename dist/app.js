@@ -35016,204 +35016,582 @@ require('./angular');
 module.exports = angular;
 
 },{"./angular":3}],5:[function(require,module,exports){
-/* eslint max-len: 'off' */
+
+const users = {
+  chris: require('./data.chris.js'),
+  eric:  require('./data.eric.js'),
+  sam:   require('./data.sam.js'),
+};
+
 /**
  * Class to manage the home page
  */
 class HomeController {
   /**
    * Create a new instance
+   *
+   * @param {Object} $stateParams The ui-router state parameters
    */
-  constructor() {
-    this.paragraphs = [
-      `The main thing people ask me is what language do you program in. Strange
-      question, as most good programmers can program in nearly any language. I
-      started programming when I was 8, so I have racked up experience in over
-      40 languages to this point.`,
-      `In the United States Air Force I learned about leadership and the
-      importance of structure. Combining my passion for programming and the
-      experience of the US Military I have led several teams in the development
-      and delivery of disparate software solutions.`,
-      'However, my favorite languages are C++, NodeJS, and Java.',
-    ];
-    this.favorites = {
-      'C++':
-        `I use C++ when I write command line utilities that need to do things
-        that regular scripts cannot. I write about 6 command line programs per
-        year.`,
-      'NodeJS':
-        `Since V8 has revamped the JavaScript world, I've been writing
-        applications in JavaScript. I find it to be tons faster and more stable.
-        Now that NodeJS has a CLR, it's an excellent platform to write fast and
-        responsive cross-platform code. I've written server apps with it, and
-        used Electron (and nw.js) to write GUI apps.`,
-      'Java':
-        `Java has a lot of trouble doing operating system specific tasks, so
-        it's great for writing a cross-platform application. I use Java for
-        command line utilities and web servers. I write about 1 Java program per
-        month.`,
-      'TCL':
-        `I use TCL / Expect to write anything that has to be done with CLI, but
-        takes up more than one line. Bash / Zsh scripts usually can do the
-        trick, but many times TCL ends up creating a much more intelligent
-        product. I write about 1 TCL script per week.`
-    };
-
-    // Shorthand for line length
-    let skill = (name, level, time, icon) => ({
-      name, level, time, class: icon
-    });
-
-    this.skills = [
-      skill('Meteor',      'Advanced', '2 yrs',  'meteor'),
-      skill('Apache HTTP', 'Expert',   '17 yrs', 'apache-http'),
-      skill('NodeJS',      'Expert',   '4 yrs',  'nodejs'),
-      skill('Linux',       'Advanced', '16 yrs', 'linux'),
-      skill('MS Access',   'Advanced', '5 yrs',  'ms-access'),
-      skill('MySQL',       'Advanced', '13 yrs', 'mysql'),
-      skill('Oracle',      'Good',     '13 yrs', 'oracle'),
-      skill('PureMVC',     'Advanced', '5 yrs',  'puremvc'),
-      skill('SQL Server',  'Advanced', '13 yrs', 'sql-server'),
-      skill('Ansible',     'Advanced', '2 yrs',  'ansible'),
-    ];
-
-    this.languages = [
-      skill('NodeJS',         'Expert',   '4 yrs',  'nodejs'),
-      skill('Angular',        'Advanced', '2 yrs',  'angular'),
-      skill('Sass',           'Advanced', '2 yrs',  'sass'),
-      skill('Less CSS',       'Advanced', '3 yrs',  'less'),
-      skill('AJAX/DHTML',     'Expert',   '14 yrs', 'ajax-dhtml'),
-      skill('ASP',            'Expert',   '14 yrs', 'asp'),
-      skill('ASP.NET',        'Advanced', '6 yrs',  'asp-net'),
-      skill('AWK',            'Good',     '13 yrs', 'awk'),
-      skill('ActionScript 2', 'Expert',   '13 yrs', 'actionscript-2'),
-      skill('ActionScript 3', 'Expert',   '7 yrs',  'actionscript-3'),
-      skill('AutoHotkey',     'Expert',   '9 yrs',  'autohotkey'),
-      skill('BaSHellScript',  'Advanced', '18 yrs', 'bashellscript'),
-      skill('C / C++',        'Advanced', '23 yrs', 'c-c-'),
-      skill('C Sharp (C#)',   'Advanced', '6 yrs',  'c-sharp-c-'),
-      skill('CSS',            'Expert',   '14 yrs', 'css'),
-      skill('Cold Fusion',    'Good',     '15 yrs', 'cold-fusion'),
-      skill('Flex',           'Expert',   '5 yrs',  'flex'),
-      skill('GWBasic',        'Expert',   '20 yrs', 'gwbasic'),
-      skill('HTML 4',         'Expert',   '18 yrs', 'html-4'),
-      skill('JScript',        'Advanced', '16 yrs', 'jscript'),
-      skill('Java',           'Good',     '14 yrs', 'java'),
-      skill('LISP',           'Good',     '8 yrs',  'lisp'),
-      skill('Objective-C',    'Fair',     '3 yrs',  'objective-c'),
-      skill('PHP',            'Expert',   '12 yrs', 'php'),
-      skill('Pascal',         'Good',     '17 yrs', 'pascal'),
-      skill('Perl',           'Good',     '17 yrs', 'perl'),
-      skill('QBasic',         'Expert',   '19 yrs', 'qbasic'),
-      skill('SGML',           'Expert',   '14 yrs', 'sgml'),
-      skill('TCL',            'Advanced', '13 yrs', 'tcl'),
-      skill('VBScript',       'Expert',   '17 yrs', 'vbscript'),
-      skill('Visual Basic',   'Advanced', '18 yrs', 'visual-basic'),
-      skill('XML',            'Expert',   '15 yrs', 'xml'),
-      skill('haXe',           'Advanced', '6 yrs',  'haxe'),
-    ];
-
-    this.jobs = [
-      {
-        company: 'VoidRay Co',
-        time:    ['2012', '2016'],
-        title:   'Senior Software Developer',
-        skills:  ['C++', 'PHP', 'BaSHellScript', 'Ansible', 'TCL', 'Perl', 'AJAX', 'CSS', 'Objective-C', 'HTML', 'TCL', 'AWK', 'Java', 'GlassFish', 'Angular'],
-        things:  [
-          'Engineered NodeJS MySQL WebSockets system to allow secure streaming of SQL data through a firewall. This allowed us to present custom reports to clients who had no way to provide access to their internal database.',
-          'Developed system to translate Google Analytics into graphs that real people can use. The server is written in NodeJS using JSON Web Tokens (JWT) to enable rapid scaling. It communicates with Google Analytics via oAuth. The web interface is written in Angular, using D3 for the responsive graphs.',
-          'Wrote system to migrate old inventory system from SQL to Mongo. As a result, we managed to migrate a customer E-Commerce application into Shopify one third of the time of the competition.',
-          'Wrote system to scrape financial data from a bank for private use. The bank api was severely lacking in manner of presentation and interaction. This app saved the customer over $78,000 per year.',
-        ],
-      },
-      {
-        company: 'KloudNation',
-        time:    ['2015', '2015'],
-        title:   'Software Developer',
-        skills:  ['C++', 'NodeJS', 'Ansible', 'Java', 'SaltStack', 'AJAX', 'CSS', 'Objective-C', 'Swift', 'HTML', 'Angular', 'Meteor'],
-        things:  [
-          'Created job processing network that auto-scaled it\'s topology between 20 and 200 servers based on the demand.',
-          'Developed website for merging and comparing datasets from different vendors and generating reports based on the results.',
-          'Developed augmented reality app for iPhone and Android that used beacons to perform translateration. This resulted in precision tracking of customers at an event while providing an immersive experience at the same time.',
-        ],
-      },
-      {
-        company: 'Symfono Corporation',
-        time:    ['2010', '2012'],
-        title:   'Senior Software Developer',
-        skills:  ['C++', 'PHP', 'BaSHellScript', 'TCL', 'Perl', 'AJAX', 'CSS', 'Objective-C', 'HTML', 'TCL', 'AWK', 'Java', 'GlassFish'],
-        things:  [
-          'Developed augmented reality application to enable people to see their Social Media friends overlaid on the real environment. The application also allowed the vendor to place objects, scripts, or advertisements in the environment.',
-          'Developed server synchronization system to mirror data from arbitrary server into our own server.',
-          'Wrote iOS GUI prototype that allowed development on the iPhone do download and run a GUI. This enabled faster development of the final application interface.',
-          'Implemented streaming data compression algorithm to enable us to transmit binary data faster in a statically typed environment. This enabled us to display live data in a C++ application in a changing environment.',
-          'Developed application server to transmit the scenegraph data to the iOS devices. The server utilized user roles to ensure appropriate access to the streamed data. The server also utilized versioning to ensure that the correct protocol was used for each device.',
-        ],
-      },
-      {
-        company: 'Odyssey Communications Group',
-        time:    ['2009', '2010'],
-        title:   'Senior Software Developer',
-        skills:  ['C++', 'PHP', 'BaSHellScript', 'TCL', 'Perl', 'AJAX', 'CSS', 'Flex', 'Objective-C', 'ActionScript 3', 'HTML', 'TCL', 'AWK', 'Cold Fusion'],
-        things:  [
-          'Architected a digital scoreboard server and client system to track real-time game information across a network. My knowledge of PureMVC and ActionScript 3 were critical in the successful completion and stability of this project.',
-          'Routed out a significant long-standing flaw which was crippling server stability. My decisive resolution prevented the loss of critical data, and saved 8 hours of lost time per week demonstrating highly capable problem solving skills as well as a keen knowledge of OSX core structure.',
-          'Played a critical role in the smooth migration of 600 customers to new server with a total of less than 7 minutes downtime. The new server provided more scalability and speed as well as preventing the eminent corruption of customer data.',
-        ],
-      },
-      {
-        company: 'Pursuant Group',
-        time:    ['2008', '2009'],
-        title:   'Software Developer',
-        skills:  ['AJAX', 'XML', 'Flex', 'ASP.net', 'ActionScript 3', 'HTML', 'VBScript'],
-        things:  [
-          'Worked as part of a team of 15 highly experienced developers to produce a rich internet application for social networking to the the flagship product for the company. Managed to bring team of different backgrounds together with emphasis on fostering teamwork and effective communication.',
-          'Attended class on Flex and PureMVC and brought the information back to present to the team. This resulted in a more skilled and cohesive workforce and saved $6,000 in training costs.',
-        ],
-      },
-      {
-        company: 'United States Air Force',
-        time:    ['2003', '2008'],
-        title:   'Communications and Computer Systems Project Manager',
-        skills:  ['HTML', 'Java', 'Javascript', 'C++', 'Cobal', 'Oracle', 'VBScript', 'JScript', 'MS Access', 'WMI', 'Lisp', 'AutoCad', 'Visio', 'MicroStation'],
-        things:  [
-          'Trained 600 persons in use of Oracle based telecommunications management software',
-          'Upgraded Telecommunications Management Server to interface with more than 27,000 phones and computer systems across base network.',
-          'Implemented IPv6 compatible network, running voice and data over same infrastructure in preparation for Voice Over IP technology.',
-          'Managed communications infrastructure records showing overall network topology and 3D geospatial network structure including internal facility wiring.',
-          'Executed 7 projects for installing aircraft monitoring systems in conjunction with base network.',
-          'Established new airfield security system, rivaling 3 previously failed attempts by security team.',
-          'Taught seven computer programming classes in the object oriented languages C++ and Java.',
-          'Taught classes for combat preparation, weapons utilization and maintenance, and tactics.',
-          'Certified CPR Instructor',
-          'Instructed classes on Field Triage, First Aid, Biological Defense, and Explosive Ordinance',
-        ],
-      },
-      {
-        company: 'Cantex Management',
-        time:    ['2001', '2003'],
-        title:   'Information Technology',
-        skills:  ['SGML', 'HTML', 'XML', 'Flash', 'Assembly Language', 'Java', 'VBScript', 'JScript', 'MySQL'],
-        things:  [
-          'Managed Microsoft Windows Server 2003 with less than 50 clients. Created and managed net-centric video surveillance system to monitor retail stores in 7 states. Developed electronic interactive training system for employees with home-accessible web based interface',
-        ],
-      },
-      {
-        company: 'Nortel Networks',
-        time:    ['1999', '2001'],
-        title:   'Training and Documentation Department',
-        skills:  ['AJAX', 'XML', 'Flex', 'ASP.net', 'ActionScript 3', 'HTML', 'VBScript'],
-        things:  [
-          'Provided classes on authoring by use of SGML technology Migrated 500 users from Microsoft Works to Adobe FrameMaker SGML Created software to convert between Microsoft Works, SGML, HTML, XML, and PostScript. Collaborated with Tiger Team for establishing web-based training site Created web-based Trouble Management System to integrate with Remedy Software and decentralize help-desk operations.',
-        ],
-      },
-    ];
+  constructor($stateParams) {
+    let user = $stateParams.user || 'sam';
+    Object.assign(this, users[user] || users.sam);
   }
 }
 
 module.exports = HomeController;
 
-},{}],6:[function(require,module,exports){
+},{"./data.chris.js":6,"./data.eric.js":7,"./data.sam.js":8}],6:[function(require,module,exports){
+/* eslint max-len: 'off' */
+
+// Shorthand for line length
+let skill = (name, level, time, icon) => ({
+  name, level, time, class: icon
+});
+
+module.exports = {
+  name:       'Chris Byler',
+  paragraphs: [
+    `His degree in Electrical Engineering will be critical for establishing a
+    stable charging environment and dealing with communication between the
+    Charge Point and the actual charging hardware.`,
+    `For fun, he developed a backup sensor for a real-world vehicle during his
+    time at the University of Texas at Dallas. The motion sensor was written for
+    the Texas Instruments MSP 430 and utilized an onboard wireless antenna to
+    communicate with the rest of the instrumentation of the vehicle.`,
+    `Chris was in the Math club of the University of Texas at Dallas. His
+    ability to crunch numbers in his head while working is extremely helpful
+    when working in teams.`,
+  ],
+  favorites: {
+    'Team Player':
+      `Currently Chris works in a team of 30 software developers and integrates
+      with them on a daily basis to help the entire team complete tasks on time.
+      Previous work as a Production Support Manager heightens his strength as
+      a team member in understanding that the health of the whole team is what
+      ultimately results in a successful deployment.`,
+    'User Interface':
+      `Chris has a passion for developing useful interfaces for his users. He
+      relates strongly to the frustrations of users pawing ineffectually at the
+      screens presented by primitive systems. He has created control panels in
+      AS3, React, OpenGL, C++, and Swing`,
+    'Wireless':
+      `His work in electrical engineering has given him experience working with
+      low-level antennae and bluetooth networking.`,
+  },
+  skills:    [],
+  languages: [],
+  jobs:      [
+    {
+      company: 'One Network Enterprises',
+      time:    ['Present', '2013'],
+      title:   'Software Engineer',
+      skills:  [],
+      things:  [
+        `Software Engineer ­ Developer on the Platform team from which the core
+        technology stemmed in the company.`,
+        `New Front End UI ­ Developed and integrated visual enhancements for the
+        main UI of the technology. Worked with the in house designer to
+        implement the desired look and feel of the application while providing
+        suggestions for further enhancements.`,
+        `3D Framework ­ Scoped and worked on implementing a 3D framework to
+        model the company’s data model for representing a Supply Chain. This
+        included writing a working system for Flash + Away3D at first, then
+        reformatting to the suggested platform of Unity. This interface includes
+        2D and 3D elements with interactive components that a user can
+        manipulate to seamlessly interact with the backend data. This seamless
+        interaction worked via a complicated bridging system between plugin and
+        browser javascript which communicated to a Java server backend for
+        persistence.`,
+        `Design Patterns (New Framework RnD) ­ Encouraged and worked with
+        co­workers to develop a new methodology of implementing new UIs by
+        introducing design patterns to the legacy system. This has led to the
+        exploration and implementation of new features in an MVP and FLUX
+        pattern while testing and trying modern frameworks such as React,
+        Requirejs, Underscore, and many others to find the ideal pipeline. We
+        used our research to integrate older legacy implementations to the newer
+        patterns.`,
+        `Build Processes and new Javascript Standards ­ E ngineered and
+        integrated build processes to include a workflow for utilizing new Web
+        standards such as ES6 and module support. This had many technical
+        requirements to work with legacy systems and support a crossover of CMD
+        and AMD module loading to allow for partial bundling of the Client’s SPA
+        code base. This also included integrating ReactJS with the system and
+        support injecting other third party libraries into the company’s
+        workflow.`,
+      ],
+    },
+    {
+      company: 'Symfono, Inc',
+      time:    ['2012', '2013'],
+      title:   'Software Engineer',
+      skills:  [],
+      things:  [
+        `iOS Soccer App ­ Implemented code for creating a mobile app that
+        communicated with a data server to present soccer games play by play in
+        an easy to understand interface which required over 70,000 lines of
+        stable code in Objective­C, C++, JavaScript, HTML, and Java that adhered
+        to a MVC code pattern.`,
+        `Java Server ­ Implemented a java Glassfish server that hosted data to a
+        large scale client base which incorporated EJB and JPA code patterns.`,
+        `Data Standard Parsing ­ Created a STAX parser that analyzed a
+        complicated data structure from Opta that detailed out soccer games and
+        saved the data in a format that could be served to clients to view
+        graphical representations of games being played.`,
+        `Cross Platform ­ Implemented a code design that bridged Objective­c and
+        C++ where the project could be broken into cross platform and OS
+        dependent pieces to improve portability.`,
+        'OpenGL API ­ Developed an API in objective­c for working with OpenGL.',
+        `Augmented Reality ­ Researched and implemented use of monocular (single
+        camera) technologies for mapping real life environments for use in
+        Augmented Reality applications.`,
+      ],
+    },
+    {
+      company: 'Caltrop Interactive',
+      time:    ['2011', '2012'],
+      title:   'Software Engineer',
+      skills:  [],
+      things:  [
+        `Web Development ­ Developed website for potential Political Candidate
+        using Drupal Framework.`,
+        `Research ­ Fulfilled a contract with Raytheon to draw up a research
+        document whose nature is under NDA with the company.`,
+        `Android App ­ Fulfilled a contract with Raytheon to develop an Android
+        mobile application to aid in streamlining processes. Details on this
+        project are under NDA.`,
+        `Bluetooth Network ­ Worked with Bluetooth networking using the Android
+        development kit where thorough knowledge of Bluetooth specifications was
+        used to implement networking capabilities between numerous devices.`,
+      ],
+    },
+    {
+      company: 'Consulting',
+      time:    [],
+      title:   'Software Engineer',
+      skills:  [],
+      things:  [
+        `Professional Code Review ­ Performed code reviewing for the GeoTag
+        patent court case for patent number 5,930,474 which was brought against
+        hundreds of defendants.`,
+        `Web Development ­ Worked on numerous websites, helping with
+        implementing the site using php, java, C#, javascript, and Flash to make
+        the required designs a reality.`,
+        `American Airlines ­ Developed the flash components needed for a
+        MetroPCS “What Phone Are You” app that was used in a kiosk display in
+        the American Airlines Center.`,
+        `Sour Jacks ­ Developed the iPad “pucker up” application for a company
+        that needed a specific graphical distortion to photos taken with the
+        ipad which were then sent to a server which printed the images for the
+        company’s clients at a kiosk booth where they were advertising.`,
+      ],
+    },
+  ],
+  education: [{
+    name:    'University of Texas at Dallas',
+    degrees: [
+      {name: 'B.S. in Electrical Engineering', year: 2010},
+    ]
+  }],
+};
+
+},{}],7:[function(require,module,exports){
+/* eslint max-len: 'off' */
+
+// Shorthand for line length
+let skill = (name, level, time, icon) => ({
+  name, level, time, class: icon
+});
+
+module.exports = {
+  name:       'Eric Fonenault',
+  paragraphs: [
+    `Eric has a passion for mobile development and has been making people's
+    lives better for the last 10 years ranging from network solutions for
+    banks, to media libraries for online content delivery companies.`,
+    `He is very conformant to the accepted practices of the language and team
+    on which he works. His experience writing applications for Android and
+    iOS (as well as Roku, Apple TV, and Chromecast) make him an invaluable
+    member of the team.`,
+    'Some of Eric\'s main strengths are:',
+  ],
+  favorites: {
+    'Agile':
+      `Working in an agile environment at RightNow Media has brought
+      productivity and teamwork to a new high. When Eric finishes his work, he
+      switches languages and technologies to jump on board with the other
+      members of the team and complete the current story on time.`,
+    'Deployment':
+      `Extensive work with Team City, Jenkins, and Octopus Deploy has given
+      Eric the foundational knowledge necessary to implement soft code updates
+      over a vast network of devices.`,
+    'REST':
+      `Working in online content delivery and the GameView servers has given
+      Eric an appreciation of the REST protocol and best practices.`,
+    'Messaging':
+      `Eric has previously worked with applications that needed to support real
+      time messages in the social world. Whether sockets or long-polling, he
+      understands the necessity of lightweight rapid message synchronization.`,
+    'TCL':
+      `I use TCL / Expect to write anything that has to be done with CLI, but
+      takes up more than one line. Bash / Zsh scripts usually can do the
+      trick, but many times TCL ends up creating a much more intelligent
+      product. I write about 1 TCL script per week.`
+  },
+  skills:    [],
+  languages: [],
+  jobs:      [
+    {
+      company: 'RightNow Media',
+      time:    ['2015', 'Present'],
+      title:   'Software Developer',
+      skills:  [],
+      things:  [
+        `Utilized REST API to communicate between Application Interface server,
+        Android, iPhone, Apple TV, Roku, and Chromecast devices.`,
+        `Implemented several modules for the C# MVC backend in order to bring
+        new products and features to an existing infrastructure. This brough
+        the current technology current by incorporating some of the current
+        best practices.`,
+        `Developed scrollview, and grid scrollview for iOS to display product
+        listings from the RightNow Media Application Interface server in a
+        convenient familiar interface to native Apple users. The views utilized
+        Apple transitions, which demonstrates a high level of experience.`,
+      ],
+    },
+    {
+      company: 'Heartland Payment Systems',
+      time:    ['2015', '2013'],
+      title:   'Programmer Analyst',
+      skills:  [],
+      things:  [
+        `Successfully led a small team in rebuilding our Dispute Management
+        website for the purposes of removing Silverlight and improving
+        performance. We used an HTML/AngularJS frontend supported by a RESTful
+        API built with ASP.NET’s Web Api 2 framework and were able to improve
+        load times by optimizing code and significantly reducing the number of
+        database requests.`,
+        `Performed development on credit card transaction processing services
+        that utilize an event-driven architecture backed by a RabbitMQ message
+        broker. These systems were responsible for processing all of the
+        transactions processed by Heartland Payment Systems.`,
+        `Created a event-driven web app using javascript and the WebApi
+        framework that captures errors in our transaction processing systems,
+        providing Operations with an interface to identify major problems in the
+        pipeline and reprocess failed transactions.`,
+        `Worked with another developer to maintain our Silverlight-based web
+        app, including bringing the app up to the latest PCI standards. This app
+        is responsible for handling disputed transactions for all of our
+        merchants.`,
+        `Assisted a brand new junior developer by sharing my knowledge of
+        programming whenever possible in a collaborative environment.`,
+      ],
+    },
+    {
+      company: 'VoidRay, LLC',
+      time:    ['2013', '2013'],
+      title:   'Software Developer',
+      skills:  [],
+      things:  [
+        `Diligently applied myself to learning PHP and the Jackal PHP
+        framework.`,
+        `Collaborated with team members to create a PHP server that provides an
+        API to retrieve pivot-table data sets from a customer’s product database.
+        Using data access and abstraction layers, the API is able to provide a
+        uniform interface while accounting for differences between product
+        versions.`,
+        `Using PHP, I assisted in developing a database forensics tools to aid in
+        locating specific information and understanding how data is related.`,
+        'Implemented bug fixes in customers’ custom C# applications.',
+      ],
+    },
+    {
+      company: 'Symfono Corporation',
+      time:    ['2010', '2012'],
+      title:   'Senior Software Developer',
+      skills:  ['C++', 'PHP', 'BaSHellScript', 'TCL', 'Perl', 'AJAX', 'CSS', 'Objective-C', 'HTML', 'TCL', 'AWK', 'Java', 'GlassFish'],
+      things:  [
+        'Developed augmented reality application to enable people to see their Social Media friends overlaid on the real environment. The application also allowed the vendor to place objects, scripts, or advertisements in the environment.',
+        'Developed server synchronization system to mirror data from arbitrary server into our own server.',
+        'Wrote iOS GUI prototype that allowed development on the iPhone do download and run a GUI. This enabled faster development of the final application interface.',
+        'Implemented streaming data compression algorithm to enable us to transmit binary data faster in a statically typed environment. This enabled us to display live data in a C++ application in a changing environment.',
+        'Developed application server to transmit the scenegraph data to the iOS devices. The server utilized user roles to ensure appropriate access to the streamed data. The server also utilized versioning to ensure that the correct protocol was used for each device.',
+      ],
+    },
+    {
+      company: 'Symfono',
+      time:    ['2012', '2013'],
+      title:   'Senior Software Developer',
+      skills:  [],
+      things:  [
+        `Demonstrated a passionate level of commitment and a willingness to
+        further develop skills in several areas while working as a member of a
+        team responsible for the creation of the following products:`,
+        `Using PureMVC to shape our C, C++, and Objective-C code, my team
+        created an iPad app that visualizes match data for professional and
+        international soccer games. This innovative technology provides a new
+        and immersive way for fans to follow their favorite teams. This app is
+        currently in the iTunes App Store.`,
+        `The GameView Engine is the web server that drives the GameView app.
+        Using Java, MySQL, and GlassFish, we transform and interpret the data
+        stream containing soccer game data from our 3rd party statistics
+        provider and encode in the Hessian Binary Web Service Protocol to be
+        transmitted to the client.`,
+        `Also driven by the GameView Engine, our GameView API allows clients to
+        embed a JavaScript port of our GameView product into their websites. `,
+      ],
+    },
+    {
+      company: 'InTouch Credit Union',
+      time:    ['2009', '2012'],
+      title:   'Network Technician',
+      skills:  [],
+      things:  [
+        `Designed and built a database-driven system using SQL Sever 2010
+        Express and Windows PowerShell for keeping track of all active
+        workstations on our network, tracking the progress of workstation-level
+        projects, as well as recording and managing the security IDs for our
+        core financial system.`,
+        `Created an "IT Dashboard" as a centralized tool for computer and AD
+        account maintenance using the .NET features in Windows PowerShell.`,
+        `Streamlined several time-consuming manual processes through use of
+        Windows PowerShell, such as renaming printers on remote workstations,
+        managing the Proxy Server setting in IE at the branch level, and
+        scripting the installation and customization of our new core financial
+        system.`,
+        `Successfully tasked with maintaining the health of our physical network
+        at all 20 branch locations.`,
+        `Managed Active Directory, created Group Policy Objects, and maintained
+        our DNS server on Server 2003 and Server 2008 R2.`,
+        `Demonstrated adept troubleshooting skills in diagnosing and repairing
+        Windows XP and Windows 7 computers.`,
+        `Active member of an internal committee designed to analyze current
+        processes to cut costs, drive revenue, and increase employee
+        retention.`,
+      ],
+    },
+    {
+      company: 'Ameripath',
+      time:    ['2008', '2009'],
+      title:   'Level 1 and 2 Support Technician',
+      skills:  ['HTML', 'Java', 'Javascript', 'C++', 'Cobal', 'Oracle', 'VBScript', 'JScript', 'MS Access', 'WMI', 'Lisp', 'AutoCad', 'Visio', 'MicroStation'],
+      things:  [
+        `Maintained the IT Helpdesk by providing accurate and insightful support
+        for Windows XP and Office 2003, giving phone and email coverage,
+        creating and following up on problem tickets, troubleshooting VPN and
+        printer issues, and documenting the flow of information between specific
+        service desks and the affected users. `,
+        `Frequently utilized Remote Desktop and Dameware to access remote
+        systems to effectively diagnose and resolve OS and software issues. `,
+        `Responsible for the creation and maintenance of Active Directory and
+        Exchange accounts.`,
+        `Demonstrated ability to listen to clients’ issues and identify the root
+        problem.`,
+        `Displayed patience and respect while working through stressful
+        situations with clients`,
+        `Showed the ability to learn quickly while working to understand company
+        protocols and extensive system structure`,
+        `Employed excellent problem solving skills through diagnosing and
+        repairing hardware and software issues`,
+      ],
+    },
+  ],
+  education: [{
+    name:    'Grove City College, Grove City, PA',
+    degrees: [
+      {name: 'B.S. Computer Science', year: 2007},
+      {name: 'B.S. Computer Information Systems', year: 2007},
+    ]
+  }],
+};
+
+},{}],8:[function(require,module,exports){
+/* eslint max-len: 'off' */
+
+// Shorthand for line length
+let skill = (name, level, time, icon) => ({
+  name, level, time, class: icon
+});
+
+module.exports = {
+  name:       'Samuel Dillow',
+  paragraphs: [
+    `The main thing people ask me is what language do you program in. Strange
+    question, as most good programmers can program in nearly any language. I
+    started programming when I was 8, so I have racked up experience in over
+    40 languages to this point.`,
+    `In the United States Air Force I learned about leadership and the
+    importance of structure. Combining my passion for programming and the
+    experience of the US Military I have led several teams in the development
+    and delivery of disparate software solutions.`,
+    'However, my favorite languages are C++, NodeJS, and Java.',
+  ],
+  favorites: {
+    'C++':
+      `I use C++ when I write command line utilities that need to do things
+      that regular scripts cannot. I write about 6 command line programs per
+      year.`,
+    'NodeJS':
+      `Since V8 has revamped the JavaScript world, I've been writing
+      applications in JavaScript. I find it to be tons faster and more stable.
+      Now that NodeJS has a CLR, it's an excellent platform to write fast and
+      responsive cross-platform code. I've written server apps with it, and
+      used Electron (and nw.js) to write GUI apps.`,
+    'Java':
+      `Java has a lot of trouble doing operating system specific tasks, so
+      it's great for writing a cross-platform application. I use Java for
+      command line utilities and web servers. I write about 1 Java program per
+      month.`,
+    'TCL':
+      `I use TCL / Expect to write anything that has to be done with CLI, but
+      takes up more than one line. Bash / Zsh scripts usually can do the
+      trick, but many times TCL ends up creating a much more intelligent
+      product. I write about 1 TCL script per week.`
+  },
+  skills: [
+    skill('Meteor',      'Advanced', '2 yrs',  'meteor'),
+    skill('Apache HTTP', 'Expert',   '17 yrs', 'apache-http'),
+    skill('NodeJS',      'Expert',   '4 yrs',  'nodejs'),
+    skill('Linux',       'Advanced', '16 yrs', 'linux'),
+    skill('MS Access',   'Advanced', '5 yrs',  'ms-access'),
+    skill('MySQL',       'Advanced', '13 yrs', 'mysql'),
+    skill('Oracle',      'Good',     '13 yrs', 'oracle'),
+    skill('PureMVC',     'Advanced', '5 yrs',  'puremvc'),
+    skill('SQL Server',  'Advanced', '13 yrs', 'sql-server'),
+    skill('Ansible',     'Advanced', '2 yrs',  'ansible'),
+  ],
+  languages: [
+    skill('NodeJS',         'Expert',   '4 yrs',  'nodejs'),
+    skill('Angular',        'Advanced', '2 yrs',  'angular'),
+    skill('Sass',           'Advanced', '2 yrs',  'sass'),
+    skill('Less CSS',       'Advanced', '3 yrs',  'less'),
+    skill('AJAX/DHTML',     'Expert',   '14 yrs', 'ajax-dhtml'),
+    skill('ASP',            'Expert',   '14 yrs', 'asp'),
+    skill('ASP.NET',        'Advanced', '6 yrs',  'asp-net'),
+    skill('AWK',            'Good',     '13 yrs', 'awk'),
+    skill('ActionScript 2', 'Expert',   '13 yrs', 'actionscript-2'),
+    skill('ActionScript 3', 'Expert',   '7 yrs',  'actionscript-3'),
+    skill('AutoHotkey',     'Expert',   '9 yrs',  'autohotkey'),
+    skill('BaSHellScript',  'Advanced', '18 yrs', 'bashellscript'),
+    skill('C / C++',        'Advanced', '23 yrs', 'c-c-'),
+    skill('C Sharp (C#)',   'Advanced', '6 yrs',  'c-sharp-c-'),
+    skill('CSS',            'Expert',   '14 yrs', 'css'),
+    skill('Cold Fusion',    'Good',     '15 yrs', 'cold-fusion'),
+    skill('Flex',           'Expert',   '5 yrs',  'flex'),
+    skill('GWBasic',        'Expert',   '20 yrs', 'gwbasic'),
+    skill('HTML 4',         'Expert',   '18 yrs', 'html-4'),
+    skill('JScript',        'Advanced', '16 yrs', 'jscript'),
+    skill('Java',           'Good',     '14 yrs', 'java'),
+    skill('LISP',           'Good',     '8 yrs',  'lisp'),
+    skill('Objective-C',    'Fair',     '3 yrs',  'objective-c'),
+    skill('PHP',            'Expert',   '12 yrs', 'php'),
+    skill('Pascal',         'Good',     '17 yrs', 'pascal'),
+    skill('Perl',           'Good',     '17 yrs', 'perl'),
+    skill('QBasic',         'Expert',   '19 yrs', 'qbasic'),
+    skill('SGML',           'Expert',   '14 yrs', 'sgml'),
+    skill('TCL',            'Advanced', '13 yrs', 'tcl'),
+    skill('VBScript',       'Expert',   '17 yrs', 'vbscript'),
+    skill('Visual Basic',   'Advanced', '18 yrs', 'visual-basic'),
+    skill('XML',            'Expert',   '15 yrs', 'xml'),
+    skill('haXe',           'Advanced', '6 yrs',  'haxe'),
+  ],
+  jobs: [
+    {
+      company: 'VoidRay Co',
+      time:    ['2012', '2016'],
+      title:   'Senior Software Developer',
+      skills:  ['C++', 'PHP', 'BaSHellScript', 'Ansible', 'TCL', 'Perl', 'AJAX', 'CSS', 'Objective-C', 'HTML', 'TCL', 'AWK', 'Java', 'GlassFish', 'Angular'],
+      things:  [
+        'Engineered NodeJS MySQL WebSockets system to allow secure streaming of SQL data through a firewall. This allowed us to present custom reports to clients who had no way to provide access to their internal database.',
+        'Developed system to translate Google Analytics into graphs that real people can use. The server is written in NodeJS using JSON Web Tokens (JWT) to enable rapid scaling. It communicates with Google Analytics via oAuth. The web interface is written in Angular, using D3 for the responsive graphs.',
+        'Wrote system to migrate old inventory system from SQL to Mongo. As a result, we managed to migrate a customer E-Commerce application into Shopify one third of the time of the competition.',
+        'Wrote system to scrape financial data from a bank for private use. The bank api was severely lacking in manner of presentation and interaction. This app saved the customer over $78,000 per year.',
+      ],
+    },
+    {
+      company: 'KloudNation',
+      time:    ['2015', '2015'],
+      title:   'Software Developer',
+      skills:  ['C++', 'NodeJS', 'Ansible', 'Java', 'SaltStack', 'AJAX', 'CSS', 'Objective-C', 'Swift', 'HTML', 'Angular', 'Meteor'],
+      things:  [
+        'Created job processing network that auto-scaled it\'s topology between 20 and 200 servers based on the demand.',
+        'Developed website for merging and comparing datasets from different vendors and generating reports based on the results.',
+        'Developed augmented reality app for iPhone and Android that used beacons to perform translateration. This resulted in precision tracking of customers at an event while providing an immersive experience at the same time.',
+      ],
+    },
+    {
+      company: 'Symfono Corporation',
+      time:    ['2010', '2012'],
+      title:   'Senior Software Developer',
+      skills:  ['C++', 'PHP', 'BaSHellScript', 'TCL', 'Perl', 'AJAX', 'CSS', 'Objective-C', 'HTML', 'TCL', 'AWK', 'Java', 'GlassFish'],
+      things:  [
+        'Developed augmented reality application to enable people to see their Social Media friends overlaid on the real environment. The application also allowed the vendor to place objects, scripts, or advertisements in the environment.',
+        'Developed server synchronization system to mirror data from arbitrary server into our own server.',
+        'Wrote iOS GUI prototype that allowed development on the iPhone do download and run a GUI. This enabled faster development of the final application interface.',
+        'Implemented streaming data compression algorithm to enable us to transmit binary data faster in a statically typed environment. This enabled us to display live data in a C++ application in a changing environment.',
+        'Developed application server to transmit the scenegraph data to the iOS devices. The server utilized user roles to ensure appropriate access to the streamed data. The server also utilized versioning to ensure that the correct protocol was used for each device.',
+      ],
+    },
+    {
+      company: 'Odyssey Communications Group',
+      time:    ['2009', '2010'],
+      title:   'Senior Software Developer',
+      skills:  ['C++', 'PHP', 'BaSHellScript', 'TCL', 'Perl', 'AJAX', 'CSS', 'Flex', 'Objective-C', 'ActionScript 3', 'HTML', 'TCL', 'AWK', 'Cold Fusion'],
+      things:  [
+        'Architected a digital scoreboard server and client system to track real-time game information across a network. My knowledge of PureMVC and ActionScript 3 were critical in the successful completion and stability of this project.',
+        'Routed out a significant long-standing flaw which was crippling server stability. My decisive resolution prevented the loss of critical data, and saved 8 hours of lost time per week demonstrating highly capable problem solving skills as well as a keen knowledge of OSX core structure.',
+        'Played a critical role in the smooth migration of 600 customers to new server with a total of less than 7 minutes downtime. The new server provided more scalability and speed as well as preventing the eminent corruption of customer data.',
+      ],
+    },
+    {
+      company: 'Pursuant Group',
+      time:    ['2008', '2009'],
+      title:   'Software Developer',
+      skills:  ['AJAX', 'XML', 'Flex', 'ASP.net', 'ActionScript 3', 'HTML', 'VBScript'],
+      things:  [
+        'Worked as part of a team of 15 highly experienced developers to produce a rich internet application for social networking to the the flagship product for the company. Managed to bring team of different backgrounds together with emphasis on fostering teamwork and effective communication.',
+        'Attended class on Flex and PureMVC and brought the information back to present to the team. This resulted in a more skilled and cohesive workforce and saved $6,000 in training costs.',
+      ],
+    },
+    {
+      company: 'United States Air Force',
+      time:    ['2003', '2008'],
+      title:   'Communications and Computer Systems Project Manager',
+      skills:  ['HTML', 'Java', 'Javascript', 'C++', 'Cobal', 'Oracle', 'VBScript', 'JScript', 'MS Access', 'WMI', 'Lisp', 'AutoCad', 'Visio', 'MicroStation'],
+      things:  [
+        'Trained 600 persons in use of Oracle based telecommunications management software',
+        'Upgraded Telecommunications Management Server to interface with more than 27,000 phones and computer systems across base network.',
+        'Implemented IPv6 compatible network, running voice and data over same infrastructure in preparation for Voice Over IP technology.',
+        'Managed communications infrastructure records showing overall network topology and 3D geospatial network structure including internal facility wiring.',
+        'Executed 7 projects for installing aircraft monitoring systems in conjunction with base network.',
+        'Established new airfield security system, rivaling 3 previously failed attempts by security team.',
+        'Taught seven computer programming classes in the object oriented languages C++ and Java.',
+        'Taught classes for combat preparation, weapons utilization and maintenance, and tactics.',
+        'Certified CPR Instructor',
+        'Instructed classes on Field Triage, First Aid, Biological Defense, and Explosive Ordinance',
+      ],
+    },
+    {
+      company: 'Cantex Management',
+      time:    ['2001', '2003'],
+      title:   'Information Technology',
+      skills:  ['SGML', 'HTML', 'XML', 'Flash', 'Assembly Language', 'Java', 'VBScript', 'JScript', 'MySQL'],
+      things:  [
+        'Managed Microsoft Windows Server 2003 with less than 50 clients. Created and managed net-centric video surveillance system to monitor retail stores in 7 states. Developed electronic interactive training system for employees with home-accessible web based interface',
+      ],
+    },
+    {
+      company: 'Nortel Networks',
+      time:    ['1999', '2001'],
+      title:   'Training and Documentation Department',
+      skills:  ['AJAX', 'XML', 'Flex', 'ASP.net', 'ActionScript 3', 'HTML', 'VBScript'],
+      things:  [
+        'Provided classes on authoring by use of SGML technology Migrated 500 users from Microsoft Works to Adobe FrameMaker SGML Created software to convert between Microsoft Works, SGML, HTML, XML, and PostScript. Collaborated with Tiger Team for establishing web-based training site Created web-based Trouble Management System to integrate with Remedy Software and decentralize help-desk operations.',
+      ],
+    },
+  ],
+};
+
+},{}],9:[function(require,module,exports){
 const angular        = require('angular');
 require('angular-filter');
 const uiRouter       = require('angular-ui-router');
@@ -35236,7 +35614,7 @@ module.exports = angular.module('sammyd', [
 
   $stateProvider
   .state('home', {
-    url:          '',
+    url:          '/?user',
     templateUrl:  'dist/app/home.html',
     controllerAs: 'home',
     controller:   HomeController,
@@ -35248,14 +35626,14 @@ module.exports = angular.module('sammyd', [
 require('sam-resume/ui/box');
 require('sam-resume/resume/skill');
 
-},{"./HomeController":5,"angular":4,"angular-filter":1,"angular-ui-router":2,"sam-resume/resume/skill":8,"sam-resume/ui/box":11}],7:[function(require,module,exports){
+},{"./HomeController":5,"angular":4,"angular-filter":1,"angular-ui-router":2,"sam-resume/resume/skill":11,"sam-resume/ui/box":14}],10:[function(require,module,exports){
 
 require('sam-resume/app');
 
-},{"sam-resume/app":6}],8:[function(require,module,exports){
+},{"sam-resume/app":9}],11:[function(require,module,exports){
 module.exports = require('./skill');
 
-},{"./skill":9}],9:[function(require,module,exports){
+},{"./skill":12}],12:[function(require,module,exports){
 const app = require('sam-resume/app');
 
 app.directive('resumeSkill', () => ({
@@ -35272,7 +35650,7 @@ app.directive('resumeSkill', () => ({
 }))
 ;
 
-},{"sam-resume/app":6}],10:[function(require,module,exports){
+},{"sam-resume/app":9}],13:[function(require,module,exports){
 const app = require('sam-resume/app');
 
 app.directive('uiBox', () => ({
@@ -35286,7 +35664,7 @@ app.directive('uiBox', () => ({
   },
 }));
 
-},{"sam-resume/app":6}],11:[function(require,module,exports){
+},{"sam-resume/app":9}],14:[function(require,module,exports){
 module.exports = require('./box');
 
-},{"./box":10}]},{},[7])
+},{"./box":13}]},{},[10])
