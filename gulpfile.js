@@ -4,7 +4,6 @@
 const bourbon    = require('node-bourbon').includePaths;
 const browserify = require('gulp-browserify');
 const concat     = require('gulp-concat');
-const debug      = require('gulp-debug');
 const gls        = require('gulp-live-server');
 const gulp       = require('gulp');
 const path       = require('path');
@@ -63,7 +62,7 @@ gulp.task('images', () =>
 );
 
 // ----------[ JS : App ]----------------------------------------
-gulp.task('js:app', () =>
+gulp.task('js:app', ['html'], () =>
   gulp.src(NODE + 'sam-resume/index.js')
   .pipe(plumber())
   .pipe(browserify())
@@ -77,11 +76,16 @@ gulp.task('server', () => {
 });
 
 // ----------[ Watch ]----------------------------------------
-gulp.task('watch', () =>
+gulp.task('watch', () => {
   watch([
+    NODE + 'sam-resume/**/*.html',
+    NODE + 'sam-resume/*.js',
     NODE + 'sam-resume/**/*.js',
-    NODE + 'sam-resume/*.js'
   ], () =>
     gulp.start('js:app')
-  )
-);
+  );
+
+  watch(settings.appCSS.src, () =>
+    gulp.start('css:app')
+  );
+});

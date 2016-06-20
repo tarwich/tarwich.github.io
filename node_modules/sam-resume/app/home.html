@@ -5,8 +5,7 @@
   <div class='box section'>
     <div class='header'>Profile</div>
     <div class="content">
-      <p>The main thing people ask me is what language do you program in. Strange question, as most good programmers can program in nearly any language. I started programming when I was 8, so I have racked up experience in over 40 languages to this point.</p>
-      <p>However, my favorite languages are C++, NodeJS, and Java.</p>
+      <p ng-repeat="paragraph in home.paragraphs">{{ paragraph }}</p>
       <dl>
         <dt ng-repeat-start="(name, description) in home.favorites">{{ name }}</dt>
         <dd ng-repeat-end>{{ description }}</dd>
@@ -26,12 +25,15 @@
   <ui-box header="Employment" class="jobs">
     <div ng-repeat="job in home.jobs" class="job">
       <div class="times">
-        <span ng-repeat="time in job.time | orderBy:'-'" class="time">{{ time }}</span>
+        <span ng-repeat="time in job.time | orderBy:'-' track by $index" class="time">{{ time }}</span>
       </div>
       <div class="company">{{ job.company }}</div>
       <div class="title">{{ job.title }}</div>
       <div class="things" ng-repeat="thing in job.things">
         <span class="thing">{{ thing }}</span>
+      </div>
+      <div class="skills">
+        <span class="skill" ng-repeat="skill in job.skills | unique">{{ skill }}</span>
       </div>
     </div>
   </ui-box>

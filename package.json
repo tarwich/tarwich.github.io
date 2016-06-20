@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/nirkaufman/angular-webpack-starter",
   "devDependencies": {
+    "angular-filter": "0.5.8",
     "gulp": "3.9.1",
     "gulp-browserify": "0.5.1",
     "gulp-concat": "2.6.0",

@@ -26,9 +26,10 @@ dl dt {
 
 dl dd {
   margin-bottom: 10px;
-  margin-left: 100px;
-  padding-bottom: 10px;
-  border-bottom: 1px dotted rgba(0, 56, 199, 0.25); }
+  margin-left: 100px; }
+  dl dd:not(:last-child) {
+    padding-bottom: 10px;
+    border-bottom: 1px dotted rgba(0, 56, 199, 0.25); }
 
 .skills.box.section .content, .skills.box.section .content > ng-transclude, .languages.box.section .content, .languages.box.section .content > ng-transclude {
   align-content: space-around;
@@ -63,6 +64,8 @@ dl dd {
       background-image: url("app/images/logos/puremvc.png"); }
     .skills.box.section .content .skill.sql-server .img, .skills.box.section .content > ng-transclude .skill.sql-server .img, .languages.box.section .content .skill.sql-server .img, .languages.box.section .content > ng-transclude .skill.sql-server .img {
       background-image: url("app/images/logos/sql-server.png"); }
+    .skills.box.section .content .skill.meteor .img, .skills.box.section .content > ng-transclude .skill.meteor .img, .languages.box.section .content .skill.meteor .img, .languages.box.section .content > ng-transclude .skill.meteor .img {
+      background-image: url("app/images/logos/meteor.png"); }
     .skills.box.section .content .skill.actionscript-2 .img, .skills.box.section .content > ng-transclude .skill.actionscript-2 .img, .languages.box.section .content .skill.actionscript-2 .img, .languages.box.section .content > ng-transclude .skill.actionscript-2 .img {
       background-image: url("app/images/logos/actionscript-2.png"); }
     .skills.box.section .content .skill.actionscript-3 .img, .skills.box.section .content > ng-transclude .skill.actionscript-3 .img, .languages.box.section .content .skill.actionscript-3 .img, .languages.box.section .content > ng-transclude .skill.actionscript-3 .img {
@@ -165,6 +168,15 @@ dl dd {
   display: list-item;
   margin: 15px 0;
   margin-left: 45px; }
+
+.jobs .skills {
+  text-align: center; }
+
+.jobs .skill {
+  border: 1px solid #8c8cd9;
+  background-color: #b3b3ff;
+  border-width: 1px 0;
+  padding: 1px 2px; }
 
 .skill {
   display: inline-block;
