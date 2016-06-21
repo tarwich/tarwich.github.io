@@ -3,6 +3,7 @@
 // Libraries
 const bourbon    = require('node-bourbon').includePaths;
 const browserify = require('gulp-browserify');
+const babel      = require('gulp-babel');
 const concat     = require('gulp-concat');
 const gls        = require('gulp-live-server');
 const gulp       = require('gulp');
@@ -66,6 +67,7 @@ gulp.task('js:app', ['html'], () =>
   gulp.src(NODE + 'sam-resume/index.js')
   .pipe(plumber())
   .pipe(browserify())
+  .pipe(babel({presets: ['es2015']}))
   .pipe(rename(path.basename(settings.appJS.dest)))
   .pipe(gulp.dest(path.dirname(settings.appJS.dest)))
 );

@@ -228,6 +228,17 @@ dl dd {
   border-width: 1px 0;
   padding: 1px 2px; }
 
+.skill {
+  display: inline-block;
+  margin: 10px;
+  text-align: center; }
+  .skill .name {
+    display: block;
+    font-weight: bold; }
+  .skill img {
+    width: 100px;
+    height: 100px; }
+
 .box.section {
   margin: 15px 40px;
   border-radius: 5px;
@@ -251,14 +262,3 @@ dl dd {
       margin: 20px 0px; }
       .box.section .content p:first-of-type {
         margin-top: 0px; }
-
-.skill {
-  display: inline-block;
-  margin: 10px;
-  text-align: center; }
-  .skill .name {
-    display: block;
-    font-weight: bold; }
-  .skill img {
-    width: 100px;
-    height: 100px; }
