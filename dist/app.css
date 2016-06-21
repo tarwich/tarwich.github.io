@@ -48,88 +48,138 @@ dl dd {
       width: 100px; }
       .skills.box.section .content .skill .img img, .skills.box.section .content > ng-transclude .skill .img img, .languages.box.section .content .skill .img img, .languages.box.section .content > ng-transclude .skill .img img {
         display: none; }
-    .skills.box.section .content .skill.ansible .img, .skills.box.section .content > ng-transclude .skill.ansible .img, .languages.box.section .content .skill.ansible .img, .languages.box.section .content > ng-transclude .skill.ansible .img {
-      background-image: url("app/images/logos/ansible.png"); }
-    .skills.box.section .content .skill.apache-http .img, .skills.box.section .content > ng-transclude .skill.apache-http .img, .languages.box.section .content .skill.apache-http .img, .languages.box.section .content > ng-transclude .skill.apache-http .img {
-      background-image: url("app/images/logos/apache-http.png"); }
-    .skills.box.section .content .skill.linux .img, .skills.box.section .content > ng-transclude .skill.linux .img, .languages.box.section .content .skill.linux .img, .languages.box.section .content > ng-transclude .skill.linux .img {
-      background-image: url("app/images/logos/linux.png"); }
-    .skills.box.section .content .skill.ms-access .img, .skills.box.section .content > ng-transclude .skill.ms-access .img, .languages.box.section .content .skill.ms-access .img, .languages.box.section .content > ng-transclude .skill.ms-access .img {
-      background-image: url("app/images/logos/ms-access.png"); }
-    .skills.box.section .content .skill.mysql .img, .skills.box.section .content > ng-transclude .skill.mysql .img, .languages.box.section .content .skill.mysql .img, .languages.box.section .content > ng-transclude .skill.mysql .img {
-      background-image: url("app/images/logos/mysql.png"); }
-    .skills.box.section .content .skill.oracle .img, .skills.box.section .content > ng-transclude .skill.oracle .img, .languages.box.section .content .skill.oracle .img, .languages.box.section .content > ng-transclude .skill.oracle .img {
-      background-image: url("app/images/logos/oracle.png"); }
-    .skills.box.section .content .skill.puremvc .img, .skills.box.section .content > ng-transclude .skill.puremvc .img, .languages.box.section .content .skill.puremvc .img, .languages.box.section .content > ng-transclude .skill.puremvc .img {
-      background-image: url("app/images/logos/puremvc.png"); }
-    .skills.box.section .content .skill.sql-server .img, .skills.box.section .content > ng-transclude .skill.sql-server .img, .languages.box.section .content .skill.sql-server .img, .languages.box.section .content > ng-transclude .skill.sql-server .img {
-      background-image: url("app/images/logos/sql-server.png"); }
-    .skills.box.section .content .skill.meteor .img, .skills.box.section .content > ng-transclude .skill.meteor .img, .languages.box.section .content .skill.meteor .img, .languages.box.section .content > ng-transclude .skill.meteor .img {
-      background-image: url("app/images/logos/meteor.png"); }
     .skills.box.section .content .skill.actionscript-2 .img, .skills.box.section .content > ng-transclude .skill.actionscript-2 .img, .languages.box.section .content .skill.actionscript-2 .img, .languages.box.section .content > ng-transclude .skill.actionscript-2 .img {
       background-image: url("app/images/logos/actionscript-2.png"); }
     .skills.box.section .content .skill.actionscript-3 .img, .skills.box.section .content > ng-transclude .skill.actionscript-3 .img, .languages.box.section .content .skill.actionscript-3 .img, .languages.box.section .content > ng-transclude .skill.actionscript-3 .img {
       background-image: url("app/images/logos/actionscript-3.png"); }
     .skills.box.section .content .skill.ajax-dhtml .img, .skills.box.section .content > ng-transclude .skill.ajax-dhtml .img, .languages.box.section .content .skill.ajax-dhtml .img, .languages.box.section .content > ng-transclude .skill.ajax-dhtml .img {
       background-image: url("app/images/logos/ajax-dhtml.png"); }
+    .skills.box.section .content .skill.android .img, .skills.box.section .content > ng-transclude .skill.android .img, .languages.box.section .content .skill.android .img, .languages.box.section .content > ng-transclude .skill.android .img {
+      background-image: url("app/images/logos/android.png"); }
     .skills.box.section .content .skill.angular .img, .skills.box.section .content > ng-transclude .skill.angular .img, .languages.box.section .content .skill.angular .img, .languages.box.section .content > ng-transclude .skill.angular .img {
       background-image: url("app/images/logos/angular.png"); }
+    .skills.box.section .content .skill.ansible .img, .skills.box.section .content > ng-transclude .skill.ansible .img, .languages.box.section .content .skill.ansible .img, .languages.box.section .content > ng-transclude .skill.ansible .img {
+      background-image: url("app/images/logos/ansible.png"); }
+    .skills.box.section .content .skill.apache-http .img, .skills.box.section .content > ng-transclude .skill.apache-http .img, .languages.box.section .content .skill.apache-http .img, .languages.box.section .content > ng-transclude .skill.apache-http .img {
+      background-image: url("app/images/logos/apache-http.png"); }
     .skills.box.section .content .skill.asp-net .img, .skills.box.section .content > ng-transclude .skill.asp-net .img, .languages.box.section .content .skill.asp-net .img, .languages.box.section .content > ng-transclude .skill.asp-net .img {
       background-image: url("app/images/logos/asp-net.png"); }
     .skills.box.section .content .skill.asp .img, .skills.box.section .content > ng-transclude .skill.asp .img, .languages.box.section .content .skill.asp .img, .languages.box.section .content > ng-transclude .skill.asp .img {
       background-image: url("app/images/logos/asp.png"); }
     .skills.box.section .content .skill.autohotkey .img, .skills.box.section .content > ng-transclude .skill.autohotkey .img, .languages.box.section .content .skill.autohotkey .img, .languages.box.section .content > ng-transclude .skill.autohotkey .img {
       background-image: url("app/images/logos/autohotkey.png"); }
+    .skills.box.section .content .skill.away3d .img, .skills.box.section .content > ng-transclude .skill.away3d .img, .languages.box.section .content .skill.away3d .img, .languages.box.section .content > ng-transclude .skill.away3d .img {
+      background-image: url("app/images/logos/away3d.png"); }
     .skills.box.section .content .skill.awk .img, .skills.box.section .content > ng-transclude .skill.awk .img, .languages.box.section .content .skill.awk .img, .languages.box.section .content > ng-transclude .skill.awk .img {
       background-image: url("app/images/logos/awk.png"); }
-    .skills.box.section .content .skill.bashellscript .img, .skills.box.section .content > ng-transclude .skill.bashellscript .img, .languages.box.section .content .skill.bashellscript .img, .languages.box.section .content > ng-transclude .skill.bashellscript .img {
-      background-image: url("app/images/logos/bashellscript.png"); }
-    .skills.box.section .content .skill.c-c- .img, .skills.box.section .content > ng-transclude .skill.c-c- .img, .languages.box.section .content .skill.c-c- .img, .languages.box.section .content > ng-transclude .skill.c-c- .img {
-      background-image: url("app/images/logos/c-c-.png"); }
-    .skills.box.section .content .skill.c-sharp-c- .img, .skills.box.section .content > ng-transclude .skill.c-sharp-c- .img, .languages.box.section .content .skill.c-sharp-c- .img, .languages.box.section .content > ng-transclude .skill.c-sharp-c- .img {
-      background-image: url("app/images/logos/c-sharp-c-.png"); }
+    .skills.box.section .content .skill.bash .img, .skills.box.section .content > ng-transclude .skill.bash .img, .languages.box.section .content .skill.bash .img, .languages.box.section .content > ng-transclude .skill.bash .img {
+      background-image: url("app/images/logos/bash.png"); }
+    .skills.box.section .content .skill.bluetooth .img, .skills.box.section .content > ng-transclude .skill.bluetooth .img, .languages.box.section .content .skill.bluetooth .img, .languages.box.section .content > ng-transclude .skill.bluetooth .img {
+      background-image: url("app/images/logos/bluetooth.png"); }
     .skills.box.section .content .skill.cold-fusion .img, .skills.box.section .content > ng-transclude .skill.cold-fusion .img, .languages.box.section .content .skill.cold-fusion .img, .languages.box.section .content > ng-transclude .skill.cold-fusion .img {
       background-image: url("app/images/logos/cold-fusion.png"); }
+    .skills.box.section .content .skill.cplus .img, .skills.box.section .content > ng-transclude .skill.cplus .img, .languages.box.section .content .skill.cplus .img, .languages.box.section .content > ng-transclude .skill.cplus .img {
+      background-image: url("app/images/logos/cplus.png"); }
+    .skills.box.section .content .skill.csharp .img, .skills.box.section .content > ng-transclude .skill.csharp .img, .languages.box.section .content .skill.csharp .img, .languages.box.section .content > ng-transclude .skill.csharp .img {
+      background-image: url("app/images/logos/csharp.png"); }
     .skills.box.section .content .skill.css .img, .skills.box.section .content > ng-transclude .skill.css .img, .languages.box.section .content .skill.css .img, .languages.box.section .content > ng-transclude .skill.css .img {
       background-image: url("app/images/logos/css.png"); }
+    .skills.box.section .content .skill.drupal .img, .skills.box.section .content > ng-transclude .skill.drupal .img, .languages.box.section .content .skill.drupal .img, .languages.box.section .content > ng-transclude .skill.drupal .img {
+      background-image: url("app/images/logos/drupal.png"); }
     .skills.box.section .content .skill.flex .img, .skills.box.section .content > ng-transclude .skill.flex .img, .languages.box.section .content .skill.flex .img, .languages.box.section .content > ng-transclude .skill.flex .img {
       background-image: url("app/images/logos/flex.png"); }
+    .skills.box.section .content .skill.flux .img, .skills.box.section .content > ng-transclude .skill.flux .img, .languages.box.section .content .skill.flux .img, .languages.box.section .content > ng-transclude .skill.flux .img {
+      background-image: url("app/images/logos/flux.png"); }
+    .skills.box.section .content .skill.glassfish .img, .skills.box.section .content > ng-transclude .skill.glassfish .img, .languages.box.section .content .skill.glassfish .img, .languages.box.section .content > ng-transclude .skill.glassfish .img {
+      background-image: url("app/images/logos/glassfish.png"); }
+    .skills.box.section .content .skill.golang .img, .skills.box.section .content > ng-transclude .skill.golang .img, .languages.box.section .content .skill.golang .img, .languages.box.section .content > ng-transclude .skill.golang .img {
+      background-image: url("app/images/logos/golang.png"); }
     .skills.box.section .content .skill.gwbasic .img, .skills.box.section .content > ng-transclude .skill.gwbasic .img, .languages.box.section .content .skill.gwbasic .img, .languages.box.section .content > ng-transclude .skill.gwbasic .img {
       background-image: url("app/images/logos/gwbasic.png"); }
     .skills.box.section .content .skill.haxe .img, .skills.box.section .content > ng-transclude .skill.haxe .img, .languages.box.section .content .skill.haxe .img, .languages.box.section .content > ng-transclude .skill.haxe .img {
       background-image: url("app/images/logos/haxe.png"); }
-    .skills.box.section .content .skill.html-4 .img, .skills.box.section .content > ng-transclude .skill.html-4 .img, .languages.box.section .content .skill.html-4 .img, .languages.box.section .content > ng-transclude .skill.html-4 .img {
-      background-image: url("app/images/logos/html-4.png"); }
+    .skills.box.section .content .skill.html .img, .skills.box.section .content > ng-transclude .skill.html .img, .languages.box.section .content .skill.html .img, .languages.box.section .content > ng-transclude .skill.html .img {
+      background-image: url("app/images/logos/html.png"); }
+    .skills.box.section .content .skill.html5 .img, .skills.box.section .content > ng-transclude .skill.html5 .img, .languages.box.section .content .skill.html5 .img, .languages.box.section .content > ng-transclude .skill.html5 .img {
+      background-image: url("app/images/logos/html5.png"); }
+    .skills.box.section .content .skill.ios .img, .skills.box.section .content > ng-transclude .skill.ios .img, .languages.box.section .content .skill.ios .img, .languages.box.section .content > ng-transclude .skill.ios .img {
+      background-image: url("app/images/logos/ios.png"); }
     .skills.box.section .content .skill.java .img, .skills.box.section .content > ng-transclude .skill.java .img, .languages.box.section .content .skill.java .img, .languages.box.section .content > ng-transclude .skill.java .img {
       background-image: url("app/images/logos/java.png"); }
+    .skills.box.section .content .skill.javascript .img, .skills.box.section .content > ng-transclude .skill.javascript .img, .languages.box.section .content .skill.javascript .img, .languages.box.section .content > ng-transclude .skill.javascript .img {
+      background-image: url("app/images/logos/javascript.png"); }
+    .skills.box.section .content .skill.jenkins .img, .skills.box.section .content > ng-transclude .skill.jenkins .img, .languages.box.section .content .skill.jenkins .img, .languages.box.section .content > ng-transclude .skill.jenkins .img {
+      background-image: url("app/images/logos/jenkins.png"); }
+    .skills.box.section .content .skill.jquery .img, .skills.box.section .content > ng-transclude .skill.jquery .img, .languages.box.section .content .skill.jquery .img, .languages.box.section .content > ng-transclude .skill.jquery .img {
+      background-image: url("app/images/logos/jquery.png"); }
     .skills.box.section .content .skill.jscript .img, .skills.box.section .content > ng-transclude .skill.jscript .img, .languages.box.section .content .skill.jscript .img, .languages.box.section .content > ng-transclude .skill.jscript .img {
       background-image: url("app/images/logos/jscript.png"); }
     .skills.box.section .content .skill.less .img, .skills.box.section .content > ng-transclude .skill.less .img, .languages.box.section .content .skill.less .img, .languages.box.section .content > ng-transclude .skill.less .img {
       background-image: url("app/images/logos/less.png"); }
+    .skills.box.section .content .skill.linux .img, .skills.box.section .content > ng-transclude .skill.linux .img, .languages.box.section .content .skill.linux .img, .languages.box.section .content > ng-transclude .skill.linux .img {
+      background-image: url("app/images/logos/linux.png"); }
     .skills.box.section .content .skill.lisp .img, .skills.box.section .content > ng-transclude .skill.lisp .img, .languages.box.section .content .skill.lisp .img, .languages.box.section .content > ng-transclude .skill.lisp .img {
       background-image: url("app/images/logos/lisp.png"); }
+    .skills.box.section .content .skill.meteor .img, .skills.box.section .content > ng-transclude .skill.meteor .img, .languages.box.section .content .skill.meteor .img, .languages.box.section .content > ng-transclude .skill.meteor .img {
+      background-image: url("app/images/logos/meteor.png"); }
+    .skills.box.section .content .skill.ms-access .img, .skills.box.section .content > ng-transclude .skill.ms-access .img, .languages.box.section .content .skill.ms-access .img, .languages.box.section .content > ng-transclude .skill.ms-access .img {
+      background-image: url("app/images/logos/ms-access.png"); }
+    .skills.box.section .content .skill.mvc .img, .skills.box.section .content > ng-transclude .skill.mvc .img, .languages.box.section .content .skill.mvc .img, .languages.box.section .content > ng-transclude .skill.mvc .img {
+      background-image: url("app/images/logos/mvc.png"); }
+    .skills.box.section .content .skill.mvp .img, .skills.box.section .content > ng-transclude .skill.mvp .img, .languages.box.section .content .skill.mvp .img, .languages.box.section .content > ng-transclude .skill.mvp .img {
+      background-image: url("app/images/logos/mvp.png"); }
+    .skills.box.section .content .skill.mysql .img, .skills.box.section .content > ng-transclude .skill.mysql .img, .languages.box.section .content .skill.mysql .img, .languages.box.section .content > ng-transclude .skill.mysql .img {
+      background-image: url("app/images/logos/mysql.png"); }
     .skills.box.section .content .skill.nodejs .img, .skills.box.section .content > ng-transclude .skill.nodejs .img, .languages.box.section .content .skill.nodejs .img, .languages.box.section .content > ng-transclude .skill.nodejs .img {
       background-image: url("app/images/logos/nodejs.png"); }
     .skills.box.section .content .skill.objective-c .img, .skills.box.section .content > ng-transclude .skill.objective-c .img, .languages.box.section .content .skill.objective-c .img, .languages.box.section .content > ng-transclude .skill.objective-c .img {
       background-image: url("app/images/logos/objective-c.png"); }
+    .skills.box.section .content .skill.octopusdeploy .img, .skills.box.section .content > ng-transclude .skill.octopusdeploy .img, .languages.box.section .content .skill.octopusdeploy .img, .languages.box.section .content > ng-transclude .skill.octopusdeploy .img {
+      background-image: url("app/images/logos/octopusdeploy.png"); }
+    .skills.box.section .content .skill.opengl .img, .skills.box.section .content > ng-transclude .skill.opengl .img, .languages.box.section .content .skill.opengl .img, .languages.box.section .content > ng-transclude .skill.opengl .img {
+      background-image: url("app/images/logos/opengl.png"); }
+    .skills.box.section .content .skill.oracle .img, .skills.box.section .content > ng-transclude .skill.oracle .img, .languages.box.section .content .skill.oracle .img, .languages.box.section .content > ng-transclude .skill.oracle .img {
+      background-image: url("app/images/logos/oracle.png"); }
     .skills.box.section .content .skill.pascal .img, .skills.box.section .content > ng-transclude .skill.pascal .img, .languages.box.section .content .skill.pascal .img, .languages.box.section .content > ng-transclude .skill.pascal .img {
       background-image: url("app/images/logos/pascal.png"); }
     .skills.box.section .content .skill.perl .img, .skills.box.section .content > ng-transclude .skill.perl .img, .languages.box.section .content .skill.perl .img, .languages.box.section .content > ng-transclude .skill.perl .img {
       background-image: url("app/images/logos/perl.png"); }
     .skills.box.section .content .skill.php .img, .skills.box.section .content > ng-transclude .skill.php .img, .languages.box.section .content .skill.php .img, .languages.box.section .content > ng-transclude .skill.php .img {
       background-image: url("app/images/logos/php.png"); }
+    .skills.box.section .content .skill.powershell .img, .skills.box.section .content > ng-transclude .skill.powershell .img, .languages.box.section .content .skill.powershell .img, .languages.box.section .content > ng-transclude .skill.powershell .img {
+      background-image: url("app/images/logos/powershell.png"); }
+    .skills.box.section .content .skill.puremvc .img, .skills.box.section .content > ng-transclude .skill.puremvc .img, .languages.box.section .content .skill.puremvc .img, .languages.box.section .content > ng-transclude .skill.puremvc .img {
+      background-image: url("app/images/logos/puremvc.png"); }
     .skills.box.section .content .skill.qbasic .img, .skills.box.section .content > ng-transclude .skill.qbasic .img, .languages.box.section .content .skill.qbasic .img, .languages.box.section .content > ng-transclude .skill.qbasic .img {
       background-image: url("app/images/logos/qbasic.png"); }
+    .skills.box.section .content .skill.rabbitmq .img, .skills.box.section .content > ng-transclude .skill.rabbitmq .img, .languages.box.section .content .skill.rabbitmq .img, .languages.box.section .content > ng-transclude .skill.rabbitmq .img {
+      background-image: url("app/images/logos/rabbitmq.png"); }
+    .skills.box.section .content .skill.react .img, .skills.box.section .content > ng-transclude .skill.react .img, .languages.box.section .content .skill.react .img, .languages.box.section .content > ng-transclude .skill.react .img {
+      background-image: url("app/images/logos/react.png"); }
+    .skills.box.section .content .skill.requirejs .img, .skills.box.section .content > ng-transclude .skill.requirejs .img, .languages.box.section .content .skill.requirejs .img, .languages.box.section .content > ng-transclude .skill.requirejs .img {
+      background-image: url("app/images/logos/requirejs.png"); }
     .skills.box.section .content .skill.sass .img, .skills.box.section .content > ng-transclude .skill.sass .img, .languages.box.section .content .skill.sass .img, .languages.box.section .content > ng-transclude .skill.sass .img {
       background-image: url("app/images/logos/sass.png"); }
     .skills.box.section .content .skill.sgml .img, .skills.box.section .content > ng-transclude .skill.sgml .img, .languages.box.section .content .skill.sgml .img, .languages.box.section .content > ng-transclude .skill.sgml .img {
       background-image: url("app/images/logos/sgml.png"); }
+    .skills.box.section .content .skill.sql-server .img, .skills.box.section .content > ng-transclude .skill.sql-server .img, .languages.box.section .content .skill.sql-server .img, .languages.box.section .content > ng-transclude .skill.sql-server .img {
+      background-image: url("app/images/logos/sql-server.png"); }
+    .skills.box.section .content .skill.sql .img, .skills.box.section .content > ng-transclude .skill.sql .img, .languages.box.section .content .skill.sql .img, .languages.box.section .content > ng-transclude .skill.sql .img {
+      background-image: url("app/images/logos/sql.png"); }
+    .skills.box.section .content .skill.swing .img, .skills.box.section .content > ng-transclude .skill.swing .img, .languages.box.section .content .skill.swing .img, .languages.box.section .content > ng-transclude .skill.swing .img {
+      background-image: url("app/images/logos/swing.png"); }
     .skills.box.section .content .skill.tcl .img, .skills.box.section .content > ng-transclude .skill.tcl .img, .languages.box.section .content .skill.tcl .img, .languages.box.section .content > ng-transclude .skill.tcl .img {
       background-image: url("app/images/logos/tcl.png"); }
+    .skills.box.section .content .skill.teamcity .img, .skills.box.section .content > ng-transclude .skill.teamcity .img, .languages.box.section .content .skill.teamcity .img, .languages.box.section .content > ng-transclude .skill.teamcity .img {
+      background-image: url("app/images/logos/teamcity.png"); }
+    .skills.box.section .content .skill.underscore .img, .skills.box.section .content > ng-transclude .skill.underscore .img, .languages.box.section .content .skill.underscore .img, .languages.box.section .content > ng-transclude .skill.underscore .img {
+      background-image: url("app/images/logos/underscore.png"); }
     .skills.box.section .content .skill.vbscript .img, .skills.box.section .content > ng-transclude .skill.vbscript .img, .languages.box.section .content .skill.vbscript .img, .languages.box.section .content > ng-transclude .skill.vbscript .img {
       background-image: url("app/images/logos/vbscript.png"); }
     .skills.box.section .content .skill.visual-basic .img, .skills.box.section .content > ng-transclude .skill.visual-basic .img, .languages.box.section .content .skill.visual-basic .img, .languages.box.section .content > ng-transclude .skill.visual-basic .img {
       background-image: url("app/images/logos/visual-basic.png"); }
+    .skills.box.section .content .skill.webpack .img, .skills.box.section .content > ng-transclude .skill.webpack .img, .languages.box.section .content .skill.webpack .img, .languages.box.section .content > ng-transclude .skill.webpack .img {
+      background-image: url("app/images/logos/webpack.png"); }
     .skills.box.section .content .skill.xml .img, .skills.box.section .content > ng-transclude .skill.xml .img, .languages.box.section .content .skill.xml .img, .languages.box.section .content > ng-transclude .skill.xml .img {
       background-image: url("app/images/logos/xml.png"); }
 
@@ -178,17 +228,6 @@ dl dd {
   border-width: 1px 0;
   padding: 1px 2px; }
 
-.skill {
-  display: inline-block;
-  margin: 10px;
-  text-align: center; }
-  .skill .name {
-    display: block;
-    font-weight: bold; }
-  .skill img {
-    width: 100px;
-    height: 100px; }
-
 .box.section {
   margin: 15px 40px;
   border-radius: 5px;
@@ -212,3 +251,14 @@ dl dd {
       margin: 20px 0px; }
       .box.section .content p:first-of-type {
         margin-top: 0px; }
+
+.skill {
+  display: inline-block;
+  margin: 10px;
+  text-align: center; }
+  .skill .name {
+    display: block;
+    font-weight: bold; }
+  .skill img {
+    width: 100px;
+    height: 100px; }

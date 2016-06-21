@@ -88,4 +88,8 @@ gulp.task('watch', () => {
   watch(settings.appCSS.src, () =>
     gulp.start('css:app')
   );
+
+  watch(NODE + 'sam-resume/**/*.{png,gif,svg,jpg,jpeg}', () =>
+    gulp.start('images')
+  );
 });

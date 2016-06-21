@@ -35076,11 +35076,39 @@ module.exports = {
       AS3, React, OpenGL, C++, and Swing`,
     'Wireless':
       `His work in electrical engineering has given him experience working with
-      low-level antennae and bluetooth networking.`,
+      low-level antennae and bluetooth networking, which will be ciritcal for
+      ensuring quality development of the connectivity feature of the in-home
+      charger.`,
   },
-  skills:    [],
-  languages: [],
-  jobs:      [
+  skills: [
+    skill('Android',                     '', '', 'android'),
+    skill('Away3D',                      '', '', 'away3d'),
+    skill('Bluetooth',                   '', '', 'bluetooth'),
+    skill('Drupal',                      '', '', 'drupal'),
+    skill('Enterprise Java Beans (EJB)', '', '', 'ejb'),
+    skill('FLUX',                        '', '', 'flux'),
+    skill('Glassfish',                   '', '', 'glassfish'),
+    skill('iOS',                         '', '', 'ios'),
+    skill('MVC',                         '', '', 'mvc'),
+    skill('MVP',                         '', '', 'mvp'),
+    skill('OpenGL',                      '', '', 'opengl'),
+    skill('RequireJS',                   '', '', 'requirejs'),
+    skill('Underscore',                  '', '', 'underscore'),
+  ],
+  languages: [
+    skill('ActionScript 3 (AS3)',        '', '', 'actionscript-3'),
+    skill('HTML',                        '', '', 'html'),
+    skill('HTML5',                       '', '', 'html5'),
+    skill('JavaScript',                  '', '', 'javascript'),
+    skill('C#',                          '', '', 'csharp'),
+    skill('PHP',                         '', '', 'php'),
+    skill('React',                       '', '', 'react'),
+    skill('Java',                        '', '', 'java'),
+    skill('ObjectiveC',                  '', '', 'objective-c'),
+    skill('Swing',                       '', '', 'swing'),
+    skill('C++',                         '', '', 'cplus'),
+  ],
+  jobs: [
     {
       company: 'One Network Enterprises',
       time:    ['Present', '2013'],
@@ -35110,7 +35138,7 @@ module.exports = {
         Requirejs, Underscore, and many others to find the ideal pipeline. We
         used our research to integrate older legacy implementations to the newer
         patterns.`,
-        `Build Processes and new Javascript Standards ­ E ngineered and
+        `Build Processes and new Javascript Standards ­ Engineered and
         integrated build processes to include a workflow for utilizing new Web
         standards such as ES6 and module support. This had many technical
         requirements to work with legacy systems and support a crossover of CMD
@@ -35215,31 +35243,46 @@ module.exports = {
     'Some of Eric\'s main strengths are:',
   ],
   favorites: {
-    'Agile':
+    Agile:
       `Working in an agile environment at RightNow Media has brought
       productivity and teamwork to a new high. When Eric finishes his work, he
       switches languages and technologies to jump on board with the other
       members of the team and complete the current story on time.`,
-    'Deployment':
+    Deployment:
       `Extensive work with Team City, Jenkins, and Octopus Deploy has given
       Eric the foundational knowledge necessary to implement soft code updates
       over a vast network of devices.`,
-    'REST':
+    REST:
       `Working in online content delivery and the GameView servers has given
       Eric an appreciation of the REST protocol and best practices.`,
-    'Messaging':
+    Messaging:
       `Eric has previously worked with applications that needed to support real
       time messages in the social world. Whether sockets or long-polling, he
       understands the necessity of lightweight rapid message synchronization.`,
-    'TCL':
-      `I use TCL / Expect to write anything that has to be done with CLI, but
-      takes up more than one line. Bash / Zsh scripts usually can do the
-      trick, but many times TCL ends up creating a much more intelligent
-      product. I write about 1 TCL script per week.`
   },
-  skills:    [],
-  languages: [],
-  jobs:      [
+  skills: [
+    skill('Rabbit MQ',      '', '', 'rabbitmq'),
+    skill('Octopus Deploy', '', '', 'octopusdeploy'),
+    skill('TeamCity',       '', '', 'teamcity'),
+    skill('Jenkins',        '', '', 'jenkins'),
+    skill('Go',             '', '', 'golang'),
+    skill('Webpack',        '', '', 'webpack'),
+  ],
+  languages: [
+    skill('C#',         '', '', 'csharp'),
+    skill('C++',        '', '', 'cplus'),
+    skill('JavaScript', '', '', 'javascript'),
+    skill('AngularJS',  '', '', 'angular'),
+    skill('jQuery',     '', '', 'jquery'),
+    skill('Java',       '', '', 'java'),
+    skill('PHP',        '', '', 'php'),
+    skill('SQL',        '', '', 'sql'),
+    skill('HTML',       '', '', 'html'),
+    skill('bash',       '', '', 'bash'),
+    skill('PowerShell', '', '', 'powershell'),
+
+  ],
+  jobs: [
     {
       company: 'RightNow Media',
       time:    ['2015', 'Present'],
@@ -35274,7 +35317,7 @@ module.exports = {
         that utilize an event-driven architecture backed by a RabbitMQ message
         broker. These systems were responsible for processing all of the
         transactions processed by Heartland Payment Systems.`,
-        `Created a event-driven web app using javascript and the WebApi
+        `Created an event-driven web app using javascript and the WebApi
         framework that captures errors in our transaction processing systems,
         providing Operations with an interface to identify major problems in the
         pipeline and reprocess failed transactions.`,
@@ -35448,51 +35491,59 @@ module.exports = {
       product. I write about 1 TCL script per week.`
   },
   skills: [
-    skill('Meteor',      'Advanced', '2 yrs',  'meteor'),
-    skill('Apache HTTP', 'Expert',   '17 yrs', 'apache-http'),
-    skill('NodeJS',      'Expert',   '4 yrs',  'nodejs'),
-    skill('Linux',       'Advanced', '16 yrs', 'linux'),
-    skill('MS Access',   'Advanced', '5 yrs',  'ms-access'),
-    skill('MySQL',       'Advanced', '13 yrs', 'mysql'),
-    skill('Oracle',      'Good',     '13 yrs', 'oracle'),
-    skill('PureMVC',     'Advanced', '5 yrs',  'puremvc'),
-    skill('SQL Server',  'Advanced', '13 yrs', 'sql-server'),
-    skill('Ansible',     'Advanced', '2 yrs',  'ansible'),
+    skill('Meteor',      'Advanced', '', 'meteor'),
+    skill('Apache HTTP', 'Expert',   '', 'apache-http'),
+    skill('Glassfish',   'Advanced', '', 'glassfish'),
+    skill('NodeJS',      'Expert',   '', 'nodejs'),
+    skill('Linux',       'Advanced', '', 'linux'),
+    skill('MS Access',   'Advanced', '', 'ms-access'),
+    skill('MySQL',       'Advanced', '', 'mysql'),
+    skill('Oracle',      'Good',     '', 'oracle'),
+    skill('PureMVC',     'Advanced', '', 'puremvc'),
+    skill('SQL Server',  'Advanced', '', 'sql-server'),
+    skill('Ansible',     'Advanced', '', 'ansible'),
+    skill('Java Swing',  'Advanced', '', 'swing'),
+    skill('iOS',         'Advanced', '', 'ios'),
   ],
   languages: [
-    skill('NodeJS',         'Expert',   '4 yrs',  'nodejs'),
-    skill('Angular',        'Advanced', '2 yrs',  'angular'),
-    skill('Sass',           'Advanced', '2 yrs',  'sass'),
-    skill('Less CSS',       'Advanced', '3 yrs',  'less'),
-    skill('AJAX/DHTML',     'Expert',   '14 yrs', 'ajax-dhtml'),
-    skill('ASP',            'Expert',   '14 yrs', 'asp'),
-    skill('ASP.NET',        'Advanced', '6 yrs',  'asp-net'),
-    skill('AWK',            'Good',     '13 yrs', 'awk'),
-    skill('ActionScript 2', 'Expert',   '13 yrs', 'actionscript-2'),
-    skill('ActionScript 3', 'Expert',   '7 yrs',  'actionscript-3'),
-    skill('AutoHotkey',     'Expert',   '9 yrs',  'autohotkey'),
-    skill('BaSHellScript',  'Advanced', '18 yrs', 'bashellscript'),
-    skill('C / C++',        'Advanced', '23 yrs', 'c-c-'),
-    skill('C Sharp (C#)',   'Advanced', '6 yrs',  'c-sharp-c-'),
-    skill('CSS',            'Expert',   '14 yrs', 'css'),
-    skill('Cold Fusion',    'Good',     '15 yrs', 'cold-fusion'),
-    skill('Flex',           'Expert',   '5 yrs',  'flex'),
-    skill('GWBasic',        'Expert',   '20 yrs', 'gwbasic'),
-    skill('HTML 4',         'Expert',   '18 yrs', 'html-4'),
-    skill('JScript',        'Advanced', '16 yrs', 'jscript'),
-    skill('Java',           'Good',     '14 yrs', 'java'),
-    skill('LISP',           'Good',     '8 yrs',  'lisp'),
-    skill('Objective-C',    'Fair',     '3 yrs',  'objective-c'),
-    skill('PHP',            'Expert',   '12 yrs', 'php'),
-    skill('Pascal',         'Good',     '17 yrs', 'pascal'),
-    skill('Perl',           'Good',     '17 yrs', 'perl'),
-    skill('QBasic',         'Expert',   '19 yrs', 'qbasic'),
-    skill('SGML',           'Expert',   '14 yrs', 'sgml'),
-    skill('TCL',            'Advanced', '13 yrs', 'tcl'),
-    skill('VBScript',       'Expert',   '17 yrs', 'vbscript'),
-    skill('Visual Basic',   'Advanced', '18 yrs', 'visual-basic'),
-    skill('XML',            'Expert',   '15 yrs', 'xml'),
-    skill('haXe',           'Advanced', '6 yrs',  'haxe'),
+    skill('NodeJS',         'Expert',   '', 'nodejs'),
+    skill('Angular',        'Expert',   '', 'angular'),
+    skill('Sass',           'Advanced', '', 'sass'),
+    skill('Less CSS',       'Advanced', '', 'less'),
+    skill('jQuery',         'Expert',   '', 'jquery'),
+    skill('JavsScript',     'Expert',   '', 'javascript'),
+    skill('AJAX/DHTML',     'Expert',   '', 'ajax-dhtml'),
+    skill('ASP',            'Expert',   '', 'asp'),
+    skill('ASP.NET',        'Advanced', '', 'asp-net'),
+    skill('AWK',            'Good',     '', 'awk'),
+    skill('ActionScript 2', 'Expert',   '', 'actionscript-2'),
+    skill('ActionScript 3', 'Expert',   '', 'actionscript-3'),
+    skill('AutoHotkey',     'Expert',   '', 'autohotkey'),
+    skill('BaSHellScript',  'Advanced', '', 'bash'),
+    skill('C / C++',        'Advanced', '', 'cplus'),
+    skill('C Sharp (C#)',   'Advanced', '', 'csharp'),
+    skill('CSS',            'Expert',   '', 'css'),
+    skill('Cold Fusion',    'Good',     '', 'cold-fusion'),
+    skill('Flex',           'Expert',   '', 'flex'),
+    skill('GWBasic',        'Expert',   '', 'gwbasic'),
+    skill('HTML 4',         'Expert',   '', 'html'),
+    skill('HTML 5',         'Expert',   '', 'html5'),
+    skill('JScript',        'Advanced', '', 'jscript'),
+    skill('Java',           'Good',     '', 'java'),
+    skill('LISP',           'Good',     '', 'lisp'),
+    skill('Objective-C',    'Fair',     '', 'objective-c'),
+    skill('PHP',            'Expert',   '', 'php'),
+    skill('Pascal',         'Good',     '', 'pascal'),
+    skill('Perl',           'Good',     '', 'perl'),
+    skill('QBasic',         'Expert',   '', 'qbasic'),
+    skill('PowerShell',     'Fair',     '', 'powershell'),
+    skill('RequireJS',      'Expert',   '', 'requirejs'),
+    skill('SGML',           'Expert',   '', 'sgml'),
+    skill('TCL',            'Advanced', '', 'tcl'),
+    skill('VBScript',       'Expert',   '', 'vbscript'),
+    skill('Visual Basic',   'Advanced', '', 'visual-basic'),
+    skill('XML',            'Expert',   '', 'xml'),
+    skill('haXe',           'Advanced', '', 'haxe'),
   ],
   jobs: [
     {
@@ -35556,7 +35607,7 @@ module.exports = {
       company: 'United States Air Force',
       time:    ['2003', '2008'],
       title:   'Communications and Computer Systems Project Manager',
-      skills:  ['HTML', 'Java', 'Javascript', 'C++', 'Cobal', 'Oracle', 'VBScript', 'JScript', 'MS Access', 'WMI', 'Lisp', 'AutoCad', 'Visio', 'MicroStation'],
+      skills:  ['HTML', 'Java', 'JavaScript', 'C++', 'Cobal', 'Oracle', 'VBScript', 'JScript', 'MS Access', 'WMI', 'Lisp', 'AutoCad', 'Visio', 'MicroStation'],
       things:  [
         'Trained 600 persons in use of Oracle based telecommunications management software',
         'Upgraded Telecommunications Management Server to interface with more than 27,000 phones and computer systems across base network.',
