@@ -130,6 +130,8 @@ dl dd {
       background-image: url("app/images/logos/mvp.png"); }
     .skills.box.section .content .skill.mysql .img, .skills.box.section .content > ng-transclude .skill.mysql .img, .languages.box.section .content .skill.mysql .img, .languages.box.section .content > ng-transclude .skill.mysql .img {
       background-image: url("app/images/logos/mysql.png"); }
+    .skills.box.section .content .skill.mobx .img, .skills.box.section .content > ng-transclude .skill.mobx .img, .languages.box.section .content .skill.mobx .img, .languages.box.section .content > ng-transclude .skill.mobx .img {
+      background-image: url("app/images/logos/mobx.png"); }
     .skills.box.section .content .skill.nodejs .img, .skills.box.section .content > ng-transclude .skill.nodejs .img, .languages.box.section .content .skill.nodejs .img, .languages.box.section .content > ng-transclude .skill.nodejs .img {
       background-image: url("app/images/logos/nodejs.png"); }
     .skills.box.section .content .skill.objective-c .img, .skills.box.section .content > ng-transclude .skill.objective-c .img, .languages.box.section .content .skill.objective-c .img, .languages.box.section .content > ng-transclude .skill.objective-c .img {
@@ -172,6 +174,8 @@ dl dd {
       background-image: url("app/images/logos/tcl.png"); }
     .skills.box.section .content .skill.teamcity .img, .skills.box.section .content > ng-transclude .skill.teamcity .img, .languages.box.section .content .skill.teamcity .img, .languages.box.section .content > ng-transclude .skill.teamcity .img {
       background-image: url("app/images/logos/teamcity.png"); }
+    .skills.box.section .content .skill.typescript .img, .skills.box.section .content > ng-transclude .skill.typescript .img, .languages.box.section .content .skill.typescript .img, .languages.box.section .content > ng-transclude .skill.typescript .img {
+      background-image: url("app/images/logos/typescript.png"); }
     .skills.box.section .content .skill.underscore .img, .skills.box.section .content > ng-transclude .skill.underscore .img, .languages.box.section .content .skill.underscore .img, .languages.box.section .content > ng-transclude .skill.underscore .img {
       background-image: url("app/images/logos/underscore.png"); }
     .skills.box.section .content .skill.vbscript .img, .skills.box.section .content > ng-transclude .skill.vbscript .img, .languages.box.section .content .skill.vbscript .img, .languages.box.section .content > ng-transclude .skill.vbscript .img {
