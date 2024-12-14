@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-jetbrains);
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --font-jetbrains: var(--font-jetbrains);
+  }
+}
