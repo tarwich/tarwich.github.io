@@ -26,11 +26,11 @@ export const DirectoryListing = ({
 export const DirectoryListingItem = ({
   type,
   extra,
-  name,
+  children,
 }: {
   type: 'file' | 'directory';
   extra?: React.ReactNode;
-  name: string;
+  children?: React.ReactNode;
 }) => {
   const permissions = type === 'file' ? `-rw-r--r--` : `drwxr-xr-x`;
 
@@ -42,10 +42,11 @@ export const DirectoryListingItem = ({
           className={cn(
             type === 'file'
               ? 'text-green-600 dark:text-green-500'
-              : 'text-blue-600 dark:text-blue-500'
+              : 'text-blue-600 dark:text-blue-500',
+            type === 'file' ? 'underline underline-offset-2' : ''
           )}
         >
-          {name}
+          {children}
         </span>
       </dt>
       <dd className="text-gray-600 dark:text-gray-500">{extra}</dd>

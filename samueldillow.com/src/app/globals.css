@@ -10,5 +10,11 @@ body {
   :root {
     --radius: 0.5rem;
     --font-jetbrains: var(--font-jetbrains);
+    --font-geist-sans: var(--font-geist-sans);
   }
+}
+
+html,
+body {
+  height: 100%;
 }
