@@ -1,4 +1,5 @@
 import { geistSans } from '@/components/fonts';
+import PrinterPaper from '@/components/printer-paper';
 import { Icon } from '@/components/simple-icon';
 import { cn } from '@/lib/utils';
 import { Mail, Phone } from 'lucide-react';
@@ -49,37 +50,8 @@ export default function Resume() {
           'text-neutral-700'
         )}
       >
-        <div
-          className={cn(
-            'flex flex-col pt-20',
-            'w-[9in] bg-white shadow-black shadow-2xl',
-            'print:w-full print:h-full print:bg-transparent print:shadow-none',
-            'print:pt-0'
-          )}
-        >
+        <PrinterPaper>
           <Header />
-
-          <div
-            className={cn(
-              'p-5 border-amber-950/30 border-b',
-              'flex flex-col gap-3'
-            )}
-          >
-            <h2 className="text-md font-bold uppercase">
-              Professional Summary
-            </h2>
-            <p className="leading-relaxed">
-              A seasoned technology leader with a track record of pioneering
-              innovative solutions at the cutting edge of what&apos;s possible.
-              From implementing early AR applications to developing advanced
-              threat detection systems, I thrive on tackling unprecedented
-              challenges. My greatest satisfaction comes from empowering teams
-              to achieve ambitious goals, fostering an environment where
-              collaboration drives innovation. I excel in dynamic environments
-              where strong teamwork and mutual support are fundamental to
-              success.
-            </p>
-          </div>
 
           <div className="flex flex-row">
             {/* Left Column */}
@@ -87,7 +59,7 @@ export default function Resume() {
               {/* Contact Information */}
               <div
                 className={cn(
-                  'p-5 border-amber-950/30 border-r border-b rounded-r-lg',
+                  'p-4 border-amber-950/30 border-r border-y rounded-r-lg',
                   'flex flex-col gap-3'
                 )}
               >
@@ -97,12 +69,28 @@ export default function Resume() {
                 <BasicBio />
               </div>
 
+              {/* Professional Summary */}
+              <div
+                className={cn(
+                  'p-4 border-amber-950/30 border-b border-r rounded-r-lg',
+                  'flex flex-col gap-1'
+                )}
+              >
+                <h2 className="text-md font-bold uppercase">About Me</h2>
+                <p className="leading-relaxed">
+                  Driven by tackling unprecedented challenges and galvanizing
+                  teams to achieve the <span className="line-through">im</span>
+                  possible. My most fulfilling moments are when I&apos;m able to
+                  help others realize their goals.
+                </p>
+              </div>
+
               {/* Skills */}
               <div className="flex flex-col gap-5">
                 <div
                   className={cn(
-                    'flex flex-col gap-5',
-                    'p-5 border-amber-950/30 border-y border-r rounded-r-lg'
+                    'flex flex-col gap-3',
+                    'p-4 border-amber-950/30 border-b border-r rounded-r-lg'
                   )}
                 >
                   <h2 className="text-md font-bold uppercase">Skills</h2>
@@ -118,72 +106,35 @@ export default function Resume() {
               </div>
 
               {/* Languages */}
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-1">
                 <div
                   className={cn(
-                    'flex flex-col gap-5',
-                    'p-5 border-amber-950/30 border-y border-r rounded-r-lg'
+                    'flex flex-col gap-2',
+                    'p-4 border-amber-950/30 border-b border-r rounded-r-lg'
                   )}
                 >
-                  <div className="flex flex-col gap-3">
-                    <h2 className="text-md font-bold uppercase">Languages</h2>
-                    <ul className="flex flex-col gap-1">
-                      <li className="flex justify-between gap-2 items-center">
-                        <span className="flex-grow">English</span>
-                        <span className="flex-1 text-neutral-500"> </span>
-                        <span className="flex-1 flex flex-row gap-1">
-                          ●●●●●
-                        </span>
-                      </li>
-                      <li className="flex justify-between gap-2 items-center">
-                        <span className="flex-grow">Spanish</span>
-                        <span className="flex-1 text-neutral-500 text-sm">
-                          Fluent
-                        </span>
-                        <span className="flex-1 flex flex-row gap-1">
-                          ●●●●○
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Pastoral Care */}
-              <div className="flex flex-col gap-5">
-                <div
-                  className={cn(
-                    'flex flex-col gap-5',
-                    'p-5 border-amber-950/30 border-t border-tr rounded-r-lg'
-                  )}
-                >
-                  <div className="flex flex-col gap-3">
-                    <h2 className="text-md font-bold uppercase">
-                      Pastoral Care
-                    </h2>
-                    <div className="flex flex-col gap-2">
-                      <p>
-                        Led team providing spiritual care to Dallas hospitals:
-                      </p>
-                      <ul className="list-disc ml-4 flex flex-col gap-1">
-                        <li>End-of-life counseling and family support</li>
-                        <li>Interfaith spiritual care and guidance</li>
-                        <li>Crisis intervention and grief counseling</li>
-                      </ul>
-                    </div>
-                  </div>
+                  <h2 className="text-md font-bold uppercase">Languages</h2>
+                  <ul className="flex flex-col gap-1">
+                    <li className="flex justify-between gap-2 items-center">
+                      <span className="flex-grow">English</span>
+                      <span className="flex-1 text-neutral-500"> </span>
+                      <span className="flex-1 flex flex-row gap-1">●●●●●</span>
+                    </li>
+                    <li className="flex justify-between gap-2 items-center">
+                      <span className="flex-grow">Spanish</span>
+                      <span className="flex-1 text-neutral-500 text-sm">
+                        Fluent
+                      </span>
+                      <span className="flex-1 flex flex-row gap-1">●●●●○</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
 
             {/* Right Column */}
-            <div className={cn('flex-2', 'flex flex-col gap-5')}>
-              <div
-                className={cn(
-                  'flex flex-col gap-5',
-                  'p-5 border-amber-950/30 border-l border-t rounded-tl-lg'
-                )}
-              >
+            <div className={cn('flex-2', 'flex flex-col gap-5 pt-5')}>
+              <div className={cn('flex flex-col gap-5', 'p-4')}>
                 <WorkHistory company="VoidRay Co" title="Engineering Team Lead">
                   <li>
                     Led development of a pharmacy management system that
@@ -200,20 +151,9 @@ export default function Resume() {
                     Department of Defense, implementing advanced algorithms for
                     intent analysis and threat classification.
                   </li>
-                  <li>
-                    Developed an enterprise-scale network forensics platform for
-                    real-time threat detection and analysis across distributed
-                    corporate environments.
-                  </li>
                 </WorkHistory>
 
                 <WorkHistory company="Symfono Corp" title="Lead Developer">
-                  <li>
-                    Led a team of four developers and designers in creating AR
-                    Stadium, an augmented reality application for sporting
-                    events that displayed real-time player and event
-                    information.
-                  </li>
                   <li>
                     Implemented PTAM (Parallel Tracking and Mapping) to achieve
                     AR functionality on single-threaded mobile devices,
@@ -237,11 +177,6 @@ export default function Resume() {
                     preparation for Voice Over IP technology.
                   </li>
                   <li>
-                    Executed seven projects for installing aircraft monitoring
-                    systems in (something about coordinating with base network
-                    teams).
-                  </li>
-                  <li>
                     Led a project to establish a new airfield security system,
                     rivaling three previously failed attempts by security team.
                   </li>
@@ -253,7 +188,7 @@ export default function Resume() {
               </div>
             </div>
           </div>
-        </div>
+        </PrinterPaper>
       </div>
     </>
   );
@@ -294,9 +229,40 @@ const WorkHistory = ({
       className={cn('flex flex-col gap-2', props.className)}
       style={{ gridTemplateColumns: 'auto 1fr', ...props.style }}
     >
-      <h2 className="text-lg font-bold uppercase">{company}</h2>
-      <h3 className="text-base font-bold">{title}</h3>
+      <div className="flex flex-row justify-between">
+        <h2 className="text-lg font-bold uppercase">{company}</h2>
+        <h3 className="text-base font-bold">{title}</h3>
+      </div>
       <ul className="flex flex-col gap-3">{props.children}</ul>
+    </div>
+  );
+};
+
+export const PastoralCare = (props: ComponentProps<'div'>) => {
+  return (
+    <div
+      {...props}
+      className={cn('flex flex-col gap-5', props.className)}
+      style={{ gridTemplateColumns: 'auto 1fr', ...props.style }}
+    >
+      <div
+        className={cn(
+          'flex flex-col gap-5',
+          'p-5 border-amber-950/30 border-t border-tr rounded-r-lg'
+        )}
+      >
+        <div className="flex flex-col gap-3">
+          <h2 className="text-md font-bold uppercase">Pastoral Care</h2>
+          <div className="flex flex-col gap-2">
+            <p>Led team providing spiritual care to Dallas hospitals:</p>
+            <ul className="list-disc ml-4 flex flex-col gap-1">
+              <li>End-of-life counseling and family support</li>
+              <li>Interfaith spiritual care and guidance</li>
+              <li>Crisis intervention and grief counseling</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
