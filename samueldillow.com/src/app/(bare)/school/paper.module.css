@@ -1,11 +1,11 @@
 .markdown {
-  padding: 1in;
+  @apply p-[1in];
 
   @media print {
     padding: 0;
   }
 
-  h1 {
+  /* h1 {
     @apply my-4 text-2xl font-bold;
   }
 
@@ -68,5 +68,5 @@
     &:after {
       content: close-quote;
     }
-  }
+  } */
 }

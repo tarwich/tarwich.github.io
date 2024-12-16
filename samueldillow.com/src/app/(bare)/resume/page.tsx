@@ -238,31 +238,31 @@ const WorkHistory = ({
   );
 };
 
-export const PastoralCare = (props: ComponentProps<'div'>) => {
-  return (
-    <div
-      {...props}
-      className={cn('flex flex-col gap-5', props.className)}
-      style={{ gridTemplateColumns: 'auto 1fr', ...props.style }}
-    >
-      <div
-        className={cn(
-          'flex flex-col gap-5',
-          'p-5 border-amber-950/30 border-t border-tr rounded-r-lg'
-        )}
-      >
-        <div className="flex flex-col gap-3">
-          <h2 className="text-md font-bold uppercase">Pastoral Care</h2>
-          <div className="flex flex-col gap-2">
-            <p>Led team providing spiritual care to Dallas hospitals:</p>
-            <ul className="list-disc ml-4 flex flex-col gap-1">
-              <li>End-of-life counseling and family support</li>
-              <li>Interfaith spiritual care and guidance</li>
-              <li>Crisis intervention and grief counseling</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+// const PastoralCare = (props: ComponentProps<'div'>) => {
+//   return (
+//     <div
+//       {...props}
+//       className={cn('flex flex-col gap-5', props.className)}
+//       style={{ gridTemplateColumns: 'auto 1fr', ...props.style }}
+//     >
+//       <div
+//         className={cn(
+//           'flex flex-col gap-5',
+//           'p-5 border-amber-950/30 border-t border-tr rounded-r-lg'
+//         )}
+//       >
+//         <div className="flex flex-col gap-3">
+//           <h2 className="text-md font-bold uppercase">Pastoral Care</h2>
+//           <div className="flex flex-col gap-2">
+//             <p>Led team providing spiritual care to Dallas hospitals:</p>
+//             <ul className="list-disc ml-4 flex flex-col gap-1">
+//               <li>End-of-life counseling and family support</li>
+//               <li>Interfaith spiritual care and guidance</li>
+//               <li>Crisis intervention and grief counseling</li>
+//             </ul>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
