@@ -1,5 +1,7 @@
+import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
 import animate from 'tailwindcss-animate';
+
 export default {
   darkMode: ['class'],
   content: [
@@ -23,5 +25,5 @@ export default {
       jetbrains: ['var(--font-jetbrains)'],
     },
   },
-  plugins: [animate],
+  plugins: [typography, animate],
 } satisfies Config;

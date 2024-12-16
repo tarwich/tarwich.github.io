@@ -1,0 +1,72 @@
+.markdown {
+  padding: 1in;
+
+  @media print {
+    padding: 0;
+  }
+
+  h1 {
+    @apply my-4 text-2xl font-bold;
+  }
+
+  h2 {
+    @apply my-4 text-lg font-bold capitalize;
+  }
+
+  h3 {
+    @apply my-4 font-bold;
+  }
+
+  a {
+    @apply text-blue-500 underline;
+    @apply print:text-black print:no-underline;
+  }
+
+  ul {
+    @apply list-inside;
+
+    li {
+      @apply list-disc;
+    }
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+
+    dt {
+      @apply font-bold;
+    }
+  }
+
+  section {
+    @apply my-4 flex flex-col gap-4;
+
+    p {
+      @apply indent-8;
+    }
+  }
+
+  footer {
+    @apply flex flex-col gap-4;
+
+    ul {
+      @apply flex flex-col gap-4;
+    }
+  }
+
+  blockquote {
+    @apply px-8 text-justify;
+
+    &:before,
+    &:after {
+      content: open-quote;
+      @apply text-gray-500 text-xl;
+    }
+
+    &:after {
+      content: close-quote;
+    }
+  }
+}
