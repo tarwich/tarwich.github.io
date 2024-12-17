@@ -1,78 +1,87 @@
-Document = value:Statement* {
-  return { type: 'document', value }
-}
+{{
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-Statement = HeaderStatement / SectionStatement / CommentStatement / EmptyLine
+const extractDates = (text) => {
+  const annotations = [];
 
-HeaderStatement = _ "header" __ value:Flow NL {
-  return { type: 'header', value: value.filter(Boolean) }
-}
-
-SectionStatement = _ "section" __ important:"!"? _ header:Flow _ NL _ value:(
-  NoteStatement / TableStatement / CommentStatement
-)* {
-  return { type: 'section', important, header, value }
-}
-
-EmptyLine = _ NL {
-  return { type: 'empty' }
-}
-
-NoteStatement = _ "notes" __ value:Note|.., _ "." _ | _ NL tail:NoteStatement? {
   return {
-    type: 'notes',
-    value: value.concat(tail?.value || []).filter(Boolean)
+    type: 'text',
+    annotations,
+    value: text
+      .replace(/\[([^\] ]+)\]/g, (_, value) => {
+        annotations.push({ type: 'date', value});
+        return '';
+      })
+      .replace(/\(([^\) ]+)\)/g, (_, value) => {
+        annotations.push({ type: 'page', value});
+        return '';
+      })
+      .trim()
   }
 }
 
-Note = value:Flow {
-  return { type: 'note', value }
+}}
+
+Document = value:Statement* EOF {
+  return {type: 'school-work', value: value.filter(Boolean) }
 }
 
-TableStatement = _ header:TableHeader? _ rows:TableRow|.., _ NL _ | NL {
-  return { type: 'table', header, rows }
+Statement = HeaderStatement / SectionStatement / BlockComment / BlankLine
+
+BlankLine = _ NL {}
+
+BlockComment = "/*" $(!"*/" .)+ "*/"
+
+HeaderStatement = _ "header" __ title:Text NL {
+  return { type: 'header', title }
 }
 
-TableHeader = _ "|" value:Flow NL {
-  return { type: 'header', value }
+SectionStatement = _ "section" __ important:"!"? title:Text NL _ value:SectionChild|.., _ NL _| {
+  return { type: 'section', important, title, value }
 }
 
-TableRow = _ "|" _ important:"!"? _ key:(Text / Annotation)+ ":" _ value:Note|.., _ "." _ | _ {
-  return { type: 'row', key, important, value }
+SectionChild = List / Table
+
+List = _ "." items:ListItem|..,  _ "." _| (_ NL _ List)? {
+  return { type: 'list', items }
 }
 
-CommentStatement = _ "//" _ value:$(!NL .)+ _ NL tail:CommentStatement? {
+ListItem = _ title:$(!(NL / ".") .)+ {
+  return extractDates(title)
+}
+
+Text = value:$(!NL .)+ {
+  return extractDates(value)
+}
+
+Table = rows:TableRow|.., _ NL _| {
+  return { type: 'table', value: rows }
+}
+
+TableRow = _ header:HeaderCell data:DataCell? {
   return {
-    type: 'comment',
-    value: [value, tail?.value || ''].join('\n').trim()
+    type: 'table-row',
+    header,
+    value: data,
   }
 }
 
-Flow = (Text / Annotation)*
-
-Important = "!" {
-  return { type: 'important' }
+TableText = value:$(!(NL / ":") .)+ {
+  return extractDates(value)
 }
 
-Text = value:$[^\(\[\r\n".:)]+ {
-  return { type: 'text', value }
+HeaderCell = _ "|" _ important:"!"? value:TableText {
+  return { type: 'header-cell', important, value }
 }
 
-Annotation = Page / Year
-
-Page = "(" _ value:$[^\)]+ _ ")" {
-  return { type: 'page', value }
+DataCell = _ ":" _ important:"!"? value:(WS* &"." @List / @Text) {
+  return { type: 'data-cell', important, value }
 }
 
-Year = "[" _ value:$[^\]]+ _ "]" {
-  return { type: 'year', value }
-}
+// Terminals
 
-ALPHABET = $[a-zA-Z]
-NUMBER = $[0-9]
-ALPHA_NUMBER = $[a-zA-Z0-9]
-_ "whitespace" = $[ \t]*
-__ "whitespace" = $[ \t]+
-NL "newline" = $[\n\r]+
-EOL = NL / EOF
+_ = [ \t]*
+__ = [ \t]+
+NL = [\r\n]
+WS = [ \t\r\n]
 EOF = !.

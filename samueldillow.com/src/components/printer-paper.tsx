@@ -10,7 +10,7 @@ export default function PrinterPaper({
     <div
       className={cn(
         'bg-white rounded-lg border border-slate-200 w-[8.5in] max-w-[8.5in] relative',
-        'mx-auto shadow-black shadow-2xl',
+        'p-[0.5in] mt-4 mx-auto shadow-black shadow-2xl',
         'print:border-none print:p-0 print:m-0 print:w-full print:h-full',
         'print:rounded-none print:bg-transparent print:shadow-none',
         className

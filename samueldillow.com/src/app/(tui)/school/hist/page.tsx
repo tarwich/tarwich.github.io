@@ -8,7 +8,7 @@ import { TuiBox } from '../../_components/tui/tui-box';
 export default function Hist() {
   return (
     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-      <TuiBox className="bg-white">
+      <TuiBox className="bg-white w-[50vw] h-[50vh]">
         <DirectoryListing directory="/school/hist">
           <DirectoryListingItem type="directory">
             <Link href="./">..</Link>

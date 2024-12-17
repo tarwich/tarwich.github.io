@@ -50,7 +50,7 @@ export default function Resume() {
           'text-neutral-700'
         )}
       >
-        <PrinterPaper>
+        <PrinterPaper className="w-[8in] p-0">
           <Header />
 
           <div className="flex flex-row">

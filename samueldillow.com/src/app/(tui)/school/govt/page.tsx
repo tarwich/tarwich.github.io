@@ -8,8 +8,8 @@ import { TuiBox } from '../../_components/tui/tui-box';
 export default function School() {
   return (
     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-      <TuiBox className="bg-white">
-        <DirectoryListing directory="/school">
+      <TuiBox className="bg-white w-[50vw] h-[50vh]">
+        <DirectoryListing directory="/school/govt">
           <DirectoryListingItem type="directory">
             <Link href="/school">..</Link>
           </DirectoryListingItem>
