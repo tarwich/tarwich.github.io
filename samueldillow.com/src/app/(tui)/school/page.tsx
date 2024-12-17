@@ -21,6 +21,17 @@ export default function School() {
           <DirectoryListingItem type="directory" extra="History 2305">
             <Link href="school/hist">hist</Link>
           </DirectoryListingItem>
+
+          <DirectoryListingItem type="directory" extra="Humanities 2305">
+            <Link href="school/huma">huma</Link>
+          </DirectoryListingItem>
+
+          <DirectoryListingItem
+            type="directory"
+            extra="Music Appreciation 2305"
+          >
+            <Link href="school/musi">musi</Link>
+          </DirectoryListingItem>
         </DirectoryListing>
       </TuiBox>
     </main>
