@@ -348,24 +348,54 @@ export default function Resume() {
 
         <div className="break-before-all"></div>
 
-        <div
-          className={cn(
-            'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
-            'grid-flow-dense',
-            'gap-4 p-5',
-            'w-full',
-            'mx-auto'
-          )}
-        >
-          {WORK_HISTORY.map((work) => (
-            <AdditionalWorkHistory
-              key={work.company}
-              company={work.company}
-              title={work.title}
-              start={work.start}
-              activities={work.activities}
-            />
-          ))}
+        <div className={cn('w-full mx-auto p-5')}>
+          <div className={cn('flex flex-row flex-wrap gap-4')}>
+            {/* First Column */}
+            <div className={cn('flex flex-col gap-4 flex-1')}>
+              {WORK_HISTORY.slice(0, Math.ceil(WORK_HISTORY.length / 3)).map(
+                (work) => (
+                  <AdditionalWorkHistory
+                    key={work.company}
+                    company={work.company}
+                    title={work.title}
+                    start={work.start}
+                    activities={work.activities}
+                  />
+                )
+              )}
+            </div>
+
+            {/* Second Column */}
+            <div className={cn('flex flex-col gap-4 flex-1')}>
+              {WORK_HISTORY.slice(
+                Math.ceil(WORK_HISTORY.length / 3),
+                Math.ceil((WORK_HISTORY.length * 2) / 3)
+              ).map((work) => (
+                <AdditionalWorkHistory
+                  key={work.company}
+                  company={work.company}
+                  title={work.title}
+                  start={work.start}
+                  activities={work.activities}
+                />
+              ))}
+            </div>
+
+            {/* Third Column */}
+            <div className={cn('flex flex-col gap-4 flex-1')}>
+              {WORK_HISTORY.slice(Math.ceil((WORK_HISTORY.length * 2) / 3)).map(
+                (work) => (
+                  <AdditionalWorkHistory
+                    key={work.company}
+                    company={work.company}
+                    title={work.title}
+                    start={work.start}
+                    activities={work.activities}
+                  />
+                )
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </>
