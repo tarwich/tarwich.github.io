@@ -46,7 +46,7 @@ type IWorkHistory = {
 };
 
 const WORK_HISTORY: IWorkHistory[] = parseYaml(`
-- company: CBWE Communications → Grand Avenue Broadband
+- company: CBWE Communications
   title: Network Engineer
   start: 2023-12-31
   activities:
@@ -159,7 +159,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
     - Achieved $6,000 in training cost savings through innovative knowledge-sharing methodology
 
 - company: United States Air Force
-  title: Communications and Computer Systems Project Manager
+  title: C4ISR Project Manager
   start: 2002-12-31
   activities:
     - Trained 600+ personnel in Oracle-based telecommunications management software
@@ -182,7 +182,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
     - Optimized IT resources to support business operations with efficient server management and scalable technology solution
 
 - company: Nortel Networks
-  title: Technical Documentation and Systems Development Intern
+  title: Training and Documentation Intern
   start: 1999-05-25
   activities:
     - Engineered an automated document conversion utility that eliminated 200+ manual labor hours, dramatically improving departmental efficiency
@@ -472,9 +472,9 @@ const AdditionalWorkHistory = ({
       className={cn('flex flex-col gap-2', 'w-[500px]', props.className)}
       style={{ gridTemplateColumns: 'auto 1fr', ...props.style }}
     >
-      <div className="flex flex-row justify-between">
+      <div>
         <h2 className="text-lg font-bold uppercase">{company}</h2>
-        <h3 className="text-base font-bold">{title}</h3>
+        <h3 className="text-base text-right font-bold">{title}</h3>
       </div>
       <ul className="flex flex-col gap-3 empty:hidden">
         {activities?.map((activity) => (
