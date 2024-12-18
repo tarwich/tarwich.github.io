@@ -46,6 +46,55 @@ type IWorkHistory = {
 };
 
 const WORK_HISTORY: IWorkHistory[] = parseYaml(`
+- company: CBWE Communications → Grand Avenue Broadband
+  title: Network Engineer
+  start: 2023-12-31
+  activities:
+    - Deploy and maintain high-capacity point-to-point microwave communications systems utilizing UniFi and Ubiquiti equipment, achieving 6gbps throughput across metropolitan distances
+    - Hold current Tower Climber and Rescue certifications, performing elevated infrastructure maintenance and equipment installations
+    - Manage network backbone infrastructure with focus on security implementation and maintaining 99.99% uptime SLA
+    - Monitor and optimize network traffic patterns to ensure optimal routing and filtering of malicious traffic
+    - Developed full-stack network monitoring solution using React, NextJS, and PostgreSQL to enable proactive maintenance through real-time visualization of network nodes and performance metrics
+    - Implemented predictive analytics system for early detection of potential network degradation and service interruptions
+
+- company: Botisimo → OpTic Gaming
+  title: Software Engineer
+  start: 2021-12-31
+  activities:
+    - Architected and implemented a cross-platform chatbot solution integrating multiple streaming services (Twitch, Trovo, YouTube, Facebook, Discord), featuring customizable stream overlays and interactive viewer engagement tools
+    - Developed comprehensive viewer engagement features including real-time polls, automated giveaways, multi-platform chat synchronization, and rewards system management
+    - Engineered customer analytics platform utilizing Twilio Segment for data mapping and visualization, enabling targeted email marketing campaigns and user retention initiatives
+    - Created fundraising campaign management system supporting multi-platform donation tracking, real-time goal visualization, and automated donor recognition features
+    - Designed and implemented browser-based overlay system compatible with OBS, featuring customizable animations and interactive elements
+
+- company: LakePointe Church
+  title: Dallas Pastoral Care
+  start: 2021-01-31
+  activities:
+    - Led interfaith spiritual care team providing comprehensive support across multiple Dallas hospitals
+    - Delivered compassionate end-of-life counseling and crisis intervention services to patients and families
+    - Provided grief counseling and emotional support during critical medical situations
+    - Collaborated with medical staff to ensure holistic patient care approach
+    - Developed and implemented spiritual care protocols for diverse faith backgrounds
+
+- company: SammyD LLC
+  title: Owner and Principle Developer
+  start: 2020-12-30
+  activities:
+    - Successfully delivered platform to multiple high schools, meeting state educational standards while providing practical cybersecurity training
+    - Developed TEA-compliant curriculum delivery system featuring interactive content, video integration, and automated assessment capabilities
+    - Engineered secure, browser-accessible virtual lab environments in AWS, enabling students to safely analyze malware and virus behavior in isolated networks
+    - Created containerized cybersecurity training environments that allowed hands-on experience with threat analysis while maintaining strict security protocols
+    - Designed and implemented a comprehensive e-learning platform for cybersecurity education, contracted by Coherent Cyber
+
+- company: Focus Ministries → GoMethod
+  title: Software Engineer
+  start: 2018-12-31
+  activities:
+    - Developed and implemented a mission trip management system using Angular, C# and .NET, streamlining the coordination of travel requirements, documentation tracking, and deadline management for team leaders
+    - Created an automated document processing solution utilizing React, C# and .NET, incorporating multiple AI services (Google Cloud Vision, Microsoft Azure AI, Amazon Mechanical Turk) to digitize and categorize paper forms through OCR technology
+    - Designed and integrated systems that significantly reduced manual data entry and improved organizational efficiency in managing participant documentation and compliance requirements
+
 - company: VoidRay → Vega Studio
   title: Senior Technical Lead
   start: 2015-12-30
@@ -142,47 +191,6 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
     - Supported mission-critical operations through proactive maintenance of industrial printing infrastructure
     - Delivered targeted SGML training to technical team, enhancing department-wide documentation capabilities
     - Created web-based Trouble Management System to integrate with Remedy Software and decentralize help-desk operations
-
-- company: CBWE Communications → Grand Avenue Broadband
-  title: Network Engineer
-  start: 2023-12-31
-  activities:
-    - Deploy and maintain high-capacity point-to-point microwave communications systems utilizing UniFi and Ubiquiti equipment, achieving 6gbps throughput across metropolitan distances
-    - Hold current Tower Climber and Rescue certifications, performing elevated infrastructure maintenance and equipment installations
-    - Manage network backbone infrastructure with focus on security implementation and maintaining 99.99% uptime SLA
-    - Monitor and optimize network traffic patterns to ensure optimal routing and filtering of malicious traffic
-    - Developed full-stack network monitoring solution using React, NextJS, and PostgreSQL to enable proactive maintenance through real-time visualization of network nodes and performance metrics
-    - Implemented predictive analytics system for early detection of potential network degradation and service interruptions
-
-- company: Botisimo → OpTic Gaming
-  title: Software Engineer
-  start: 2021-12-31
-  activities:
-    - Architected and implemented a cross-platform chatbot solution integrating multiple streaming services (Twitch, Trovo, YouTube, Facebook, Discord), featuring customizable stream overlays and interactive viewer engagement tools
-    - Developed comprehensive viewer engagement features including real-time polls, automated giveaways, multi-platform chat synchronization, and rewards system management
-    - Engineered customer analytics platform utilizing Twilio Segment for data mapping and visualization, enabling targeted email marketing campaigns and user retention initiatives
-    - Created fundraising campaign management system supporting multi-platform donation tracking, real-time goal visualization, and automated donor recognition features
-    - Designed and implemented browser-based overlay system compatible with OBS, featuring customizable animations and interactive elements
-
-- company: SammyD LLC
-  title: Owner and Principle Developer
-  start: 2020-12-30
-  activities:
-    - Successfully delivered platform to multiple high schools, meeting state educational standards while providing practical cybersecurity training
-    - Developed TEA-compliant curriculum delivery system featuring interactive content, video integration, and automated assessment capabilities
-    - Engineered secure, browser-accessible virtual lab environments in AWS, enabling students to safely analyze malware and virus behavior in isolated networks
-    - Created containerized cybersecurity training environments that allowed hands-on experience with threat analysis while maintaining strict security protocols
-    - Designed and implemented a comprehensive e-learning platform for cybersecurity education, contracted by Coherent Cyber
-
-- company: Focus Ministries → GoMethod
-  title: Software Engineer
-  start: 2018-12-31
-  activities:
-    - Developed and implemented a mission trip management system using Angular, C# and .NET, streamlining the coordination of travel requirements, documentation tracking, and deadline management for team leaders
-    - Created an automated document processing solution utilizing React, C# and .NET, incorporating multiple AI services (Google Cloud Vision, Microsoft Azure AI, Amazon Mechanical Turk) to digitize and categorize paper forms through OCR technology
-    - Designed and integrated systems that significantly reduced manual data entry and improved organizational efficiency in managing participant documentation and compliance requirements
-
-
 
 `);
 
