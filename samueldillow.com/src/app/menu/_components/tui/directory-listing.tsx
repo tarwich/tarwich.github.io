@@ -43,7 +43,7 @@ export const DirectoryListingItem = ({
             type === 'file'
               ? 'text-green-600 dark:text-green-500'
               : 'text-blue-600 dark:text-blue-500',
-            type === 'file' ? 'underline underline-offset-2' : ''
+            'underline underline-offset-2'
           )}
         >
           {children}

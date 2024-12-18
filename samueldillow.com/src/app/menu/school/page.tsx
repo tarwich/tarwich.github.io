@@ -11,7 +11,7 @@ export default function School() {
       <TuiBox className="bg-white w-[50vw] h-[50vh]">
         <DirectoryListing directory="/school">
           <DirectoryListingItem type="directory">
-            <Link href="/">..</Link>
+            <Link href="./">..</Link>
           </DirectoryListingItem>
 
           <DirectoryListingItem type="directory" extra="Government 2305">
