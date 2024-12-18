@@ -1,6 +1,12 @@
 import { geistSans } from '@/components/fonts';
 import PrinterPaper from '@/components/printer-paper';
 import { Icon } from '@/components/simple-icon';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 import { Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
@@ -43,6 +49,7 @@ export default function Resume() {
       >
         <Background />
       </div>
+      <RabbitHoleLink />
       <div
         className={cn(
           'w-full h-full flex flex-col items-center',
@@ -235,6 +242,52 @@ const WorkHistory = ({
       </div>
       <ul className="flex flex-col gap-3">{props.children}</ul>
     </div>
+  );
+};
+
+const RabbitHoleLink = () => {
+  return (
+    <TooltipProvider>
+      <Tooltip delayDuration={0}>
+        <TooltipTrigger asChild>
+          <div
+            className={cn(
+              'fixed bottom-0 right-0',
+              'bg-conic/[in_hsl_longer_hue] from-red-600 to-red-600 opacity-50',
+              'group hover:opacity-100',
+              'flex flex-col items-center justify-center',
+              'w-32 h-32 rounded-full'
+            )}
+          >
+            <Link href="/menu" className="print:hidden relative w-full h-full">
+              <svg
+                viewBox="0 0 100 100"
+                className={cn(
+                  'w-full h-full absolute inset-0',
+                  'opacity-70 stroke-neutral-900 fill-neutral-700',
+                  'group-hover:opacity-40'
+                )}
+                strokeWidth="12"
+              >
+                <path
+                  d="M50 90
+                   A 40 40 0 0 1 50 10
+                   A 30 30 0 0 1 50 70
+                   A 20 20 0 0 1 50 30
+                   A 10 10 0 0 1 50 50"
+                />
+              </svg>
+              <div className="absolute inset-4 flex flex-col items-center justify-center text-center">
+                <span className="text-white">Into the rabbit hole</span>
+              </div>
+            </Link>
+          </div>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Visit my homepage</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 };
 
