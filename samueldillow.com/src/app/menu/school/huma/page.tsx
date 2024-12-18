@@ -14,10 +14,8 @@ export default function Huma() {
             <Link href="./">..</Link>
           </DirectoryListingItem>
 
-          <DirectoryListingItem type="file">
-            <Link href="/school/huma/ch3" extra="Chapter 3 notes">
-              ch3
-            </Link>
+          <DirectoryListingItem type="file" extra="Chapter 3 notes">
+            <Link href="/school/huma/ch3">ch3</Link>
           </DirectoryListingItem>
 
           <DirectoryListingItem type="file" extra="Chapter 3 notes (India)">
