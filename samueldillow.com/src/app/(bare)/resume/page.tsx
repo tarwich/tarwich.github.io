@@ -14,10 +14,10 @@ import { ComponentProps } from 'react';
 import { siGithub } from 'simple-icons';
 import { parse as parseYaml } from 'yaml';
 import Background from './_components/background';
-import { Header } from './_components/header';
 import { Obfuscate } from './_components/obfuscate';
 import { encrypt } from './_components/obfuscate.crypto';
 
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 const SKILLS = [
   'C++',
   'Java',
@@ -214,17 +214,54 @@ export default function Resume() {
           'text-neutral-700'
         )}
       >
-        <PrinterPaper className="w-[8in] p-0">
-          <Header />
+        <PrinterPaper
+          className={cn(
+            'w-full lg:w-[8in] p-0',
+            'print:p-0',
+            'sm:border-0 sm:shadow-none md:border-0 md:shadow-none',
+            'print:border-0 print:shadow-none'
+          )}
+        >
+          {/* Header */}
+          <div
+            className={cn(
+              'flex flex-col gap-1 px-5 py-8 md:p-10',
+              'w-full bg-amber-950/20 relative'
+            )}
+          >
+            <Avatar className="absolute right-2 md:right-10 bottom-2 md:-bottom-5 w-24 h-24 md:w-36 md:h-36">
+              <AvatarImage src="/resume/avatar.jpg" className="object-cover" />
+              <AvatarFallback>SD</AvatarFallback>
+            </Avatar>
 
-          <div className="flex flex-row">
+            <div className="flex flex-col gap-2">
+              <h1 className="text-4xl font-bold tracking-tight">
+                Samuel Dillow
+              </h1>
+              <h2 className="text-2xl font-medium text-slate-700">
+                Technology Pioneer
+              </h2>
+            </div>
+          </div>
+
+          {/* Contact Information : small screen */}
+          <BasicBio
+            className={cn(
+              'flex flex-row gap-2 md:hidden justify-center',
+              'bg-gray-200 text-sm',
+              'shadow-md',
+              'p-2'
+            )}
+          />
+
+          <div className="flex flex-col md:flex-row">
             {/* Left Column */}
             <div className={cn('flex-1', 'flex flex-col', 'print:border-none')}>
               {/* Contact Information */}
               <div
                 className={cn(
                   'p-4 border-amber-950/30 border-r border-y rounded-r-lg',
-                  'flex flex-col gap-3'
+                  'hidden md:flex flex-col gap-3'
                 )}
               >
                 <h2 className="text-md font-bold uppercase">
@@ -236,7 +273,8 @@ export default function Resume() {
               {/* Professional Summary */}
               <div
                 className={cn(
-                  'p-4 border-amber-950/30 border-b border-r rounded-r-lg',
+                  'p-4',
+                  'border-0 md:border-amber-950/30 md:border-b md:border-r rounded-r-lg',
                   'flex flex-col gap-1'
                 )}
               >
@@ -254,12 +292,12 @@ export default function Resume() {
                 <div
                   className={cn(
                     'flex flex-col gap-3',
-                    'p-4 border-amber-950/30 border-b border-r rounded-r-lg'
+                    'p-4 border-0 md:border-amber-950/30 md:border-b md:border-r rounded-r-lg'
                   )}
                 >
                   <h2 className="text-md font-bold uppercase">Skills</h2>
 
-                  <ul className="flex flex-row gap-2 flex-wrap">
+                  <ul className="flex flex-row gap-2 flex-wrap justify-center md:justify-start">
                     {SKILLS.map((skill) => (
                       <li key={skill} className="border px-2 rounded-full">
                         {skill}
@@ -274,7 +312,7 @@ export default function Resume() {
                 <div
                   className={cn(
                     'flex flex-col gap-2',
-                    'p-4 border-amber-950/30 border-b border-r rounded-r-lg'
+                    'p-4 border-0 md:border-amber-950/30 md:border-b md:border-r rounded-r-lg'
                   )}
                 >
                   <h2 className="text-md font-bold uppercase">Languages</h2>
@@ -354,75 +392,27 @@ export default function Resume() {
           </div>
         </PrinterPaper>
 
-        <div className="break-before-all"></div>
+        {/* Make sure the additional work history is on a new page */}
+        <div className="break-before-all hidden print:block"></div>
 
-        <div className={cn('w-full mx-auto p-5')}>
+        {/* Additional Work History */}
+        <div className={cn('w-full mx-auto md:p-5')}>
           <div
             className={cn(
-              'flex flex-row flex-wrap gap-4',
-              'print:flex-col print:flex-nowrap'
+              'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3',
+              'grid-flow-row-dense gap-4',
+              'print:grid-cols-1'
             )}
           >
-            {/* First Column */}
-            <div
-              className={cn(
-                'flex flex-col gap-4 flex-1',
-                'print:w-full print:flex-none'
-              )}
-            >
-              {WORK_HISTORY.slice(0, Math.ceil(WORK_HISTORY.length / 3)).map(
-                (work) => (
-                  <AdditionalWorkHistory
-                    key={work.company}
-                    company={work.company}
-                    title={work.title}
-                    start={work.start}
-                    activities={work.activities}
-                  />
-                )
-              )}
-            </div>
-
-            {/* Second Column */}
-            <div
-              className={cn(
-                'flex flex-col gap-4 flex-1',
-                'print:w-full print:flex-none'
-              )}
-            >
-              {WORK_HISTORY.slice(
-                Math.ceil(WORK_HISTORY.length / 3),
-                Math.ceil((WORK_HISTORY.length * 2) / 3)
-              ).map((work) => (
-                <AdditionalWorkHistory
-                  key={work.company}
-                  company={work.company}
-                  title={work.title}
-                  start={work.start}
-                  activities={work.activities}
-                />
-              ))}
-            </div>
-
-            {/* Third Column */}
-            <div
-              className={cn(
-                'flex flex-col gap-4 flex-1',
-                'print:w-full print:flex-none'
-              )}
-            >
-              {WORK_HISTORY.slice(Math.ceil((WORK_HISTORY.length * 2) / 3)).map(
-                (work) => (
-                  <AdditionalWorkHistory
-                    key={work.company}
-                    company={work.company}
-                    title={work.title}
-                    start={work.start}
-                    activities={work.activities}
-                  />
-                )
-              )}
-            </div>
+            {WORK_HISTORY.map((work) => (
+              <AdditionalWorkHistory
+                key={work.company}
+                company={work.company}
+                title={work.title}
+                start={work.start}
+                activities={work.activities}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -443,8 +433,8 @@ const BasicBio = (props: ComponentProps<'div'>) => {
       <Mail className="w-4 h-4" />
       <Obfuscate text={encrypt('work@samueldillow.com')} />
 
-      <Icon icon={siGithub} className="w-4 h-4" />
-      <span>
+      <Icon icon={siGithub} className="w-4 h-4 hidden md:block" />
+      <span className="hidden md:block">
         <Link href="https://github.com/tarwich">tarwich</Link>
       </span>
     </div>
@@ -489,8 +479,7 @@ const AdditionalWorkHistory = ({
   return (
     <PrinterPaper
       {...props}
-      className={cn('flex flex-col gap-2', 'w-[500px]', props.className)}
-      style={{ gridTemplateColumns: 'auto 1fr', ...props.style }}
+      className={cn('flex flex-col gap-2', 'w-auto h-min', props.className)}
     >
       <div>
         <h2 className="text-lg font-bold uppercase">{company}</h2>
@@ -504,8 +493,6 @@ const AdditionalWorkHistory = ({
     </PrinterPaper>
   );
 };
-
-
 
 const RabbitHoleLink = () => {
   return (

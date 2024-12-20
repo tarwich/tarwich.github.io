@@ -32,7 +32,11 @@ export default function Background() {
   }
 
   return (
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+    <svg
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid meet"
+      className="fixed top-0 left-0 bottom-0 right-0"
+    >
       <rect
         width="100"
         height="100"
