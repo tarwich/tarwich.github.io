@@ -357,9 +357,19 @@ export default function Resume() {
         <div className="break-before-all"></div>
 
         <div className={cn('w-full mx-auto p-5')}>
-          <div className={cn('flex flex-row flex-wrap gap-4')}>
+          <div
+            className={cn(
+              'flex flex-row flex-wrap gap-4',
+              'print:flex-col print:flex-nowrap'
+            )}
+          >
             {/* First Column */}
-            <div className={cn('flex flex-col gap-4 flex-1')}>
+            <div
+              className={cn(
+                'flex flex-col gap-4 flex-1',
+                'print:w-full print:flex-none'
+              )}
+            >
               {WORK_HISTORY.slice(0, Math.ceil(WORK_HISTORY.length / 3)).map(
                 (work) => (
                   <AdditionalWorkHistory
@@ -374,7 +384,12 @@ export default function Resume() {
             </div>
 
             {/* Second Column */}
-            <div className={cn('flex flex-col gap-4 flex-1')}>
+            <div
+              className={cn(
+                'flex flex-col gap-4 flex-1',
+                'print:w-full print:flex-none'
+              )}
+            >
               {WORK_HISTORY.slice(
                 Math.ceil(WORK_HISTORY.length / 3),
                 Math.ceil((WORK_HISTORY.length * 2) / 3)
@@ -390,7 +405,12 @@ export default function Resume() {
             </div>
 
             {/* Third Column */}
-            <div className={cn('flex flex-col gap-4 flex-1')}>
+            <div
+              className={cn(
+                'flex flex-col gap-4 flex-1',
+                'print:w-full print:flex-none'
+              )}
+            >
               {WORK_HISTORY.slice(Math.ceil((WORK_HISTORY.length * 2) / 3)).map(
                 (work) => (
                   <AdditionalWorkHistory
