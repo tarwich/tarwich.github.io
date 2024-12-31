@@ -1,6 +1,7 @@
 import { geistSans } from '@/components/fonts';
 import PrinterPaper from '@/components/printer-paper';
 import { Icon } from '@/components/simple-icon';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   Tooltip,
   TooltipContent,
@@ -17,7 +18,6 @@ import Background from './_components/background';
 import { Obfuscate } from './_components/obfuscate';
 import { encrypt } from './_components/obfuscate.crypto';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 const SKILLS = [
   'C++',
   'Java',
@@ -207,6 +207,14 @@ export default function Resume() {
         <Background />
       </div>
       <RabbitHoleLink />
+      <div className="flex flex-row gap-2 fixed top-0 left-0 z-10">
+        <div className="bg-gray-500 sm:bg-red-500">sm</div>
+        <div className="bg-gray-500 md:bg-red-500">md</div>
+        <div className="bg-gray-500 lg:bg-red-500">lg</div>
+        <div className="bg-gray-500 xl:bg-red-500">xl</div>
+        <div className="bg-gray-500 2xl:bg-red-500">2xl</div>
+        <div className="bg-gray-500 print:bg-red-500">print</div>
+      </div>
       <div
         className={cn(
           'w-full h-full flex flex-col items-center',
@@ -225,11 +233,17 @@ export default function Resume() {
           {/* Header */}
           <div
             className={cn(
-              'flex flex-col gap-1 px-5 py-8 md:p-10',
+              'flex flex-col gap-1 px-5 py-8 md:p-10 print:p-10',
               'w-full bg-amber-950/20 relative'
             )}
           >
-            <Avatar className="absolute right-2 md:right-10 bottom-2 md:-bottom-5 w-24 h-24 md:w-36 md:h-36">
+            <Avatar
+              className={cn(
+                'absolute right-2 bottom-2 w-24 h-24',
+                'md:right-10 md:-bottom-5 md:w-36 md:h-36',
+                'print:right-10 print:-bottom-5 print:w-36 print:h-36'
+              )}
+            >
               <AvatarImage src="/resume/avatar.jpg" className="object-cover" />
               <AvatarFallback>SD</AvatarFallback>
             </Avatar>
@@ -247,21 +261,28 @@ export default function Resume() {
           {/* Contact Information : small screen */}
           <BasicBio
             className={cn(
-              'flex flex-row gap-2 md:hidden justify-center',
+              'flex flex-row gap-2 md:hidden print:hidden justify-center',
               'bg-gray-200 text-sm',
               'shadow-md',
               'p-2'
             )}
           />
 
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row print:flex-row">
             {/* Left Column */}
-            <div className={cn('flex-1', 'flex flex-col', 'print:border-none')}>
+            <div
+              className={cn(
+                'flex-1',
+                'flex flex-row flex-wrap',
+                'md:flex-col',
+                'print:border-none print:flex-col'
+              )}
+            >
               {/* Contact Information */}
               <div
                 className={cn(
                   'p-4 border-amber-950/30 border-r border-y rounded-r-lg',
-                  'hidden md:flex flex-col gap-3'
+                  'hidden md:flex print:flex flex-col gap-3'
                 )}
               >
                 <h2 className="text-md font-bold uppercase">
@@ -274,11 +295,17 @@ export default function Resume() {
               <div
                 className={cn(
                   'p-4',
-                  'border-0 md:border-amber-950/30 md:border-b md:border-r rounded-r-lg',
-                  'flex flex-col gap-1'
+                  'border-0',
+                  'md:border-b md:border-r md:border-amber-950/30 md:rounded-r-lg',
+                  'print:border-b print:border-r print:border-amber-950/30 print:rounded-r-lg',
+                  'flex-grow',
+                  'flex flex-col gap-1',
+                  'print:flex-col print:gap-1'
                 )}
               >
-                <h2 className="text-md font-bold uppercase">About Me</h2>
+                <h2 className="text-md font-bold uppercase hidden md:block print:block">
+                  About Me
+                </h2>
                 <p className="leading-relaxed">
                   Driven by tackling unprecedented challenges and galvanizing
                   teams to achieve the <span className="line-through">im</span>
@@ -288,16 +315,25 @@ export default function Resume() {
               </div>
 
               {/* Skills */}
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-5 md:flex-[2] print:flex-[2]">
                 <div
                   className={cn(
                     'flex flex-col gap-3',
-                    'p-4 border-0 md:border-amber-950/30 md:border-b md:border-r rounded-r-lg'
+                    'border-amber-950/30 rounded-r-lg',
+                    'md:p-4 border-0 md:border-b md:border-r',
+                    'print:p-4 print:border-b print:border-r'
                   )}
                 >
-                  <h2 className="text-md font-bold uppercase">Skills</h2>
+                  <h2 className="text-md font-bold uppercase hidden md:block print:block">
+                    Skills
+                  </h2>
 
-                  <ul className="flex flex-row gap-2 flex-wrap justify-center md:justify-start">
+                  <ul
+                    className={cn(
+                      'flex flex-row gap-2 flex-wrap justify-center md:justify-start print:justify-start',
+                      'print:text-sm'
+                    )}
+                  >
                     {SKILLS.map((skill) => (
                       <li key={skill} className="border px-2 rounded-full">
                         {skill}
@@ -308,34 +344,43 @@ export default function Resume() {
               </div>
 
               {/* Languages */}
-              <div className="flex flex-col gap-1">
-                <div
+              <div
+                className={cn(
+                  'flex flex-col gap-2 w-full',
+                  'p-4 border-0',
+                  'md:border-b md:border-r md:border-amber-950/30 md:rounded-r-lg',
+                  'print:border-b print:border-r print:border-amber-950/30 print:rounded-r-lg'
+                )}
+              >
+                <h2 className="text-md font-bold uppercase hidden md:block print:block">
+                  Languages
+                </h2>
+                <ul
                   className={cn(
-                    'flex flex-col gap-2',
-                    'p-4 border-0 md:border-amber-950/30 md:border-b md:border-r rounded-r-lg'
+                    'flex flex-row gap-1 justify-between',
+                    'sm:mx-auto sm:gap-4',
+                    'md:flex-col md:gap-1 md:mx-0',
+                    'print:flex-col print:gap-1 print:mx-0'
                   )}
                 >
-                  <h2 className="text-md font-bold uppercase">Languages</h2>
-                  <ul className="flex flex-col gap-1">
-                    <li className="flex justify-between gap-2 items-center">
-                      <span className="flex-grow">English</span>
-                      <span className="flex-1 text-neutral-500"> </span>
-                      <span className="flex-1 flex flex-row gap-1">●●●●●</span>
-                    </li>
-                    <li className="flex justify-between gap-2 items-center">
-                      <span className="flex-grow">Spanish</span>
-                      <span className="flex-1 text-neutral-500 text-sm">
-                        Fluent
-                      </span>
-                      <span className="flex-1 flex flex-row gap-1">●●●●○</span>
-                    </li>
-                  </ul>
-                </div>
+                  <li className="flex justify-between gap-2 items-center">
+                    <span className="flex-grow">English</span>
+                    <span className="flex-1 text-neutral-500"> </span>
+                    <span className="flex-1 flex flex-row gap-1">●●●●●</span>
+                  </li>
+                  <li className="flex justify-between gap-2 items-center">
+                    <span className="flex-grow">Spanish</span>
+                    <span className="flex-1 text-neutral-500 text-sm hidden sm:block print:block">
+                      Fluent
+                    </span>
+                    <span className="flex-1 flex flex-row gap-1">●●●●○</span>
+                  </li>
+                </ul>
               </div>
             </div>
 
             {/* Right Column */}
-            <div className={cn('flex-2', 'flex flex-col gap-5 pt-5')}>
+            <div className={cn('flex-2', 'flex flex-col gap-5 md:pt-5')}>
               <div className={cn('flex flex-col gap-5', 'p-4')}>
                 <WorkHistory company="VoidRay Co" title="Engineering Team Lead">
                   <li>
@@ -393,7 +438,7 @@ export default function Resume() {
         </PrinterPaper>
 
         {/* Make sure the additional work history is on a new page */}
-        <div className="break-before-all hidden print:block"></div>
+        <div className="break-before-page"></div>
 
         {/* Additional Work History */}
         <div className={cn('w-full mx-auto md:p-5')}>
@@ -433,8 +478,8 @@ const BasicBio = (props: ComponentProps<'div'>) => {
       <Mail className="w-4 h-4" />
       <Obfuscate text={encrypt('work@samueldillow.com')} />
 
-      <Icon icon={siGithub} className="w-4 h-4 hidden md:block" />
-      <span className="hidden md:block">
+      <Icon icon={siGithub} className="w-4 h-4 hidden sm:block" />
+      <span className="hidden sm:block">
         <Link href="https://github.com/tarwich">tarwich</Link>
       </span>
     </div>
