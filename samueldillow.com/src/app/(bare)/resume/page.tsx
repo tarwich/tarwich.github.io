@@ -9,6 +9,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
+import { formatDate } from 'date-fns';
 import { Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { ComponentProps } from 'react';
@@ -42,6 +43,7 @@ type IWorkHistory = {
   company: string;
   title: string;
   start: string;
+  end?: string;
   activities: string[];
 };
 
@@ -60,6 +62,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 - company: Botisimo → OpTic Gaming
   title: Software Engineer
   start: 2021-12-31
+  end: 2023-12-31
   activities:
     - Architected and implemented a cross-platform chatbot solution integrating multiple streaming services (Twitch, Trovo, YouTube, Facebook, Discord), featuring customizable stream overlays and interactive viewer engagement tools
     - Developed comprehensive viewer engagement features including real-time polls, automated giveaways, multi-platform chat synchronization, and rewards system management
@@ -70,6 +73,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 - company: LakePointe Church
   title: Dallas Pastoral Care
   start: 2021-01-31
+  end: 2023-12-31
   activities:
     - Led interfaith spiritual care team providing comprehensive support across multiple Dallas hospitals
     - Delivered compassionate end-of-life counseling and crisis intervention services to patients and families
@@ -90,6 +94,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 - company: Focus Ministries → GoMethod
   title: Software Engineer
   start: 2018-12-31
+  end: 2019-01-01
   activities:
     - Developed and implemented a mission trip management system using Angular, C# and .NET, streamlining the coordination of travel requirements, documentation tracking, and deadline management for team leaders
     - Created an automated document processing solution utilizing React, C# and .NET, incorporating multiple AI services (Google Cloud Vision, Microsoft Azure AI, Amazon Mechanical Turk) to digitize and categorize paper forms through OCR technology
@@ -98,6 +103,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 - company: VoidRay → Vega Studio
   title: Senior Technical Lead
   start: 2015-12-30
+  end: 2018-12-31
   activities:
     - Architected and implemented pharmacy automation system that reduced operational costs by $200K+ annually while significantly improving patient satisfaction metrics and prescription accuracy
     - Designed and deployed automated continuous integration/continuous deployment (CI/CD) pipeline, streamlining release management and reducing deployment risks while maintaining quality controls
@@ -113,6 +119,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 - company: KloudNation
   title: Software Developer
   start: 2014-12-31
+  end: 2015-12-31
   activities:
     - Architected and implemented an auto-scaling web scraping system to aggregate and compare auto parts pricing across major retailers (NAPA, AutoZone, O'Reilly, Firestone)
     - Designed and developed a web-based analytics platform that consolidated vendor datasets and generated comparative pricing reports
@@ -120,7 +127,8 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 
 - company: VoidRay Co
   title: Senior Software Architect
-  start: 2011-12-31
+  start: 2012-12-31
+  end: 2014-12-31
   activities:
     - Developed HIPAA-compliant SaaS application enabling physicians to access comprehensive office database remotely, empowering data-driven decision-making through detailed profitability and geographical analysis
     - Created advanced web analytics SaaS platform simplifying complex marketing performance tracking, allowing users to effectively evaluate campaign effectiveness and optimize advertising investments
@@ -131,6 +139,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 - company: Symfono Corporation
   title: Software Development Team Lead
   start: 2009-12-31
+  end: 2012-12-31
   activities:
     - Led a cross-functional team of four engineers and designers in developing an innovative augmented reality application enabling social media friend visualization in real-world environments with configurable object and advertisement placement
     - Guided team in engineering a sophisticated server synchronization system capable of mirroring data from diverse server architectures
@@ -141,6 +150,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 - company: Odyssey Communications Group
   title: Software Developer
   start: 2009-07-31
+  end: 2011-12-31
   activities:
     - Architected comprehensive digital scoreboard server and client system enabling real-time game information tracking across network using PureMVC and ActionScript 3
     - Diagnosed and resolved critical server stability issue, preventing potential data loss and eliminating 8 hours of weekly productivity bottlenecks
@@ -151,6 +161,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 - company: Pursuant Group
   title: Software Developer
   start: 2008-07-30
+  end: 2009-07-30
   activities:
     - Collaborated with 15-member development team to design and implement flagship rich internet application for social networking platform
     - Facilitated cross-functional team integration by emphasizing effective communication and collaborative work strategies
@@ -161,6 +172,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 - company: United States Air Force
   title: C4ISR Project Manager
   start: 2002-12-31
+  end: 2008-07-30
   activities:
     - Trained 600+ personnel in Oracle-based telecommunications management software
     - Established new airfield security system, successfully overcoming three previous unsuccessful implementation attempts
@@ -175,6 +187,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 - company: Cantex Management
   title: Information Technology Specialist
   start: 2000-12-31
+  end: 2008-07-30
   activities:
     - Administered Microsoft Windows Server 2003 network infrastructure supporting multiple retail locations across 7 states
     - Designed and implemented a comprehensive net-centric video surveillance system to enhance multi-state retail store security and monitoring
@@ -184,6 +197,7 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
 - company: Nortel Networks
   title: Training and Documentation Intern
   start: 1999-05-25
+  end: 2000-12-31
   activities:
     - Engineered an automated document conversion utility that eliminated 200+ manual labor hours, dramatically improving departmental efficiency
     - Designed and implemented enterprise-level internal systems, including a comprehensive issue tracking platform and centralized training room reservation application
@@ -193,6 +207,8 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
     - Created web-based Trouble Management System to integrate with Remedy Software and decentralize help-desk operations
 
 `);
+
+const DEBUG_BREAKPOINTS = false;
 
 export default function Resume() {
   return (
@@ -207,7 +223,12 @@ export default function Resume() {
         <Background />
       </div>
       <RabbitHoleLink />
-      <div className="flex flex-row gap-2 fixed top-0 left-0 z-10">
+      <div
+        className={cn(
+          'flex flex-row gap-2 fixed top-0 left-0 z-10',
+          DEBUG_BREAKPOINTS ? 'flex' : 'hidden'
+        )}
+      >
         <div className="bg-gray-500 sm:bg-red-500">sm</div>
         <div className="bg-gray-500 md:bg-red-500">md</div>
         <div className="bg-gray-500 lg:bg-red-500">lg</div>
@@ -455,6 +476,7 @@ export default function Resume() {
                 company={work.company}
                 title={work.title}
                 start={work.start}
+                end={work.end}
                 activities={work.activities}
               />
             ))}
@@ -512,6 +534,8 @@ const WorkHistory = ({
 const AdditionalWorkHistory = ({
   company,
   title,
+  start,
+  end,
   activities,
   ...props
 }: {
@@ -521,13 +545,21 @@ const AdditionalWorkHistory = ({
   end?: string;
   activities: string[];
 } & ComponentProps<'div'>) => {
+  const startYear = formatDate(start, 'yyyy');
+  const endYear = end ? formatDate(end, 'yyyy') : 'Present';
+
   return (
     <PrinterPaper
       {...props}
       className={cn('flex flex-col gap-2', 'w-auto h-min', props.className)}
     >
       <div>
-        <h2 className="text-lg font-bold uppercase">{company}</h2>
+        <div className="flex justify-between items-center">
+          <h2 className="text-lg font-bold uppercase">{company}</h2>
+          <span className="text-sm text-neutral-500">
+            {startYear} - {endYear}
+          </span>
+        </div>
         <h3 className="text-base text-right font-bold">{title}</h3>
       </div>
       <ul className="flex flex-col gap-3 empty:hidden">
