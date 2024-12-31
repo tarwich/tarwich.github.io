@@ -21,6 +21,8 @@ import { encrypt } from './_components/obfuscate.crypto';
 
 const SKILLS = [
   'C++',
+  'C#',
+  'DotNet',
   'Java',
   'Python',
   'JavaScript',
@@ -29,7 +31,6 @@ const SKILLS = [
   'Next.js',
   'Node.js',
   'Docker',
-  'Git',
   'CI/CD',
   'AWS',
   'Azure',
@@ -96,21 +97,22 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
   start: 2018-12-31
   end: 2019-01-01
   activities:
-    - Developed and implemented a mission trip management system using Angular, C# and .NET, streamlining the coordination of travel requirements, documentation tracking, and deadline management for team leaders
-    - Created an automated document processing solution utilizing React, C# and .NET, incorporating multiple AI services (Google Cloud Vision, Microsoft Azure AI, Amazon Mechanical Turk) to digitize and categorize paper forms through OCR technology
-    - Designed and integrated systems that significantly reduced manual data entry and improved organizational efficiency in managing participant documentation and compliance requirements
+    - ^Developed and implemented a mission trip management system using Angular, C# and .NET, streamlining the coordination of travel requirements, documentation tracking, and deadline management for team leaders
+    - ^Created an automated document processing solution utilizing React, C# and .NET, incorporating multiple AI services (Google Cloud Vision, Microsoft Azure AI, Amazon Mechanical Turk) to digitize and categorize paper forms through OCR technology
+    - ^Designed and integrated systems that significantly reduced manual data entry and improved organizational efficiency in managing participant documentation and compliance requirements
 
-- company: VoidRay → Vega Studio
+- company: ^VoidRay → Vega Studio
   title: Senior Technical Lead
   start: 2015-12-30
   end: 2018-12-31
   activities:
-    - Architected and implemented pharmacy automation system that reduced operational costs by $200K+ annually while significantly improving patient satisfaction metrics and prescription accuracy
+    - Led development of a pharmacy management system that automated prescription processing, insurance verification, billing, and inventory management.
+    - Established and maintained a robust CI/CD pipeline with automated testing, reducing deployment and enabling reliable weekly releases.
     - Designed and deployed automated continuous integration/continuous deployment (CI/CD) pipeline, streamlining release management and reducing deployment risks while maintaining quality controls
     - Developed forensic analysis tool utilizing WebGL to visualize and analyze organizational communication patterns, supporting fraud investigation and risk management initiatives
-    - Created enterprise vulnerability assessment dashboard for the DoD to monitor and track software security risks across organization
+    - ^Created enterprise vulnerability assessment dashboard for the DoD to monitor and track software security risks across organization
     - Led development of network traffic visualization tool for AWS environments, enabling rapid identification of potential security threats and data leakage
-    - Spearheaded development of geographic threat intelligence platform to analyze and visualize security risks based on internet traffic patterns
+    - ^Spearheaded NLP-based geographic threat intelligence platform for the Department of Defense to analyze and visualize threats based on internet traffic patterns
     - Engineered VPN security group management solution using Sankey diagrams, streamlining access control administration
     - Partnered with Infosight to develop advanced memory-based threat detection software
     - Designed and implemented omnichannel retail platform integrating online and brick-and-mortar inventory management
@@ -136,16 +138,18 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
     - Designed automated financial analysis tool for 401k management, integrating complex web scraping techniques to optimize portfolio management across multiple banking platforms
     - Collaborated with BrainSpace to develop advanced computer forensics visualization platform, providing comprehensive network data exploration and suspicious activity detection capabilities
 
-- company: Symfono Corporation
-  title: Software Development Team Lead
+- company: ^Symfono Corporation
+  title: Software Development Lead
   start: 2009-12-31
   end: 2012-12-31
   activities:
-    - Led a cross-functional team of four engineers and designers in developing an innovative augmented reality application enabling social media friend visualization in real-world environments with configurable object and advertisement placement
+    - ^Led a cross-functional team of four engineers and designers in developing an innovative augmented reality application enabling social media friend visualization in real-world environments with configurable object and advertisement placement
     - Guided team in engineering a sophisticated server synchronization system capable of mirroring data from diverse server architectures
     - Directed development of an iOS GUI prototype that accelerated iPhone application interface development
     - Spearheaded the implementation of an advanced streaming data compression algorithm to optimize binary data transmission in statically typed environments, enabling real-time data display in dynamic C++ applications
     - Architected comprehensive application server with advanced features including role-based access controls, device-specific protocol versioning, and secure scenegraph data streaming to iOS devices
+    - ^Implemented PTAM (Parallel Tracking and Mapping) to achieve AR functionality on single-threaded mobile devices, pioneering AR capabilities before widespread hardware support.
+    - Developed GameView, a real-time soccer analytics platform that tracked plays, and player statistics while providing interactive playbook-style visualization tools for coaches.
 
 - company: Odyssey Communications Group
   title: Software Developer
@@ -169,18 +173,18 @@ const WORK_HISTORY: IWorkHistory[] = parseYaml(`
     - Demonstrated strategic learning approach by translating personal professional development into team-wide skill enhancement
     - Achieved $6,000 in training cost savings through innovative knowledge-sharing methodology
 
-- company: United States Air Force
+- company: ^United States Air Force
   title: C4ISR Project Manager
   start: 2002-12-31
   end: 2008-07-30
   activities:
     - Trained 600+ personnel in Oracle-based telecommunications management software
-    - Established new airfield security system, successfully overcoming three previous unsuccessful implementation attempts
-    - Instructed seven advanced computer programming classes in object-oriented languages C++ and Java
-    - Executed 7 mission-critical projects for aircraft monitoring systems integrated with base network infrastructure
+    - ^Established new airfield security system, successfully overcoming three previous unsuccessful implementation attempts
+    - Instructed computer programming classes in object-oriented languages C++ and Java
+    - ^Executed mission-critical projects for aircraft monitoring systems integrated with base network infrastructure
     - Managed comprehensive communications infrastructure records, documenting network topology and 3D geospatial network structure, including detailed internal facility wiring
     - Implemented IPv6-compatible network architecture enabling converged voice and data transmission in preparation for Voice Over IP technology
-    - Upgraded Telecommunications Management Server to support network infrastructure spanning 27,000+ phones and computer systems
+    - ^Upgraded Telecommunications Management Server to support network infrastructure spanning 27,000+ phones and computer systems
     - Certified as CPR Instructor with additional expertise in Field Triage, First Aid, Biological Defense, and Explosive Ordnance management
     - Delivered specialized training in combat preparation, weapons systems utilization and maintenance, and tactical operations
 
@@ -403,56 +407,21 @@ export default function Resume() {
             {/* Right Column */}
             <div className={cn('flex-2', 'flex flex-col gap-5 md:pt-5')}>
               <div className={cn('flex flex-col gap-5', 'p-4')}>
-                <WorkHistory company="VoidRay Co" title="Engineering Team Lead">
-                  <li>
-                    Led development of a pharmacy management system that
-                    automated prescription processing, insurance verification,
-                    billing, and inventory management.
-                  </li>
-                  <li>
-                    Established and maintained a robust CI/CD pipeline with
-                    automated testing, reducing deployment and enabling reliable
-                    weekly releases.
-                  </li>
-                  <li>
-                    Architected an NLP-based threat detection system for the
-                    Department of Defense, implementing advanced algorithms for
-                    intent analysis and threat classification.
-                  </li>
-                </WorkHistory>
-
-                <WorkHistory company="Symfono Corp" title="Lead Developer">
-                  <li>
-                    Implemented PTAM (Parallel Tracking and Mapping) to achieve
-                    AR functionality on single-threaded mobile devices,
-                    pioneering AR capabilities before widespread hardware
-                    support.
-                  </li>
-                  <li>
-                    Developed GameView, a real-time soccer analytics platform
-                    that tracked plays, and player statistics while providing
-                    interactive playbook-style visualization tools for coaches.
-                  </li>
-                </WorkHistory>
-
-                <WorkHistory
-                  company="United States Air Force"
-                  title="C4ISR Project Manager"
-                >
-                  <li>
-                    Oversaw the implementation of an IPv6 compatible network,
-                    running voice and data over same infrastructure in
-                    preparation for Voice Over IP technology.
-                  </li>
-                  <li>
-                    Led a project to establish a new airfield security system,
-                    rivaling three previously failed attempts by security team.
-                  </li>
-                  <li>
-                    Taught computer programming classes in the object oriented
-                    languages C++ and Java.
-                  </li>
-                </WorkHistory>
+                {WORK_HISTORY.filter((work) =>
+                  work.company.startsWith('^')
+                ).map((work) => (
+                  <WorkHistory
+                    key={work.company}
+                    company={work.company.slice(1)}
+                    title={work.title}
+                  >
+                    {work.activities
+                      .filter((activity) => activity.startsWith('^'))
+                      .map((activity) => (
+                        <li key={activity}>{activity.slice(1)}</li>
+                      ))}
+                  </WorkHistory>
+                ))}
               </div>
             </div>
           </div>
